@@ -502,9 +502,24 @@ p {
 }
 
 .project-card {
+  position: relative;
   overflow: hidden;
   border-radius: var(--radius-xl);
+  cursor: pointer;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.project-card-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.project-card-link:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -6px;
 }
 
 .project-card:hover,
@@ -517,6 +532,9 @@ p {
 }
 
 .project-card img {
+  position: relative;
+  z-index: 0;
+  pointer-events: none;
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
@@ -524,6 +542,8 @@ p {
 }
 
 .project-body {
+  position: relative;
+  pointer-events: none;
   padding: 1.2rem;
 }
 
@@ -543,6 +563,9 @@ p {
 }
 
 .link-row a {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
   min-height: 38px;
   padding: 0.55rem 0.75rem;
   color: var(--muted-strong);
