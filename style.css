@@ -868,6 +868,10 @@ p {
   color: var(--muted-strong);
 }
 
+.report-byline {
+  color: var(--text);
+}
+
 .report-document a {
   color: var(--accent-blue);
   text-decoration: underline;
