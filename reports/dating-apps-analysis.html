@@ -62,15 +62,40 @@
 <p>We use VADER (Valence Aware Dictionary and sEntiment Reasoner), which produces a compound sentiment score. This score is categorized into three labels: positive (score &gt; 0.05), negative (score &lt; -0.05), and neutral (scores in between).</p>
 <p>Positive words like &quot;love,&quot; &quot;great,&quot; and &quot;amazing&quot; contribute to a higher sentiment score, while negative words like &quot;terrible,&quot; &quot;disappointing,&quot; and &quot;scam&quot; lower the score. VADER is particularly effective for social media and short-text sentiment analysis because it considers punctuation, capitalization, and negations.</p>
 <p>The results are visualized through sentiment distribution bar charts and time-series plots, helping us understand how user opinions have evolved over time.</p>
-<div class="table-wrap"><table><tr><td>Hinge</td><td>Bumble</td><td>Tinder</td></tr>
-<tr><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td></tr></table></div>
+<div class="sentiment-chart-grid" aria-label="Sentiment distribution and average sentiment over time by app">
+  <section class="sentiment-chart-card">
+    <h4>Hinge</h4>
+    <figure><img src="../assets/reports/dating-apps-analysis/image12.png" alt="Hinge sentiment distribution bar chart"></figure>
+    <figure><img src="../assets/reports/dating-apps-analysis/image20.png" alt="Hinge average sentiment over time chart"></figure>
+  </section>
+  <section class="sentiment-chart-card">
+    <h4>Bumble</h4>
+    <figure><img src="../assets/reports/dating-apps-analysis/image18.png" alt="Bumble sentiment distribution bar chart"></figure>
+    <figure><img src="../assets/reports/dating-apps-analysis/image6.png" alt="Bumble average sentiment over time chart"></figure>
+  </section>
+  <section class="sentiment-chart-card">
+    <h4>Tinder</h4>
+    <figure><img src="../assets/reports/dating-apps-analysis/image14.png" alt="Tinder sentiment distribution bar chart"></figure>
+    <figure><img src="../assets/reports/dating-apps-analysis/image21.png" alt="Tinder average sentiment over time chart"></figure>
+  </section>
+</div>
 <p>From the resulting plots, all three apps appear to show a general decline in sentiment across the analyzed period. One noteworthy dip coincides with the COVID-19 pandemic, potentially reflecting people’s frustration as they turned to dating apps during lockdowns. Many new users, unfamiliar with online dating dynamics, may have had unrealistic expectations or struggled with virtual interactions, leading to dissatisfaction.</p>
 <p>Another possibility is that user sentiment may have declined due to evolving app features, monetization strategies, and algorithm changes that impact user experience. Frustrations over subscription costs, ghosting, or perceived inauthenticity in profiles could also contribute to negative reviews.</p>
-<figure><img src="../assets/reports/dating-apps-analysis/image19.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
-<figure><img src="../assets/reports/dating-apps-analysis/image22.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
 <p>To dive deeper into user experiences with dating apps, we wanted to see what people are actually saying in their reviews. The word clouds below highlight the most frequently mentioned words in reviews for Tinder, Bumble, and Hinge, giving us insight into common praises and frustrations with the apps. Words with positive sentiment appear in pink, while negative sentiment words are orange.</p>
-<figure><img src="../assets/reports/dating-apps-analysis/image16.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<div class="word-cloud-grid" aria-label="Word clouds from dating app reviews">
+  <figure>
+    <figcaption>Hinge</figcaption>
+    <img src="../assets/reports/dating-apps-analysis/image22.png" alt="Frequent words in Hinge reviews word cloud">
+  </figure>
+  <figure>
+    <figcaption>Bumble</figcaption>
+    <img src="../assets/reports/dating-apps-analysis/image16.png" alt="Frequent words in Bumble reviews word cloud">
+  </figure>
+  <figure>
+    <figcaption>Tinder</figcaption>
+    <img src="../assets/reports/dating-apps-analysis/image19.png" alt="Frequent words in Tinder reviews word cloud">
+  </figure>
+</div>
 <p>Across Tinder, Hinge, and Bumble, the most frequent words include &quot;fake,&quot; &quot;scam,&quot; &quot;waste,&quot; &quot;likes,&quot; &quot;free,&quot; &quot;issue,&quot; and &quot;worst.&quot; This shows that users across all platforms are frustrated with bots and fake profiles. Additionally, the appearance of &quot;free&quot; alongside words like &quot;waste&quot; and &quot;scam&quot; suggests annoyance with app monetization, where users feel pressured to pay for features they believe should be free, such as being able to see likes.</p>
 <p>For Tinder, technical issues seem to be a major frustration, with words like &quot;crashes,&quot; &quot;error,&quot; &quot;bugs,&quot; &quot;slow,&quot; and &quot;issues&quot; appearing more frequently than in reviews for the other two apps. However, despite these complaints, words like &quot;fun,&quot; &quot;cool,&quot; and &quot;awesome&quot; still show up, suggesting that many users enjoy Tinder’s experience even if it is glitchy.</p>
 <p>Hinge reviews uniquely feature &quot;support,&quot; &quot;decent,&quot; and &quot;recommend,&quot; suggesting that while users experience technical issues, they also recognize the app’s customer support. Additionally, words like &quot;friendly&quot; and &quot;attractive&quot; appear more frequently, revealing that users may see Hinge as a place for higher-quality matches and better interactions compared to the other apps.</p>

@@ -872,6 +872,52 @@ p {
   color: var(--text);
 }
 
+.sentiment-chart-grid,
+.word-cloud-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.sentiment-chart-card,
+.word-cloud-grid figure {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.sentiment-chart-card h4,
+.word-cloud-grid figcaption {
+  margin: 0;
+  padding: 0.8rem 1rem;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.sentiment-chart-card figure,
+.word-cloud-grid figure {
+  margin: 0;
+}
+
+.sentiment-chart-card figure + figure {
+  border-top: 1px solid var(--border);
+}
+
+.sentiment-chart-card img,
+.word-cloud-grid img {
+  width: 100%;
+  max-height: none;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+}
+
 .report-document a {
   color: var(--accent-blue);
   text-decoration: underline;
@@ -890,6 +936,14 @@ p {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.96);
+}
+
+.report-document .sentiment-chart-card img,
+.report-document .word-cloud-grid img {
+  max-height: none;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
 }
 
 .table-wrap {
@@ -926,6 +980,11 @@ p {
 @media (max-width: 1050px) {
   .technical-project-grid,
   .report-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sentiment-chart-grid,
+  .word-cloud-grid {
     grid-template-columns: 1fr;
   }
 
