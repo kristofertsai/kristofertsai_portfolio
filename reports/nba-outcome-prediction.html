@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A WEKA-based machine learning research project using NBA game data, engineered team-stat features, and multiple classifiers to predict home-team outcomes." />
+  <title>Predicting the Outcome of NBA Games using Machine Learning Methods | Kristofer Tsai</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="report-page">
+  <a class="skip-link" href="#report-content">Skip to report</a>
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Report navigation">
+      <a class="brand" href="../index.html#top" aria-label="Kristofer Tsai home">
+        <span class="brand-mark">KT</span>
+        <span class="brand-text">Kristofer Tsai</span>
+      </a>
+      <ul class="nav-links report-nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#articles">Reports</a></li>
+        <li><a href="../assets/documents/nba-outcome-prediction.docx" download>Download DOCX</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="report-content">
+    <section class="report-hero section">
+      <a class="back-link" href="../index.html#projects">Back to projects</a>
+      <p class="eyebrow">Machine Learning / Sports Analytics</p>
+      <h1>Predicting the Outcome of NBA Games using Machine Learning Methods</h1>
+      <p class="hero-subtitle">A WEKA-based machine learning research project using NBA game data, engineered team-stat features, and multiple classifiers to predict home-team outcomes.</p>
+      <p class="report-meta">rideOS research project / NUS High School</p>
+      <div class="tool-row report-tools">
+        <span>Python</span>
+              <span>API-NBA</span>
+              <span>WEKA</span>
+              <span>J48</span>
+              <span>Naive Bayes</span>
+      </div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="../assets/documents/nba-outcome-prediction.docx" download>Download Original DOCX</a>
+        <a class="button button-secondary" href="../index.html#contact">Contact</a>
+      </div>
+    </section>
+
+    <section class="section report-shell" aria-label="Report text">
+      <aside class="report-aside">
+        <p class="eyebrow">Project Signal</p>
+        <p>Processed 1,200+ NBA games and compared classifier performance with F-measure as the main evaluation metric.</p>
+      </aside>
+      <article class="report-document">
+<h3>20.080.RiOS.CS</h3>
+<h3>Predicting the outcome of NBA Games using Machine Learning Methods</h3>
+<h3>Research Plan</h3>
+<div class="table-wrap"><table><tr><td>STUDENT NAMES Kristofer Tsai</td><td>SCHOOL NUS High School</td></tr>
+<tr><td>External MENTOR Allison  Liemhetcharat</td><td>External INSTITUTION rideOS</td></tr>
+<tr><td>NUS High Teacher Mentor Chiam  Sher-Yi</td><td></td></tr></table></div>
+<div class="table-wrap"><table><tr><td>TITLE OF PROJECT Predicting the outcome of NBA games with machine learning</td></tr>
+<tr><td>PURPOSE OF RESEARCH  To investigate how to better predict the outcome of NBA games with machine learning methods</td></tr>
+<tr><td>METHODOLOGY  Extract Data from stats.nba.com using  api- nba Analyse data using WEKA  software Refining data</td></tr>
+<tr><td>LIST OF EXPERIMENTAL TECNIQUES USED  Machine Learning  API Data Extraction</td></tr>
+<tr><td>BIBLIOGRAPHY Avalon,  G  and others (2016). Various Machine Learning Approaches to Predicting NBA Score Margins.  <a href="http://cs229.stanford.edu/proj2016/report/Avalon_balci_guzman_various_ml_approaches_NBA_Scores_report.pdf" target="_blank" rel="noopener">http://cs229.stanford.edu/proj2016/report/Avalon_balci_guzman_various_ml_approaches_NBA_Scores_report.pdf</a> D.  Miljkovic , L. Gajic, A. Kovacevic and Z.  Konjovic , &quot;The use of data mining for basketball matches outcomes prediction,&quot; In 8 th  International Symposium on Intelligent Systems and Informatics, 309-312, 2010. J.  Uudmae , “Predicting NBA Game Outcomes,” Retrieved from  <a href="http://cs229.stanford.edu/proj2017/final-reports/5231214.pdf" target="_blank" rel="noopener">http://cs229.stanford.edu/proj2017/final-reports/5231214.pdf</a> .  G. Avalon, B.  Balci , J. Guzman, “Various Machine Learning Approaches to Predicting NBA Score Margins,” Retrieved from  <a href="http://cs229.stanford.edu/proj2016/report/Avalon_balci_guzman_various_ml_approaches_NBA_Scores_report.pdf" target="_blank" rel="noopener">http://cs229.stanford.edu/proj2016/report/Avalon_balci_guzman_various_ml_approaches_NBA_Scores_report.pdf</a> . Fabian  Pedregosa ,  Ga&#235;l  Varoquaux , Alexandre  Gramfort , Vincent Michel, Bertrand  Thirion , Olivier Grisel, Mathieu Blondel, Peter  Prettenhofer , Ron Weiss, Vincent  Dubourg , Jake  Vanderplas , Alexandre  Passos , David  Cournapeau , Matthieu  Brucher , Matthieu Perrot, &#201;douard  Duchesnay ; Scikit-learn: Machine Learning in Python. 12(Oct):28252830, 2011.</td></tr></table></div>
+<h3>Abstract</h3>
+<p>There are 30 teams in the National Basketball Association (NBA). In a basketball match, a line-up of 5 players from the home team plays against another line-up of 5 players from the away team. To predict the outcome of an NBA game, previous research utilises methods including an Adversarial Synergy Graph Model, an Entropy principle as well as Neural Network Regression methods. In this paper, we utilise the Waikato Environment for Knowledge Analysis (WEKA) open-source machine learning software to predict the outcome of NBA Games. WEKA contains a plethora of built-in tools for standard machine learning tasks giving us the ability to efficiently study multiple team statistics using a variety of machine learning methods. As compared to previous methods of studying game scores alone, singling out precise team statistics allow for a more customised and in-depth analysis of a single NBA game.  Classification via regression and J48 trees gave the highest F-Measure scores when using a single stat “Game Result”. There was a noticeable spike in F-Measure when Na&#239;ve Bayes was used together with game result and three-point percentage attributes</p>
+<h3>Introduction</h3>
+<p>There are a total of 30 teams in the National Basketball Association (NBA). It is composed of 29 American teams and 1 Canadian team. The NBA is one of the four major professional sports leagues in the United States and Canada. It is the premier men&#39;s professional basketball league in the world. In a basketball match, a line-up of 5 players from the home team plays against another line-up of 5 players from the away team. To win a game of basketball, teams have to outscore the opposing teams by shooting the basketball into the hoop and scoring more points than the opposing team. A game of basketball can be affected by numerous elements, resulting in a high amount of uncertainty in each game. These elements include:player ability, team coordination, coaching strategy, physical condition, equipment quality, etc. To accurately predict how 10 unique humans will react to every unique scenario is quite difficult. Completely unexpected scenarios have occurred in the NBA before, e.g., Cleveland Cavaliers Guard JR Smith running out the clock in the 2018 NBA Finals when the game is tied,Houston Rockets Guard Tracy Mcgrady scoring 13 points in 35 seconds back in 2004 against the San Antonio Spurs.</p>
+<p>Nevertheless, there are relationships present between previous game performances that can help to better predict the outcome of an upcoming NBA Game. An example of this is the 2018 NBA finals between the Golden State Warriors and Cleveland Cavaliers [1]. The Warriors performed better in the majority of stats including effective field goal percentage and had a lower turnover rate in the first 3 games of the series. Up 3-0 against the Cavaliers, the stats strongly suggested a 4-game sweep for the Warriors. Because of this, bettors were extremely confident that the Warriors would win. The Warriors sat at a -900 Vegas odds, meaning that bettors had to bet $900 on the Warriors to receive a $100 profit payout. True enough, the Warriors defeated the Cavaliers 108-85 in Game 4, taking the 2018 NBA championship.</p>
+<p>In this paper, we are interested in identifying the relationships between specific statistics of NBA games and the outcome of future games. We will focus on a diversity of features and machine learning methods. To do so, multiple steps need to be taken to ingest and process the data, before fitting the data into the Waikato Environment for Knowledge Analysis (WEKA)[2] software. First, data needs to be extracted from a reliable online NBA source. Secondly, the data must be reformatted into a readable Comma Seperated Values (CSV) format to be understandable by the WEKA software. The WEKA software allows us to analyse the features and efficiently run tests repeatedly. With a large data set and multiple filters, we will have to filter out better performing features by sticking to a single machine learning method first. The results were measured using the F-Measure [3], which will be elaborated more later. F-Measures obtained often ranged from the mid 0.5to the low 0.6 range.</p>
+<h3>Methodology</h3>
+<p>In order to predict the outcome of NBA games with machine learning methods, we chose to study relationships between detailed basketball statistics and game outcomes. The methodology can be broken down into 3 sections:</p>
+<p>1. Extracting the data</p>
+<p>2. Reformatting the data</p>
+<p>3. Analysing the data</p>
+<p>The data was extracted using a third-party API, that gave us access to an NBA data library. The data extracted was in the JavaScript Object Notation (JSON) format. However, WEKA is only able to read the data in a Comma-separated values(CSV) format. Thus, there was a need to reformat the data. The last step would be to analyse the data using the WEKA software. We tried out different combinations of parameters and attributes to learn more about the relationship between various statistics and outcome of games.</p>
+<p>The extraction of data was achieved using an Application Programming Interface (API). The API used was “API-NBA&#39;&#39; [4], a freemium API developed by api-sports, verified by the Rapid-API community. Using Python code, a total of 1231 requests were sent to extract all the game data in the 2018-2019 NBA season. NBA seasons typically start after the summer break around October of 2018 and ends around April 2019. This season was selected as certain schedule and data was incomplete in the 2019-2020 season due to the coronavirus pandemic. Out of the 1231 requests, 1219 requests were successful. The data from Game IDs 4640-4650 and 5065 could not be found, the API returned a blank result. This should not significantly affect the results of the experiment as it will only decrease the sample size. In testing, team IDs are treated as nominal, so teams are treated as separate variables with no numeric value. Doing so allows WEKA to test teams independently with machine learning methods. WEKA will ignore the removal of game IDs 4640-4650 and 5065 by treating the next previous game ID as the next attribute to be tested.</p>
+<p>The sourced data was returned in a JSON format. The data extracted has to be converted from JSON to CSV as WEKA does not process data in the JSON format. The JSON data was flattened and saved into a CSV file through Python. JSON is a lightweight data-interchange format, commonly used for transmitting data in web applications. It is a standard text-based format for representing structured data based on JavaScript object syntax. Data in a JSON format is sorted as if it is a container among containers of data, allowing users to dig deeper for information. A CSV file is a delimited text file that uses a comma to separate values. Each line of the file is a data record. Each record consists of one or more fields, separated by commas. Converting data from JSON format to a CSV format (Appendix A) causes the data to lose hierarchical structure but makes the data more compact and understandable by WEKA.</p>
+<p>The 54 attributes (Appendix B) present in the final CSV file are listed in the first 2 columns in the table below. To study the differences between the stats of thehome and away team, we used Excel to obtain the differences. The differences are calculated by subtracting the away attribute from the home attribute. For example, PointsInPaintDiff = HomePointsInPaint - AwayPointsinPaint. Doing so generated 26 new attributes:</p>
+<p>In the WEKA Software for all new 26 attributes, we individually ran each feature through a J48 tree to predict the outcome of the game. J48 is an open-source Java implementation of the C4.5 algorithm in the WEKA data mining tool. C4.5 is an algorithm used to generate a decision tree developed by Ross Quinlan. C4.5 is an extension of Quinlan&#39;s earlier ID3 algorithm. The J48 tree was selected as the starting point as the project as it’s algorithm, the C4.5, is one of the most popular classifiers in the data analysis community. C4.5 became quite popular after ranking #1 in the Top 10 Algorithms in Data Mining pre-eminent paper published by Springer LNCS in 2008 [5]. After completing running the 26 features through the J48 tree, we looked at the F-measure average for all 26 results and selected the top 5 features.</p>
+<p>The F-measure is a measure of a test&#39;s accuracy. It is calculated from the precision and recall of the test. Precision is the number of correctly identified positive results divided by the number of all positive results, including those identified incorrectly. Recall is the number of correctly identified positive results divided by the number of all samples that should have been identified as positive. An F-measure that is a harmonic mean between precision and recall, favouring neither precision nor recall in calculations. WEKA produces an F-measure for accurately classifying an attribute into “1” or “0”. “1” outcome means that the home team wins the game, while a “0” outcome means that the home team loses the game. The F-measure seen below in the data are averages of F-measure from predicting “1” and “0” outcome.</p>
+<p>Of the top 5 features, we had to find the most ideal combination of features. We decided to run a 5-choose-1 (5C1), 5C2, and 5C3 system for all the top 5 features. From all the 25 possible combinations, we filtered down to the top 5 combination of features with the highest F-Measure. From there, we chose to test out these combinations of features with various traceback numbers. The traceback number in this instance is the number of previous games used to predict the outcome of the next game.We tried to test the features with traceback number of 3 and 10. For example, the default traceback number in the previous steps is 5. That means that the algorithm utilises features from game 1, 2, 3, 4 and 5 to predict the outcome of game 6.</p>
+<p>The next step was to select the top 5 combination of features regardless of traceback number. So far, we have been using the J48 tree. We were keen to look into testing these combinations of features with various types of machine learning algorithms. WEKA offers a variety of classifiers to predict a win loss outcome. These types of classifiers include Bayes, functions, lazy, meta, rules and trees. From each type of classifier, we will select a specific classifier from that type to run tests on. The selected classifiers specifically are Naive Bayes [6], Logistic [7], IBk [8], Classification via Regression [9], PART [10] and J48 [11]. More information on the classifiers can be found in Appendix C. I have chosen Naive Bayes as a benchmark to compare to previous research papers mentioned earlier. For the remaining 4, I have chosen them as they are popular classifiers that have yet to be used in predicting the outcome of an NBA game. Data/Analysis</p>
+<p>In this section we present and discuss about the experimental findings from each step.</p>
+<p>Table 1: 5 Features with the highest F-Measure</p>
+<div class="table-wrap"><table><tr><td>Game Result</td><td>FGM Diff</td><td>FTP Diff</td><td>Personal Foul Diff</td><td>TPP Diff</td></tr>
+<tr><td>0.607</td><td>0.584</td><td>0.576</td><td>0.575</td><td>0.568</td></tr></table></div>
+<p>Table 1 depicts the 5 features with the highest F-Measure after running it through a default setting J48 tree with 10-fold cross validation. Traceback was still kept at 5. The game result refers to the home team winning or losing the game. FGM in full is Field Goals Made. A field goal is a basket scored on any shot or tap other than a free throw, worth two or three points depending on the distance of the attempt from the basket. FTP in full is Free Throw Percentage. A free throw is an unopposed attempt to score a point by shooting from behind the free throw line. TPP in full is Three Point Percentage. A three-point field goal is a field goal made from beyond the three-point line.</p>
+<p>Table 2: F-Measures of various combinations of the top 5 features</p>
+<div class="table-wrap"><table><tr><td>Attributes</td><td>F-Measure (Traceback 5)</td><td>Att r ibutes  (Continued)</td><td>F-Measure (Traceback 5)</td><td>Attributes (Continued)</td><td>F-Measure (Traceback 5)</td></tr>
+<tr><td>Game Result - FTP Diff - TPP Diff</td><td>0.58</td><td>FTP Diff - TPP  DIff</td><td>0.557</td><td>Personal Foul  DIff  - TPP Diff</td><td>0.543</td></tr>
+<tr><td>FGM Diff - FTP Diff</td><td>0.571</td><td>FGM Diff - FTP Diff - TPP Diff</td><td>0.557</td><td>Game Result - Personal Foul  DIff  - TPP Diff</td><td>0.54</td></tr>
+<tr><td>Game Result - FTP Diff</td><td>0.567</td><td>Game Result - FGM Diff - FTP Diff</td><td>0.555</td><td>Game Result - FGM Diff</td><td>0.539</td></tr>
+<tr><td>FGM Diff - Personal Foul Diff</td><td>0.564</td><td>FGM Diff - Personal Foul Diff - TPP Diff</td><td>0.555</td><td>Game Result - FGM Diff - Personal Foul Diff</td><td>0.536</td></tr>
+<tr><td>Game Result - TPP Diff</td><td>0.563</td><td>FTP Diff - Personal Foul Diff</td><td>0.554</td><td>FTP Diff - Personal Foul Diff - TPP Diff</td><td>0.535</td></tr>
+<tr><td>Game Result - Personal Foul  DIff</td><td>0.559</td><td>FGM Diff - TPP Diff</td><td>0.552</td><td>Game Result - FGM Diff - TPP Diff</td><td>0.532</td></tr>
+<tr><td>FGM Diff - FTP Diff - Personal Foul Diff</td><td>0.559</td><td>Game Result - FTP Diff - Personal Foul  DIff</td><td>0.549</td><td>-</td><td>-</td></tr></table></div>
+<p>Table 2 shows the F-Measures of various combinations of the top 5 features. Features were combined in a systematic 5C2 and 5C3 method and tested in identical conditions. A J48 tree was used in default settings with 10 folds cross validation. Traceback was kept at 5.</p>
+<p>Table 3: F measures of the top 5 combinations with various traceback numbers</p>
+<div class="table-wrap"><table><tr><td>Attributes</td><td>F-Measure  (Traceback 5)</td><td>F-Measure  (Traceback 3)</td><td>F-Measure  (Traceback 10)</td></tr>
+<tr><td>Game Result</td><td>0.607</td><td>0.610</td><td>0.550</td></tr>
+<tr><td>FGM Diff</td><td>0.584</td><td>0.562</td><td>0.556</td></tr>
+<tr><td>Game Result - FTP Diff - TPP Diff</td><td>0.58 0</td><td>0.56 0</td><td>0.565</td></tr>
+<tr><td>FTP Diff</td><td>0.576</td><td>0.551</td><td>0.548</td></tr>
+<tr><td>Personal Foul Diff</td><td>0.575</td><td>0.561</td><td>0.535</td></tr></table></div>
+<p>Table 3 presents the F measures of the top 5 combinations with various traceback numbers. Traceback 5 performed better in every combination except for game result alone. Traceback 3 showed the best performance when using game result as the only feature. Traceback 10 had F-Measures lower than that of both traceback 3 and 5. This suggests that it is better to make predictions over short term performances than long term performances.A reason could be because the performance of NBA teams can change easily over a short period of time.</p>
+<p>Table 2 and 3 suggests that adding combinations of features together did not provide a significant boost to the F-Measure. Adding additional features could have generated more false positives and false negatives when testing by confusing the machine algorithm more. For the J48 tree, it can be inferred that using singular features could give a slightly better prediction than using a combination of features. In the later parts, we explore that different classifiers can boost the F-Measure for various combinations of features.</p>
+<p>Table 4 shows the top 5 F-Measures regardless of combination. These were also tested with a J48 tree under 10-foldcross validation.</p>
+<p>Table 4: F measures of the top 5 combinations regardless of traceback numbers</p>
+<div class="table-wrap"><table><tr><td>Game Result (Traceback 3)</td><td>0.610</td></tr>
+<tr><td>Game Result (Traceback 5)</td><td>0.607</td></tr>
+<tr><td>FGM Diff (Traceback 5)</td><td>0.584</td></tr>
+<tr><td>Game Result - FTP Diff - TPP Diff (Traceback 5)</td><td>0.58 0</td></tr>
+<tr><td>FTP Diff (Traceback 5)</td><td>0.576</td></tr></table></div>
+<p>Table 5: 5 selected combinations of features, tested against 6 different types of classifiers</p>
+<div class="table-wrap"><table><tr><td>Classifier Type</td><td>Bayes</td><td>Functions</td><td>Lazy</td><td>Meta</td><td>Rules</td><td>Trees</td></tr>
+<tr><td>Classifier</td><td>NaiveBayes</td><td>Logistic</td><td>IBk</td><td>Classification via Regression</td><td>PART</td><td>J48</td></tr>
+<tr><td>Game Result (Traceback 3)</td><td>0.570</td><td>0.591</td><td>0.572</td><td>0.608</td><td>0.600</td><td>0.610</td></tr>
+<tr><td>Game Result (Traceback 5)</td><td>0.567</td><td>0.600</td><td>0.547</td><td>0.587</td><td>0.581</td><td>0.607</td></tr>
+<tr><td>FGM Diff (Traceback 5)</td><td>0.581</td><td>0.575</td><td>0.602</td><td>0.573</td><td>0.573</td><td>0.584</td></tr>
+<tr><td>Game Result - FTP Diff - TPP Diff (Traceback 5)</td><td>0.582</td><td>0.590</td><td>0.507</td><td>0.577</td><td>0.585</td><td>0.58</td></tr>
+<tr><td>FTP Diff (Traceback 5)</td><td>0.574</td><td>0.570</td><td>0.569</td><td>0.569</td><td>0.575</td><td>0.576</td></tr></table></div>
+<p>Table 5 contains the information for the 5 selected combinations of features, tested against 6 different types of classifiers. The 6 different classifiers are NaiveBayes, Logistic, IBk,Classification via Regression, PART  and J48. Game Result (Traceback 3) had the highest F-Measure score in 3 out of the 6 classifier types. This could be because there is a greater correlation between short term past performances than long term past performances. More recognisable patterns create less confusion when classifiers try to predict the game outcome. Other features with traceback 5 performed comparatively better than game result (Traceback 3) in Naive Bayes, Logistic and IBk classifiers. In this experiment, we found it difficult to achieve an F-Measure greater than 0.600. This could be because a using a traceback of 3 or 5 would only require 1 or 2 errors in predicting the outcome to drop both precision and recalls to around 0.5 to 0.6. As such, any F-Measure above 0.57 is already considered desirable.</p>
+<h3>Additional tests</h3>
+<p>We tested out a few other high scoring combinations of features on the classifiers present in table 5. The data can be found below.</p>
+<p>Table 6: Top 5 F-Measures for additional tests</p>
+<div class="table-wrap"><table><tr><td>Attributes</td><td>F-Measure (Recall 5)</td><td>F-Measure (Recall 3)</td><td>F- Measure( Recall 10)</td></tr>
+<tr><td>FGM Diff - FTP Diff</td><td>0.571</td><td>0.542</td><td>0.555</td></tr>
+<tr><td>Game Result - FTP Diff</td><td>0.567</td><td>0.581</td><td>0.533</td></tr>
+<tr><td>FGM Diff - Personal Foul Diff</td><td>0.564</td><td>0.561</td><td>0.523</td></tr>
+<tr><td>Game Result - TPP Diff</td><td>0.563</td><td>0.573</td><td>0.549</td></tr></table></div>
+<h3>Table 7:Additional combinations of features, tested against the same 6 classifiers</h3>
+<div class="table-wrap"><table><tr><td>Type</td><td>Bayes</td><td>Functions</td><td>Lazy</td><td>Meta</td><td>Rules</td><td>Trees</td></tr>
+<tr><td>Classifier</td><td>Na&#239;ve Bayes</td><td>Logistic</td><td>IBk</td><td>Classification via Regression</td><td>PART</td><td>J48</td></tr>
+<tr><td>Game Result - FTP Diff (Recall 3)</td><td>0.569</td><td>0.589</td><td>0.552</td><td>0.601</td><td>0.559</td><td>0.581</td></tr>
+<tr><td>Game Result - TPP Diff (Recall 3)</td><td>0.563</td><td>0.592</td><td>0.523</td><td>0.605</td><td>0.556</td><td>0.573</td></tr>
+<tr><td>FGM Diff - FTP Diff (Recall 5)</td><td>0.584</td><td>0.587</td><td>0.563</td><td>0.585</td><td>0.572</td><td>0.571</td></tr>
+<tr><td>Game Result - FTP Diff (Recall 5)</td><td>0.574</td><td>0.600</td><td>0.535</td><td>0.585</td><td>0.538</td><td>0.567</td></tr></table></div>
+<p>Table 7 contains the additional combinations of features, tested against 6 different types of classifiers. While this step might have been in addition to the original methodology, it is worth noting down some observations made here. Two most significant observations are that the J48 classifier generated higher F-Measures for single feature tests while Na&#239;ve Bayes generated higher F-Measures for multi feature tests. The reason behind this could lie behind the mechanics of the two classifiers and provides potential for future discussion.</p>
+<h3>Discussion and Future Work</h3>
+<p>Game result with traceback of 3 games proved to be the most reliable attribute by obtaining the highest F-Measure in 3 of the 6 classifiers. It performed considerably well when tested with classification via regression and J48 classifiers. The mechanics of these algorithms have likely favoured the structure of the data. The additional tests also gave bonus insights with regards to attributes using a slightly larger traceback number. The Na&#239;ve Bayes classifier performed better than the rest when attempting to predict the outcome of these games using a traceback of 5. Additional tests have pointed to using three-point percentage as a reliable attribute to predict games. Game result and three-point percentage at a traceback of 5 had the highest F-measure in two classifiers, Na&#239;ve Bayes and IBk. We strongly believe that there is potential in these classifiers and attributes due to the style of NBA game today. NBA teams have turned towards three-pointers and pace to gain an edge over opponents; thus the three-point percentage attribute could play a crucial role in future predictions of NBA games.</p>
+<p>The dataset could be expanded in future research to give more reliable insight of current NBA trends. A wider range of classifiers can also be used with an even greater combination of features to learn more about how machine learning algorithms behave with unique classifiers. To dive deeper into the capabilities of machine learning, future research can utilise deep learning methods on NBA trends. Future work can also investigate the specifics of these machine learning methods and understand why some perform better with a greater traceback number. Exploring various machine learning methods has proven to show that machine learning can be applied to anything with data. Whether it is predicting a numerical value or an outcome, machine learning can allow us to see patterns in data more efficiently and analyse relationships between data better. For example, in the financial market, active traders and investors keep an eagle eye on the share price of various companies, funds and indexes. Machine learning algorithms can take previous data to predict the future share price of these financial assets. For example, classifiers can predict two outcomes, if the share price will go up or down, while regressors can predict the exact future price of these financial assets. Quantitative analysis has already been in use in financial markets for decades, however the potential it possesses to predict future values together with machine learning is untapped.</p>
+<h3>Conclusion</h3>
+<p>It can be concluded that sticking to game results with a small traceback number can lead to a higher F-Measure when using classification via regression and J48 trees. However, there was a noticeable spike in F-Measure when Na&#239;ve Bayes was used together with game result and three-point percentage attributes. This falls in line with today’s game of high pace and greater three-point attempts in the NBA. However, the Na&#239;ve Bayes classifier had a F-Measure was not the highest F-Measure present, it likely requires greater fine tuning of parameter and more exploration of various attributes to boost its F-Measure and seek hidden patterns in predicting NBA games today.</p>
+<p>References:</p>
+<p>“2018 NBA Finals - Cavaliers vs. Warriors.” Basketball. Accessed December 26, 2020. <a href="https://www.basketball-reference.com/playoffs/2018-nba-finals-cavaliers-vs-warriors.html" target="_blank" rel="noopener">https://www.basketball-reference.com/playoffs/2018-nba-finals-cavaliers-vs-warriors.html</a>.</p>
+<p>“WEKA.” Weka 3 - Data Mining with Open Source Machine Learning Software in Java. Accessed December 26, 2020. <a href="https://www.cs.waikato.ac.nz/~ml/weka/index.html" target="_blank" rel="noopener">https://www.cs.waikato.ac.nz/~ml/weka/index.html</a>.</p>
+<p>Sasaki, Yutaka. “The Truth of the F-Measure,” October 26, 2007. <a href="https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/people/yutaka.sasaki/F-measure-YS-26Oct07.pdf" target="_blank" rel="noopener">https://www.toyota-ti.ac.jp/Lab/Denshi/COIN/people/yutaka.sasaki/F-measure-YS-26Oct07.pdf</a>.</p>
+<p>Api-sports. “API-NBA”. <a href="https://rapidapi.com/api-sports/api/api-nba/details" target="_blank" rel="noopener">https://rapidapi.com/api-sports/api/api-nba/details</a>.</p>
+<p>Wu, Xindong. “Top 10 Algorithms in Data Mining.” Accessed December 26, 2020. <a href="http://home.etf.rs/~vm/os/dmsw/Top10DMAlgorithms.pdf" target="_blank" rel="noopener">http://home.etf.rs/~vm/os/dmsw/Top10DMAlgorithms.pdf</a>.</p>
+<p>NaiveBayes (weka-dev 3.9.5 API), December 21, 2020. <a href="https://weka.sourceforge.io/doc.dev/weka/classifiers/bayes/NaiveBayes.html" target="_blank" rel="noopener">https://weka.sourceforge.io/doc.dev/weka/classifiers/bayes/NaiveBayes.html</a>.</p>
+<p>Logistic (weka-dev 3.9.5 API), December 21, 2020. <a href="https://weka.sourceforge.io/doc.dev/weka/classifiers/functions/Logistic.html" target="_blank" rel="noopener">https://weka.sourceforge.io/doc.dev/weka/classifiers/functions/Logistic.html</a>.</p>
+<p>IBk (weka-dev 3.9.5 API), December 21, 2020. <a href="https://weka.sourceforge.io/doc.dev/weka/classifiers/lazy/IBk.html" target="_blank" rel="noopener">https://weka.sourceforge.io/doc.dev/weka/classifiers/lazy/IBk.html</a>.</p>
+<p>ClassificationViaRegression (weka-dev 3.9.5 API), December 21, 2020. <a href="https://weka.sourceforge.io/doc.dev/weka/classifiers/meta/ClassificationViaRegression.html" target="_blank" rel="noopener">https://weka.sourceforge.io/doc.dev/weka/classifiers/meta/ClassificationViaRegression.html</a>.</p>
+<p>PART (weka-dev 3.9.5 API), December 21, 2020. <a href="https://weka.sourceforge.io/doc.dev/weka/classifiers/rules/PART.html" target="_blank" rel="noopener">https://weka.sourceforge.io/doc.dev/weka/classifiers/rules/PART.html</a>.</p>
+<p>J48 (weka-dev 3.9.5 API), December 21, 2020. <a href="https://weka.sourceforge.io/doc.dev/weka/classifiers/trees/J48.html" target="_blank" rel="noopener">https://weka.sourceforge.io/doc.dev/weka/classifiers/trees/J48.html</a>.</p>
+<h3>Appendix A</h3>
+<p>Here is an example of the data from Game 4387 in a JSON format:</p>
+<div class="table-wrap"><table><tr><td>{     &quot; api &quot;: {         &quot;filters&quot;: [             &quot; gameId &quot;         ],         &quot;message&quot;: &quot;GET statistics/games/ gameId /4387&quot;,         &quot;results&quot;: 2,         &quot;statistics&quot;: [             {                 &quot;assists&quot;: &quot;21&quot;,                 &quot; biggestLead &quot;: &quot;18&quot;,  &quot;blocks&quot;: &quot;5&quot;,                 &quot; defReb &quot;: &quot;43&quot;,                 &quot; fastBreakPoints &quot;: &quot;6&quot;,                 &quot; fga &quot;: &quot;97&quot;,                 &quot; fgm &quot;: &quot;42&quot;,                 &quot; fgp &quot;: &quot;43.3&quot;,                 &quot; fta &quot;: &quot;14&quot;,                 &quot; ftm &quot;: &quot;10&quot;,                 &quot;ftp&quot;: &quot;71.4&quot;,                 &quot; gameId &quot;: &quot;4387&quot;,                 &quot; longestRun &quot;: &quot;10&quot;,                 &quot;min&quot;: &quot;240:00&quot;,                 &quot; offReb &quot;: &quot;12&quot;,                 &quot; pFouls &quot;: &quot;20&quot;,                 &quot; plusMinus &quot;: &quot;18&quot;,                 &quot;points&quot;: &quot;105&quot;,                 &quot; pointsInPaint &quot;: &quot;34&quot;,                 &quot; pointsOffTurnovers &quot;: &quot;14&quot;,                 &quot; secondChancePoints &quot;: &quot;14&quot;,                 &quot;steals&quot;: &quot;7&quot;,                 &quot; teamId &quot;: &quot;2&quot;,                 &quot; totReb &quot;: &quot;55&quot;,                 &quot; tpa &quot;: &quot;37&quot;,                 &quot; tpm &quot;: &quot;11&quot;,                 &quot; tpp &quot;: &quot;29.7&quot;,                 &quot;turnovers&quot;: &quot;14&quot;             },</td><td>{                 &quot;assists&quot;: &quot;18&quot;,                 &quot; biggestLead &quot;: &quot;4&quot;,                 &quot;blocks&quot;: &quot;5&quot;,                 &quot; defReb &quot;: &quot;41&quot;,                 &quot; fastBreakPoints &quot;: &quot;16&quot;,                 &quot; fga &quot;: &quot;87&quot;,                 &quot; fgm &quot;: &quot;34&quot;,                 &quot; fgp &quot;: &quot;39.1&quot;,                 &quot; fta &quot;: &quot;23&quot;,                 &quot; ftm &quot;: &quot;14&quot;,                 &quot;ftp&quot;: &quot;60.9&quot;,                 &quot; gameId &quot;: &quot;4387&quot;,                 &quot; longestRun &quot;: &quot;10&quot;,                 &quot;min&quot;: &quot;240:00&quot;,                 &quot; offReb &quot;: &quot;6&quot;,                 &quot; pFouls &quot;: &quot;20&quot;,                 &quot; plusMinus &quot;: &quot;-18&quot;,                 &quot;points&quot;: &quot;87&quot;,                 &quot; pointsInPaint &quot;: &quot;50&quot;,                 &quot; pointsOffTurnovers &quot;: &quot;11&quot;,                 &quot; secondChancePoints &quot;: &quot;5&quot;,                 &quot;steals&quot;: &quot;8&quot;,                 &quot; teamId &quot;: &quot;27&quot;,                 &quot; totReb &quot;: &quot;47&quot;,                 &quot; tpa &quot;: &quot;26&quot;,                 &quot; tpm &quot;: &quot;5&quot;,                 &quot; tpp &quot;: &quot;19.2&quot;,                 &quot;turnovers&quot;: &quot;16&quot;             }         ],         &quot;status&quot;: 200     } }</td></tr></table></div>
+<p>Here is the same data, presented in a CSV format:</p>
+<div class="table-wrap"><table><tr><td>&quot;status&quot;,&quot;message&quot;,&quot;results&quot;,&quot;filters__&quot;,&quot;statistics__gameId&quot;,&quot;statistics__teamId&quot;,&quot;statistics__fastBreakPoints&quot;,&quot;statistics__pointsInPaint&quot;,&quot;statistics__biggestLead&quot;,&quot;statistics__secon dChancePoints&quot;,&quot;statistics__pointsOffTurnovers&quot;,&quot;statistics__longestRun&quot;,&quot;statistics__points&quot;,&quot;statistics__fgm&quot;,&quot;statistics__fga&quot;,&quot;statistics__fgp&quot;,&quot;statistics__ftm&quot;,&quot;statistics__fta&quot;,&quot;statistics__ftp&quot;,&quot;statistics__tpm&quot;,&quot;statistics__tpa&quot;,&quot;statistics__tpp&quot;,&quot;statistics__offReb&quot;,&quot;statistics__defReb&quot;,&quot;statistics__totReb&quot;,&quot;statistics__assists&quot;,&quot;statistics__pFouls&quot;,&quot;statistics__steals&quot;,&quot;statistics__turnovers&quot;,&quot;statistics__blocks&quot;,&quot;statistics__plusMinus&quot;,&quot;statistics__min&quot;&quot;200&quot;,&quot;GETstatistics/games/gameId/4387&quot;,&quot;2&quot;,&quot;gameId&quot;,&quot;4387&quot;,&quot;2&quot;,&quot;6&quot;,&quot;34&quot;,&quot;18&quot;,&quot;14&quot;,&quot;14&quot;,&quot;10&quot;,&quot;105&quot;,&quot;42&quot;,&quot;97&quot;,&quot;43.3&quot;,&quot;10&quot;,&quot;14&quot;,&quot;71.4&quot;,&quot;11&quot;,&quot;37&quot;,&quot;29.7&quot;,&quot;12&quot;,&quot;43&quot;,&quot;55&quot;,&quot;21&quot;,&quot;20&quot;,&quot;7&quot;,&quot;14&quot;,&quot;5&quot;,&quot;18&quot;,&quot;240:00&quot;</td></tr></table></div>
+<h3>Appendix B</h3>
+<div class="table-wrap"><table><tr><td>Home Stats</td><td>Away Stats</td><td>Difference Stats</td></tr>
+<tr><td>home_teamId</td><td>away_teamId</td><td>-</td></tr>
+<tr><td>home_fastBreakPoints</td><td>away_fastBreakPoints</td><td>FastBreakPointDiff</td></tr>
+<tr><td>home_pointsInPaint</td><td>away_pointsInPaint</td><td>PointsInPaintDiff</td></tr>
+<tr><td>home_biggestLead</td><td>away_biggestLead</td><td>BiggestLeadDiff</td></tr>
+<tr><td>home_secondChancePoints</td><td>away_secondChancePoints</td><td>SecondChancePointDiff</td></tr>
+<tr><td>home_pointsOffTurnovers</td><td>away_pointsOffTurnovers</td><td>PointsoffTurnoverDiff</td></tr>
+<tr><td>home_longestRun</td><td>away_longestRun</td><td>LongestRunDiff</td></tr>
+<tr><td>home_points</td><td>away_points</td><td>PointDifferential / GameResult</td></tr>
+<tr><td>home_fgm</td><td>away_fgm</td><td>FGMDiff</td></tr>
+<tr><td>home_fga</td><td>away_fga</td><td>FGADiff</td></tr>
+<tr><td>home_fgp</td><td>away_fgp</td><td>FGPDiff</td></tr>
+<tr><td>home_ftm</td><td>away_ftm</td><td>FTMDiff</td></tr>
+<tr><td>home_fta</td><td>away_fta</td><td>FTADiff</td></tr>
+<tr><td>home_ftp</td><td>away_ftp</td><td>FTPDiff</td></tr>
+<tr><td>home_tpm</td><td>away_tpm</td><td>TPMDiff</td></tr>
+<tr><td>home_tpa</td><td>away_tpa</td><td>TPADiff</td></tr>
+<tr><td>home_tpp</td><td>away_tpp</td><td>TPPDiff</td></tr>
+<tr><td>home_offReb</td><td>away_offReb</td><td>OffRebDiff</td></tr>
+<tr><td>home_defReb</td><td>away_defReb</td><td>DefRebDiff</td></tr>
+<tr><td>home_totReb</td><td>away_totReb</td><td>TotRebDiff</td></tr>
+<tr><td>home_assists</td><td>away_assists</td><td>AssistDiff</td></tr>
+<tr><td>home_pFouls</td><td>away_pFouls</td><td>PFoulDiff</td></tr>
+<tr><td>home_steals</td><td>away_steals</td><td>StealDIff</td></tr>
+<tr><td>home_turnovers</td><td>away_turnovers</td><td>TurnoverDiff</td></tr>
+<tr><td>home_blocks</td><td>away_blocks</td><td>BlockDiff</td></tr>
+<tr><td>home_plusMinus</td><td>away_plusMinus</td><td>PlusMinusDiff</td></tr></table></div>
+<h3>Appendix C</h3>
+<h3>Explanation of classifiers</h3>
+<p>The numeric value of the F-Measure could be due to the differences in classifiers. Each classifier has its own advantages and disadvantages. The Na&#239;ve Bayes classifier utilises Bayes theorem. Bayes theorem calculates the conditional probability of the occurrence of an event based on prior knowledge of conditions that might be related to the event.</p>
+<p>Image 1:</p>
+<figure><img src="../assets/reports/nba-outcome-prediction/image1.png" alt="Figure from Predicting the Outcome of NBA Games using Machine Learning Methods"></figure>
+<p>Image 1 shows the equation of Bayes theorem. P(A|B) is known as the likelihood, which is the probability of A being true given that B is true. P(B|A) is known as the posterior, which is the probability of B being true given that A is true. P(A) is the prior, which is the probability of outcome A to be true. P(B) is the marginalisation, which is the probability of outcome B to be true.</p>
+<p>The Logistic classifier’s core is the logistic function. Weka’s classifier uses a multinomial logistic regression model with a ridge estimator.</p>
+<p>Image 2:</p>
+<figure><img src="../assets/reports/nba-outcome-prediction/image2.png" alt="Figure from Predicting the Outcome of NBA Games using Machine Learning Methods"></figure>
+<p>Image 2 represents the logistic function curve. Logistic regression uses an equation as the representation, very much like linear regression. Input values are combined linearly using weights or coefficient values to predict an output value. A key difference from linear regression is that the output value being modelled are binary values (0 or 1) rather than a numeric value. Logistic regression equation: y= e^(b0 + b1*x) / (1 + e^(b0 + b1*x)). Where y is the predicted output, b0 is the bias or intercept term and b1 is the coefficient for the single input value. Each column in your input data has an associated b coefficient that must be learned from your training data. The actual representation of the model that you would store in memory or in a file are the coefficients in the equation (the beta value or b’s).</p>
+<p>IBk classifier utilises the k-nearest neighbours (KNN) algorithm</p>
+<p>Picture 3:</p>
+<figure><img src="../assets/reports/nba-outcome-prediction/image3.png" alt="Figure from Predicting the Outcome of NBA Games using Machine Learning Methods"></figure>
+<p>Picture 3 shows an example of a spread of data points. Data points can be located far or near each other. The KNN algorithm captures the idea of similarity among data points by calculating the distance between each other. Finally, the algorithm then votes for the most frequent label (in the case of classification) and makes its prediction. In this paper, we used a K value of 1, which might createinstability among data points but increases efficiency.</p>
+<h3>Classification via regression</h3>
+<p>Classification via regression is a modified version of simple linear regression. Class for doing classification using regression methods. Class is binarized (1 or 0) and one regression model is built for each class value. After building the model, the classifier is then able to attempt a prediction of outcome based on its trained model.</p>
+<h3>J48</h3>
+<p>J48 (aka C4.5) uses an up to down, recursive, divide-and-conquer method to find a good attribute to split on at each stage of its process. The process begins by dividing the data into two subsets with minimal mixture. In the context of this experiment, the algorithm will attempt to cleanly split the data with “1” outcomes in one side and “0” outcomes on the other side, using a classifier.</p>
+<p>Take the example of training a J48 tree using the the outcome of 8 games, 4 wins and 4 loses. “1” and “0” means win and loss outcome respectively. The tree could perform something like this:</p>
+<p>If total points &gt; 100, outcome = 1, 1, 1, 0. (Subset 1)</p>
+<p>If total points &lt;= 100, outcome = 0, 0, 0, 1. (Subset 2)</p>
+<p>A perfect split is almost impossible considering the amount of uncertainty in each game. The algorithm will attempt to split the data again. J48 will continue until the subset only contains one type of classifier. Ideally, the smaller the tree the better. After training the tree, the test set will be tested on the tree. From there precision, recall and F-Measure can be calculated.</p>
+<h3>PART</h3>
+<p>The PART algorithm is similar to a J48 tree, the main difference being that PART is a partial decision tree algorithm that does not require global optimisation like the J48 tree. It builds a partial C4.5 decision tree in each iteration and makes the &quot;best&quot; leaf into a rule. The main advantage of PART over the J48 is not performance but its simplicity, without any need for global optimisation. Global optimization refers to finding the optimal value of a given function among all possible solution. Removing the need to run global optimisation can help to reduce training and testing time.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Kristofer Tsai. Report converted from the original Word document.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

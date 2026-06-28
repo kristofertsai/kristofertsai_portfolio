@@ -50,8 +50,7 @@
         </p>
         <div class="hero-actions" aria-label="Primary actions">
           <a class="button button-primary" href="#projects">View Projects</a>
-          <!-- Replace pdfs/resume.pdf with your latest resume file. -->
-          <a class="button button-secondary" href="pdfs/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+          <a class="button button-secondary" href="assets/documents/kristofer-tsai-2025-resume-redbull.docx" download>Download Resume</a>
           <a class="button button-ghost" href="#contact">Contact</a>
         </div>
       </div>
@@ -108,11 +107,7 @@
             practical decision-making: cleaning messy data, visualising performance trends, and explaining what
             the results actually mean for a driver, engineer, or strategist.
           </p>
-          <p>
-            This site is built to collect my strongest engineering projects, written reports, code, and articles
-            in one place. The current project cards are placeholders that can be replaced with finished write-ups,
-            PDFs, notebooks, telemetry plots, and GitHub repositories.
-          </p>
+          <p>\n            This site collects my strongest technical work across sports analytics, machine learning, engineering writing,\n            and motorsport-focused analysis. The reports below show how I frame messy datasets, test assumptions,\n            communicate limitations, and turn analysis into readable project work.\n          </p>
           <div class="tag-row" aria-label="Portfolio themes">
             <span>Race strategy</span>
             <span>Telemetry</span>
@@ -192,154 +187,68 @@
 
     <section id="projects" class="section" aria-labelledby="projects-title">
       <div class="section-heading reveal">
-        <p class="eyebrow">Projects</p>
-        <h2 id="projects-title">Selected data and engineering projects.</h2>
-        <p>Each card is designed to hold an image, a concise result, and links to a PDF, article, or code repository.</p>
+        <p class="eyebrow">Technical Projects</p>
+        <h2 id="projects-title">Selected analysis reports.</h2>
+        <p>Full write-ups are available as formatted HTML pages, with the original Word documents preserved for download.</p>
       </div>
 
-      <div class="card-grid project-grid">
+      <div class="card-grid project-grid technical-project-grid">
         <article class="project-card reveal">
-          <img src="images/project-endurance.svg" alt="Abstract telemetry dashboard placeholder" />
+          <img src="assets/reports/nba-outcome-prediction/image1.png" alt="NBA machine learning report figure" />
           <div class="project-body">
-            <div class="card-kicker">Formula Student · Endurance</div>
-            <h3>Endurance Strategy Data Analysis</h3>
+            <div class="card-kicker">Machine Learning · Sports Analytics</div>
+            <h3>Predicting NBA Game Outcomes</h3>
             <p>
-              Analyse testing data to understand speed, torque request, energy usage, and efficiency trade-offs for
-              an endurance run.
+              Used NBA game data, engineered statistical features, and WEKA classifiers to test how well previous
+              team performance can predict game outcomes.
             </p>
-            <p class="project-result"><strong>Key insight:</strong> Replace with your validated efficiency or strategy takeaway.</p>
+            <p class="project-result"><strong>Project signal:</strong> Processed 1,200+ games and compared models with F-measure across J48, Naive Bayes, regression, and K-NN-style methods.</p>
             <div class="tool-row">
-              <span>Python</span><span>pandas</span><span>matplotlib</span><span>Telemetry</span>
+              <span>Python</span><span>WEKA</span><span>Machine Learning</span><span>API Data</span>
             </div>
             <div class="link-row">
-              <a href="#articles">View Write-up</a>
-              <a href="pdfs/formula-student-endurance-analysis.pdf" target="_blank" rel="noopener">View PDF</a>
-              <a href="#" aria-label="Add GitHub link for Endurance Strategy Data Analysis">View Code</a>
+              <a href="reports/nba-outcome-prediction.html">Read Report</a>
+              <a href="assets/documents/nba-outcome-prediction.docx" download>Download DOCX</a>
             </div>
           </div>
         </article>
 
         <article class="project-card reveal">
-          <img src="images/project-telemetry.svg" alt="Abstract tyre and telemetry plot placeholder" />
+          <img src="assets/reports/dating-apps-analysis/image24.png" alt="Dating apps statistical analysis figure" />
           <div class="project-body">
-            <div class="card-kicker">Vehicle Dynamics · Tyres</div>
-            <h3>Tyre and Telemetry Analysis</h3>
+            <div class="card-kicker">NLP · Consumer Analytics</div>
+            <h3>DataRizz: Dating App Analysis</h3>
             <p>
-              Study vehicle behaviour through speed, acceleration, steering, torque, and tyre-related signals to
-              identify useful patterns.
+              Collaborative DataRes project using sentiment analysis and data visualization to understand reviews,
+              profile behavior, app frustrations, and engagement patterns.
             </p>
-            <p class="project-result"><strong>Key insight:</strong> Replace with a clear handling, tyre, or balance observation.</p>
+            <p class="project-result"><strong>Project signal:</strong> Applied VADER sentiment scoring and visual analysis to compare Tinder, Hinge, and Bumble user experience trends.</p>
             <div class="tool-row">
-              <span>Python</span><span>Data cleaning</span><span>Vehicle dynamics</span>
+              <span>Python</span><span>VADER NLP</span><span>pandas</span><span>Visualization</span>
             </div>
             <div class="link-row">
-              <a href="#articles">View Write-up</a>
-              <a href="pdfs/vehicle-dynamics-report.pdf" target="_blank" rel="noopener">View PDF</a>
-              <a href="#">View Code</a>
+              <a href="reports/dating-apps-analysis.html">Read Report</a>
+              <a href="assets/documents/dating-apps-analysis.docx" download>Download DOCX</a>
             </div>
           </div>
         </article>
 
         <article class="project-card reveal">
-          <img src="images/project-strategy.svg" alt="Abstract race stint model placeholder" />
+          <img src="assets/reports/golf-distance-analysis/image1.png" alt="Golf distance analytics report figure" />
           <div class="project-body">
-            <div class="card-kicker">Race Strategy · Simulation</div>
-            <h3>Stint Modelling and Strategy Simulation</h3>
+            <div class="card-kicker">Sports Analytics · Regression</div>
+            <h3>Distance in Modern Golf</h3>
             <p>
-              Build a simple model for stint length, degradation, traffic, pit loss, and risk/reward trade-offs.
+              Bruin Sports Analytics article studying whether PGA Tour driving distance correlates with scoring,
+              leaderboard success, and strategic advantage.
             </p>
-            <p class="project-result"><strong>Key insight:</strong> Replace with a sample strategy recommendation and its assumptions.</p>
+            <p class="project-result"><strong>Project signal:</strong> Regression results showed distance creates opportunities, but overall scoring success depends on a wider performance profile.</p>
             <div class="tool-row">
-              <span>Python</span><span>Simulation</span><span>Strategy</span><span>Visualisation</span>
+              <span>Python</span><span>PGA Data</span><span>Regression</span><span>Seaborn</span>
             </div>
             <div class="link-row">
-              <a href="#articles">View Write-up</a>
-              <a href="pdfs/race-strategy-simulation.pdf" target="_blank" rel="noopener">View PDF</a>
-              <a href="#">View Code</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <img src="images/project-thermo.svg" alt="Abstract thermodynamics analysis placeholder" />
-          <div class="project-body">
-            <div class="card-kicker">Thermodynamics · CoolProp</div>
-            <h3>Thermodynamics Engineering Analysis</h3>
-            <p>
-              Use property libraries and engineering assumptions to solve cycle, combustion, or fluid property
-              problems with documented working.
-            </p>
-            <p class="project-result"><strong>Key insight:</strong> Replace with the final result, uncertainty, or design implication.</p>
-            <div class="tool-row">
-              <span>CoolProp</span><span>Python</span><span>Thermo</span><span>Reports</span>
-            </div>
-            <div class="link-row">
-              <a href="#articles">View Write-up</a>
-              <a href="pdfs/thermodynamics-analysis.pdf" target="_blank" rel="noopener">View PDF</a>
-              <a href="#">View Code</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <img src="images/project-numerical.svg" alt="Abstract numerical methods chart placeholder" />
-          <div class="project-body">
-            <div class="card-kicker">Numerical Methods</div>
-            <h3>Differential Equations Modelling</h3>
-            <p>
-              Implement Euler, improved Euler, RK4, and state-variable methods to compare model behaviour and
-              numerical accuracy.
-            </p>
-            <p class="project-result"><strong>Key insight:</strong> Replace with a comparison between methods or error behaviour.</p>
-            <div class="tool-row">
-              <span>Python</span><span>RK4</span><span>ODEs</span><span>Plots</span>
-            </div>
-            <div class="link-row">
-              <a href="#articles">View Write-up</a>
-              <a href="pdfs/numerical-methods-report.pdf" target="_blank" rel="noopener">View PDF</a>
-              <a href="#">View Code</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <img src="images/project-data.svg" alt="Abstract data analysis chart placeholder" />
-          <div class="project-body">
-            <div class="card-kicker">Data Analysis</div>
-            <h3>Python Data Analysis Project</h3>
-            <p>
-              Clean, transform, visualise, and summarise a dataset using a reproducible workflow and direct
-              engineering interpretation.
-            </p>
-            <p class="project-result"><strong>Key insight:</strong> Replace with the main relationship, ranking, or recommendation.</p>
-            <div class="tool-row">
-              <span>Python</span><span>pandas</span><span>NumPy</span><span>matplotlib</span>
-            </div>
-            <div class="link-row">
-              <a href="#articles">View Write-up</a>
-              <a href="pdfs/data-analysis-report.pdf" target="_blank" rel="noopener">View PDF</a>
-              <a href="#">View Code</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card reveal">
-          <img src="images/project-writing.svg" alt="Abstract technical writing placeholder" />
-          <div class="project-body">
-            <div class="card-kicker">Technical Writing</div>
-            <h3>Engineering Articles and Reports</h3>
-            <p>
-              Short articles and reports explaining engineering decisions, assumptions, limitations, and results in
-              a readable format.
-            </p>
-            <p class="project-result"><strong>Key insight:</strong> Replace with the theme of your strongest written piece.</p>
-            <div class="tool-row">
-              <span>Writing</span><span>Research</span><span>Documentation</span>
-            </div>
-            <div class="link-row">
-              <a href="#articles">Read Article</a>
-              <a href="pdfs/technical-writing-sample.pdf" target="_blank" rel="noopener">View PDF</a>
-              <a href="#">More</a>
+              <a href="reports/golf-distance-analysis.html">Read Report</a>
+              <a href="assets/documents/golf-distance-analysis.docx" download>Download DOCX</a>
             </div>
           </div>
         </article>
@@ -378,46 +287,46 @@
 
     <section id="articles" class="section" aria-labelledby="articles-title">
       <div class="section-heading reveal">
-        <p class="eyebrow">Articles / PDFs</p>
-        <h2 id="articles-title">Written work and reports.</h2>
-        <p>Store PDFs in the <code>pdfs/</code> folder and update these cards with your actual titles and links.</p>
+        <p class="eyebrow">Reports</p>
+        <h2 id="articles-title">Read the full technical documents.</h2>
+        <p>These pages are converted from the original Word documents and formatted for reading directly in the browser.</p>
       </div>
 
       <div class="article-list">
         <article class="article-card reveal">
           <div>
-            <span class="card-kicker">PDF Report</span>
-            <h3>Formula Student Endurance Analysis</h3>
-            <p>Placeholder for a concise report on energy efficiency, speed bands, torque use, and strategy recommendations.</p>
+            <span class="card-kicker">Machine Learning Report</span>
+            <h3>Predicting the Outcome of NBA Games</h3>
+            <p>NBA data extraction, feature engineering, WEKA model comparison, and F-measure evaluation.</p>
           </div>
-          <a class="button button-secondary" href="pdfs/formula-student-endurance-analysis.pdf" target="_blank" rel="noopener">Open PDF</a>
+          <div class="article-actions">
+            <a class="button button-secondary" href="reports/nba-outcome-prediction.html">Read HTML</a>
+            <a class="button button-ghost" href="assets/documents/nba-outcome-prediction.docx" download>DOCX</a>
+          </div>
         </article>
 
         <article class="article-card reveal">
           <div>
-            <span class="card-kicker">PDF Report</span>
-            <h3>Vehicle Dynamics Report</h3>
-            <p>Placeholder for a tyre, balance, or telemetry interpretation write-up with plots and assumptions.</p>
+            <span class="card-kicker">DataRes Report</span>
+            <h3>A Statistical Deep Dive into Dating Apps</h3>
+            <p>Sentiment analysis, visualizations, user review themes, and profile engagement findings.</p>
           </div>
-          <a class="button button-secondary" href="pdfs/vehicle-dynamics-report.pdf" target="_blank" rel="noopener">Open PDF</a>
+          <div class="article-actions">
+            <a class="button button-secondary" href="reports/dating-apps-analysis.html">Read HTML</a>
+            <a class="button button-ghost" href="assets/documents/dating-apps-analysis.docx" download>DOCX</a>
+          </div>
         </article>
 
         <article class="article-card reveal">
           <div>
-            <span class="card-kicker">PDF Report</span>
-            <h3>Thermodynamics Analysis</h3>
-            <p>Placeholder for a CoolProp, cycle, property, or combustion analysis report.</p>
+            <span class="card-kicker">Bruin Sports Analytics</span>
+            <h3>Exploring the Impact of Distance in Modern Golf</h3>
+            <p>PGA Tour distance analysis, case studies, regression interpretation, and scoring implications.</p>
           </div>
-          <a class="button button-secondary" href="pdfs/thermodynamics-analysis.pdf" target="_blank" rel="noopener">Open PDF</a>
-        </article>
-
-        <article class="article-card reveal">
-          <div>
-            <span class="card-kicker">Article</span>
-            <h3>Race Strategy Notes</h3>
-            <p>Placeholder for a short article explaining a race strategy concept, model, or case study.</p>
+          <div class="article-actions">
+            <a class="button button-secondary" href="reports/golf-distance-analysis.html">Read HTML</a>
+            <a class="button button-ghost" href="assets/documents/golf-distance-analysis.docx" download>DOCX</a>
           </div>
-          <a class="button button-secondary" href="#" aria-label="Add article link">Read Article</a>
         </article>
       </div>
     </section>
@@ -426,13 +335,14 @@
       <div class="resume-card reveal">
         <div>
           <p class="eyebrow">Resume</p>
-          <h2 id="resume-title">One-page engineering resume.</h2>
+          <h2 id="resume-title">Download my current reference resume.</h2>
           <p>
-            Add your latest resume as <code>pdfs/resume.pdf</code>. If you keep the same file name, this button will
-            keep working whenever you replace the PDF.
+            This is the resume from my previous F1 / Red Bull application, included for context while I rebuild the
+            updated version. It highlights UCLA Mechanical Engineering, GovTech, rideOS, DataRes, Bruin Sports Analytics,
+            and F1 design competition experience.
           </p>
         </div>
-        <a class="button button-primary" href="pdfs/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+        <a class="button button-primary" href="assets/documents/kristofer-tsai-2025-resume-redbull.docx" download>Download Resume</a>
       </div>
     </section>
 
@@ -472,3 +382,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Kristofer Tsai profile placeholder</title>
+  <desc id="desc">A motorsport-inspired profile placeholder with data lines and KT initials.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#101820"/>
+      <stop offset="0.55" stop-color="#20313a"/>
+      <stop offset="1" stop-color="#0a0d10"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1100" fill="url(#bg)"/>
+  <path d="M0 835 C170 760 280 790 460 720 C640 650 720 555 900 530 L900 1100 L0 1100 Z" fill="#d8ff3f" opacity="0.92"/>
+  <path d="M118 235 H785 M118 305 H690 M118 375 H748 M118 445 H612" stroke="#7dd3fc" stroke-width="18" stroke-linecap="round" opacity="0.45"/>
+  <circle cx="450" cy="560" r="172" fill="#eef4ff" opacity="0.12"/>
+  <text x="450" y="615" fill="#eef4ff" font-family="Arial, sans-serif" font-size="170" font-weight="800" text-anchor="middle">KT</text>
+</svg>
