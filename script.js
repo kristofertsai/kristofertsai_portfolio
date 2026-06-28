@@ -9,6 +9,7 @@ const navLinks = document.querySelector('.nav-links');
 const navItems = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('main section[id]');
 const revealItems = document.querySelectorAll('.reveal');
+const clickableCards = document.querySelectorAll('.project-card[data-href]');
 const year = document.querySelector('#year');
 
 if (year) {
@@ -33,6 +34,20 @@ if (navToggle && navLinks) {
 
 navItems.forEach((link) => {
   link.addEventListener('click', closeMobileNav);
+});
+
+clickableCards.forEach((card) => {
+  card.addEventListener('click', (event) => {
+    if (event.target.closest('a')) return;
+    window.location.href = card.dataset.href;
+  });
+
+  card.addEventListener('keydown', (event) => {
+    if (event.target.closest('a')) return;
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    window.location.href = card.dataset.href;
+  });
 });
 
 const revealObserver = new IntersectionObserver(
