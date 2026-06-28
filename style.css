@@ -872,7 +872,14 @@ p {
   color: var(--text);
 }
 
-.sentiment-chart-grid,
+.sentiment-chart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 980px;
+  margin: 1.5rem auto;
+}
+
 .word-cloud-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -888,6 +895,11 @@ p {
   background: rgba(255, 255, 255, 0.045);
 }
 
+.sentiment-chart-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .sentiment-chart-card h4,
 .word-cloud-grid figcaption {
   margin: 0;
@@ -899,13 +911,17 @@ p {
   border-bottom: 1px solid var(--border);
 }
 
+.sentiment-chart-card h4 {
+  grid-column: 1 / -1;
+}
+
 .sentiment-chart-card figure,
 .word-cloud-grid figure {
   margin: 0;
 }
 
 .sentiment-chart-card figure + figure {
-  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
 }
 
 .sentiment-chart-card img,
@@ -944,6 +960,10 @@ p {
   border: 0;
   border-radius: 0;
   background: #fff;
+}
+
+.report-document .sentiment-chart-card img {
+  max-height: 260px;
 }
 
 .table-wrap {
@@ -986,6 +1006,15 @@ p {
   .sentiment-chart-grid,
   .word-cloud-grid {
     grid-template-columns: 1fr;
+  }
+
+  .sentiment-chart-card {
+    grid-template-columns: 1fr;
+  }
+
+  .sentiment-chart-card figure + figure {
+    border-top: 1px solid var(--border);
+    border-left: 0;
   }
 
   .report-aside {
