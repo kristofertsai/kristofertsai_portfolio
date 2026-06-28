@@ -372,10 +372,10 @@ p {
 
 .dashboard-card {
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.15rem;
-  background: rgba(0, 0, 0, 0.24);
+  background: rgba(255, 255, 255, 0.58);
 }
 
 .main-metric {
@@ -384,8 +384,8 @@ p {
   flex-direction: column;
   justify-content: flex-end;
   background:
-    linear-gradient(135deg, rgba(216, 255, 63, 0.16), rgba(125, 211, 252, 0.06)),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 46px);
+    linear-gradient(135deg, rgba(79, 110, 154, 0.14), rgba(198, 176, 140, 0.18)),
+    repeating-linear-gradient(90deg, rgba(41, 55, 71, 0.055) 0 1px, transparent 1px 46px);
 }
 
 .metric-grid {
@@ -524,7 +524,7 @@ p {
 .article-card:hover,
 .contact-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(216, 255, 63, 0.32);
+  border-color: rgba(79, 110, 154, 0.28);
 }
 
 .project-card img {
@@ -595,8 +595,8 @@ p {
   min-height: 230px;
   padding: clamp(1.35rem, 4vw, 2.5rem);
   background:
-    linear-gradient(135deg, rgba(216, 255, 63, 0.12), rgba(125, 211, 252, 0.08)),
-    rgba(255, 255, 255, 0.05);
+    linear-gradient(135deg, rgba(79, 110, 154, 0.12), rgba(198, 176, 140, 0.18)),
+    rgba(252, 250, 246, 0.76);
 }
 
 .contact-grid {
@@ -719,7 +719,7 @@ p {
     padding: 1rem;
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    background: rgba(5, 7, 11, 0.96);
+    background: rgba(252, 250, 246, 0.96);
     box-shadow: var(--shadow);
     transform: translateY(-1rem);
     opacity: 0;
@@ -777,9 +777,9 @@ p {
 
 .report-page {
   background:
-    radial-gradient(circle at 18% 0%, rgba(216, 255, 63, 0.12), transparent 24rem),
-    radial-gradient(circle at 85% 6%, rgba(125, 211, 252, 0.13), transparent 26rem),
-    linear-gradient(145deg, #040507 0%, #08111b 48%, #05070b 100%);
+    radial-gradient(circle at 18% 0%, rgba(79, 110, 154, 0.1), transparent 24rem),
+    radial-gradient(circle at 85% 6%, rgba(198, 176, 140, 0.16), transparent 26rem),
+    linear-gradient(145deg, #f7f1e7 0%, #efe4d2 48%, #f5efe6 100%);
 }
 
 .report-nav-links {
@@ -838,7 +838,7 @@ p {
 .report-document {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.055);
+  background: rgba(252, 250, 246, 0.82);
   box-shadow: var(--shadow);
   padding: clamp(1.25rem, 4vw, 3rem);
 }
