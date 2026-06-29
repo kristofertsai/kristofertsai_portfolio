@@ -956,6 +956,7 @@ p {
   width: auto;
   max-width: 100%;
   max-height: 520px;
+  padding: 0.8rem;
   object-fit: contain;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -973,6 +974,7 @@ p {
 
 .report-document .sentiment-chart-card img,
 .report-document .word-cloud-grid img {
+  padding: 0;
   max-height: none;
   border: 0;
   border-radius: 0;
