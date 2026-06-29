@@ -876,6 +876,28 @@ p {
   color: var(--text);
 }
 
+.report-document ul,
+.report-document ol {
+  margin: 0.85rem 0 0;
+  padding-left: 1.35rem;
+  color: var(--muted-strong);
+}
+
+.report-document li + li {
+  margin-top: 0.35rem;
+}
+
+.report-caption {
+  margin-top: 1.35rem;
+  color: var(--text);
+  font-weight: 850;
+}
+
+.report-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .sentiment-chart-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
