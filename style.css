@@ -972,6 +972,11 @@ p {
   max-height: 500px;
 }
 
+.report-document .education-chart-figure img {
+  max-height: 560px;
+  padding: 1rem 2rem 4.5rem;
+}
+
 .report-document .sentiment-chart-card img,
 .report-document .word-cloud-grid img {
   padding: 0;
