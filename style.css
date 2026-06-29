@@ -948,14 +948,14 @@ p {
 .report-document figure {
   display: grid;
   place-items: center;
-  width: min(100%, 800px);
-  margin: 1.5rem auto;
+  width: min(100%, 640px);
+  margin: 1.35rem auto;
 }
 
 .report-document figure img {
   width: auto;
   max-width: 100%;
-  max-height: 520px;
+  max-height: 430px;
   padding: 0.8rem;
   object-fit: contain;
   border: 1px solid var(--border);
@@ -964,17 +964,17 @@ p {
 }
 
 .report-document .profile-breakdown-figure {
-  width: min(100%, 760px);
-  margin: 1.75rem auto;
+  width: min(100%, 620px);
+  margin: 1.5rem auto;
 }
 
 .report-document .profile-breakdown-figure img {
-  max-height: 500px;
+  max-height: 410px;
 }
 
 .report-document .education-chart-figure img {
-  max-height: 560px;
-  padding: 1rem 2rem 4.5rem;
+  max-height: 460px;
+  padding: 1rem 1.5rem 3.5rem;
 }
 
 .report-document .sentiment-chart-card img,
