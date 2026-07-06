@@ -453,6 +453,51 @@ p {
   padding-left: 2rem;
 }
 
+.about-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.about-table caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.about-table tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.about-table tr:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.about-table th,
+.about-table td {
+  padding: 1.1rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.about-table th {
+  width: 34%;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-table td {
+  color: var(--text);
+  font-weight: 700;
+}
+
 .about-copy p:first-child {
   margin-top: 0;
   color: var(--text);
