@@ -371,6 +371,10 @@ p {
   line-height: 1.68;
 }
 
+.about-bio p + p {
+  margin-top: 1.1rem;
+}
+
 .about-copy {
   border-left: 1px solid var(--border);
   padding-left: 2rem;
