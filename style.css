@@ -317,7 +317,6 @@ p {
 .card,
 .project-card,
 .skill-card,
-.article-card,
 .resume-card,
 .contact-card {
   border: 1px solid var(--border);
@@ -522,10 +521,19 @@ p {
 
 .project-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border-radius: var(--radius-xl);
   cursor: pointer;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.project-card::before {
+  content: "";
+  display: block;
+  height: 0.4rem;
+  background: linear-gradient(90deg, var(--accent-blue), rgba(198, 176, 140, 0.7));
 }
 
 .project-card:focus-visible {
@@ -536,21 +544,16 @@ p {
 .project-card:hover,
 .card:hover,
 .skill-card:hover,
-.article-card:hover,
 .contact-card:hover {
   transform: translateY(-4px);
   border-color: rgba(79, 110, 154, 0.28);
 }
 
-.project-card img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-bottom: 1px solid var(--border);
-}
-
 .project-body {
-  padding: 1.2rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem;
 }
 
 .project-body p {
@@ -568,6 +571,11 @@ p {
   margin: 1rem 0;
 }
 
+.project-body .link-row {
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
 .link-row a {
   position: relative;
   min-height: 38px;
@@ -582,12 +590,6 @@ p {
   gap: 1rem;
 }
 
-.article-list {
-  display: grid;
-  gap: 1rem;
-}
-
-.article-card,
 .resume-card {
   display: flex;
   justify-content: space-between;
@@ -597,7 +599,6 @@ p {
   padding: 1.25rem;
 }
 
-.article-card p,
 .resume-card p {
   max-width: 820px;
 }
@@ -774,7 +775,6 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .article-card,
   .resume-card,
   .site-footer {
     align-items: flex-start;
@@ -785,13 +785,6 @@ p {
 /* Technical report additions */
 .technical-project-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.article-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.65rem;
 }
 
 .report-page {
@@ -1100,10 +1093,6 @@ p {
 }
 
 @media (max-width: 760px) {
-  .article-actions {
-    justify-content: flex-start;
-  }
-
   .report-nav-links {
     position: static;
     display: flex;
