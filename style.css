@@ -710,25 +710,61 @@ p {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--gap-grid);
+}
+
+.skill-card {
+  min-height: 0;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.skill-tags li {
+  border: 1px solid rgba(79, 110, 154, 0.18);
+  border-radius: 999px;
+  background: rgba(244, 241, 235, 0.8);
+  color: var(--muted-strong);
+  font-size: var(--type-small);
+  font-weight: 750;
+  line-height: 1;
+  padding: 0.55rem 0.7rem;
+}
+
+.outside-card {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(13rem, 0.8fr) minmax(0, 3fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.outside-card h3 {
+  margin: 0;
 }
 
 .skill-lines {
   display: grid;
-  gap: 0.65rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
   margin: 0;
   color: var(--muted-strong);
 }
 
 .skill-lines div {
-  border-top: 1px solid rgba(79, 110, 154, 0.16);
-  padding-top: 0.65rem;
+  border-left: 3px solid rgba(79, 110, 154, 0.35);
+  padding-left: 0.85rem;
 }
 
 .skill-lines div:first-child {
-  border-top: 0;
-  padding-top: 0;
+  border-left-color: rgba(79, 110, 154, 0.5);
 }
 
 .skill-lines dt {
@@ -846,6 +882,14 @@ p {
   .skills-grid,
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .outside-card {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-lines {
+    grid-template-columns: 1fr;
   }
 
   .about-copy {
