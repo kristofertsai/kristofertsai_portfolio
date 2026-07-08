@@ -714,6 +714,35 @@ p {
   gap: var(--gap-grid);
 }
 
+.skill-lines {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  color: var(--muted-strong);
+}
+
+.skill-lines div {
+  border-top: 1px solid rgba(79, 110, 154, 0.16);
+  padding-top: 0.65rem;
+}
+
+.skill-lines div:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.skill-lines dt {
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.skill-lines dd {
+  margin: 0.18rem 0 0;
+  font-size: var(--type-small);
+  line-height: 1.55;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
