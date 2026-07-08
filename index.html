@@ -212,50 +212,47 @@
         <div class="experience-panel" id="panel-research" role="tabpanel" aria-labelledby="tab-research" data-panel="research" hidden>
           <div class="card-grid experience-grid">
             <article class="card">
-              <div class="card-kicker">Research Project · Sports Machine Learning</div>
+              <div class="card-kicker">Research Project</div>
               <h3>rideOS</h3>
-              <p>
-                Built a sports machine-learning research project predicting NBA game outcomes from historical data.
-              </p>
+              <p class="experience-project-title">Predicting NBA Game Outcomes</p>
+              <p>Sports machine-learning model comparison using historical NBA data.</p>
               <div class="experience-meta">
                 <span>Python</span>
                 <span>Model comparison</span>
                 <span>NBA data</span>
               </div>
               <div class="link-row experience-link-row">
-                <a href="#project-nba-outcome">View Project</a>
+                <a href="#project-nba-outcome">View NBA Report</a>
               </div>
             </article>
 
             <article class="card">
-              <div class="card-kicker">Student Club · Consumer Analytics</div>
+              <div class="card-kicker">Student Club</div>
               <h3>DataRes</h3>
-              <p>
-                Contributed to a student data science project analyzing dating-app reviews, sentiment, and profile behavior.
-              </p>
+              <p class="experience-project-title">DataRizz: Dating App Analysis</p>
+              <p>Consumer analytics project on reviews, sentiment, and profile behavior.</p>
               <div class="experience-meta">
                 <span>NLP</span>
                 <span>VADER</span>
                 <span>Visualization</span>
               </div>
               <div class="link-row experience-link-row">
-                <a href="#project-dating-apps">View Project</a>
+                <a href="#project-dating-apps">View DataRes Report</a>
               </div>
             </article>
 
             <article class="card">
-              <div class="card-kicker">Student Club · Sports Analytics</div>
+              <div class="card-kicker">Student Club</div>
               <h3>Bruin Sports Analytics</h3>
-              <p>
-                Published a sports analytics article studying whether PGA Tour driving distance predicts scoring and performance.
-              </p>
+              <p class="experience-project-title">Distance in Modern Golf</p>
+              <p>Published sports analytics article on PGA Tour driving distance and scoring.</p>
               <div class="experience-meta">
                 <span>Regression</span>
                 <span>PGA data</span>
                 <span>Technical article</span>
               </div>
               <div class="link-row experience-link-row">
-                <a href="#project-golf-distance">View Project</a>
+                <a href="#project-golf-distance">View BSA Report</a>
               </div>
             </article>
           </div>
@@ -340,33 +337,14 @@
       </div>
 
       <div class="card-grid project-grid technical-project-grid">
-        <article id="project-golf-distance" class="project-card reveal" data-href="reports/golf-distance-analysis.html" role="link" tabindex="0" aria-label="Read Distance in Modern Golf report">
-          <div class="project-body">
-            <div class="card-kicker">Bruin Sports Analytics · Sports Analytics</div>
-            <p class="project-context">Report: Regression analysis of PGA Tour driving distance</p>
-            <h3>Distance in Modern Golf</h3>
-            <p>
-              Bruin Sports Analytics article studying whether PGA Tour driving distance correlates with scoring,
-              leaderboard success, and strategic advantage.
-            </p>
-            <p class="project-result"><strong>Highlight:</strong> Regression results showed distance creates opportunities, but overall scoring success depends on a wider performance profile.</p>
-            <div class="tool-row">
-              <span>Python</span><span>PGA Data</span><span>Regression</span><span>Seaborn</span>
-            </div>
-            <div class="link-row">
-              <a href="reports/golf-distance-analysis.html">Read Report</a>
-            </div>
-          </div>
-        </article>
-
         <article id="project-nba-outcome" class="project-card reveal" data-href="reports/nba-outcome-prediction.html" role="link" tabindex="0" aria-label="Read Predicting NBA Game Outcomes report">
           <div class="project-body">
-            <div class="card-kicker">rideOS · Sports Machine Learning</div>
-            <p class="project-context">Research project: NBA outcome prediction model comparison</p>
-            <h3>Predicting NBA Game Outcomes</h3>
+            <div class="card-kicker">Research Project</div>
+            <h3>rideOS</h3>
+            <p class="project-context">Predicting NBA Game Outcomes</p>
             <p>
-              Used NBA game data, engineered statistical features, and WEKA classifiers to test how well previous
-              team performance can predict game outcomes.
+              Sports machine-learning research project using NBA game data, engineered statistical features, and WEKA
+              classifiers to test outcome prediction.
             </p>
             <p class="project-result"><strong>Highlight:</strong> Processed 1,200+ games and compared models with F-measure across J48, Naive Bayes, regression, and K-NN-style methods.</p>
             <div class="tool-row">
@@ -380,12 +358,12 @@
 
         <article id="project-dating-apps" class="project-card reveal" data-href="reports/dating-apps-analysis.html" role="link" tabindex="0" aria-label="Read DataRizz Dating App Analysis report">
           <div class="project-body">
-            <div class="card-kicker">DataRes · Consumer Analytics</div>
-            <p class="project-context">Student project: Dating-app reviews, sentiment, and profile behavior</p>
-            <h3>DataRizz: Dating App Analysis</h3>
+            <div class="card-kicker">Student Club</div>
+            <h3>DataRes</h3>
+            <p class="project-context">DataRizz: Dating App Analysis</p>
             <p>
-              Collaborative DataRes project using sentiment analysis and data visualization to understand reviews,
-              profile behavior, app frustrations, and engagement patterns.
+              Collaborative consumer analytics project using sentiment analysis and data visualization to understand
+              dating-app reviews, profile behavior, and engagement patterns.
             </p>
             <p class="project-result"><strong>Highlight:</strong> Applied VADER sentiment scoring and visual analysis to compare Tinder, Hinge, and Bumble user experience trends.</p>
             <div class="tool-row">
@@ -393,6 +371,25 @@
             </div>
             <div class="link-row">
               <a href="reports/dating-apps-analysis.html">Read Report</a>
+            </div>
+          </div>
+        </article>
+
+        <article id="project-golf-distance" class="project-card reveal" data-href="reports/golf-distance-analysis.html" role="link" tabindex="0" aria-label="Read Distance in Modern Golf report">
+          <div class="project-body">
+            <div class="card-kicker">Student Club</div>
+            <h3>Bruin Sports Analytics</h3>
+            <p class="project-context">Distance in Modern Golf</p>
+            <p>
+              Published sports analytics article studying whether PGA Tour driving distance correlates with scoring,
+              leaderboard success, and strategic advantage.
+            </p>
+            <p class="project-result"><strong>Highlight:</strong> Regression results showed distance creates opportunities, but overall scoring success depends on a wider performance profile.</p>
+            <div class="tool-row">
+              <span>Python</span><span>PGA Data</span><span>Regression</span><span>Seaborn</span>
+            </div>
+            <div class="link-row">
+              <a href="reports/golf-distance-analysis.html">Read Report</a>
             </div>
           </div>
         </article>

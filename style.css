@@ -575,6 +575,30 @@ p {
   line-height: 1.3;
 }
 
+.experience-project-title,
+.project-context {
+  color: var(--accent-blue);
+  font-size: 1.02rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.experience-project-title {
+  margin: 0.8rem 0 0;
+}
+
+.experience-project-title + p {
+  margin-top: 0.45rem;
+}
+
+.project-context {
+  margin: 0.7rem 0 0.9rem;
+}
+
+.project-context + p {
+  margin-top: 0;
+}
+
 .card,
 .skill-card {
   border-radius: var(--radius-lg);
@@ -648,14 +672,6 @@ p {
 
 .project-body p {
   font-size: 0.95rem;
-}
-
-.project-context {
-  margin: -0.25rem 0 0.85rem;
-  color: var(--accent-blue);
-  font-size: 0.82rem;
-  font-weight: 850;
-  line-height: 1.35;
 }
 
 .project-result {
