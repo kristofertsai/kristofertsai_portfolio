@@ -500,6 +500,10 @@ p {
   border-color: rgba(79, 110, 154, 0.22);
 }
 
+.experience-compact {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(248, 243, 233, 0.72));
+}
+
 .card,
 .skill-card {
   border-radius: var(--radius-lg);
