@@ -140,7 +140,7 @@
         <div class="experience-tab-list" role="tablist" aria-label="Experience categories">
           <button class="experience-tab active" id="tab-formula" type="button" role="tab" aria-selected="true" aria-controls="panel-formula" data-tab="formula">Formula Work</button>
           <button class="experience-tab" id="tab-professional" type="button" role="tab" aria-selected="false" aria-controls="panel-professional" data-tab="professional">Professional Experience</button>
-          <button class="experience-tab" id="tab-research" type="button" role="tab" aria-selected="false" aria-controls="panel-research" data-tab="research">Research &amp; Club Projects</button>
+          <button class="experience-tab" id="tab-research" type="button" role="tab" aria-selected="false" aria-controls="panel-research" data-tab="research">Student Clubs &amp; Research</button>
         </div>
 
         <div class="experience-panel" id="panel-formula" role="tabpanel" aria-labelledby="tab-formula" data-panel="formula">
@@ -222,31 +222,40 @@
                 <span>Model comparison</span>
                 <span>NBA data</span>
               </div>
+              <div class="link-row experience-link-row">
+                <a href="#project-nba-outcome">View Project</a>
+              </div>
             </article>
 
             <article class="card">
-              <div class="card-kicker">Research Project · Consumer Analytics</div>
-              <h3>Dating App Analytics</h3>
+              <div class="card-kicker">Student Club · Consumer Analytics</div>
+              <h3>DataRes</h3>
               <p>
-                Analyzed dating-app reviews and profile data to understand sentiment, engagement, and user behavior.
+                Contributed to a student data science project analyzing dating-app reviews, sentiment, and profile behavior.
               </p>
               <div class="experience-meta">
                 <span>NLP</span>
                 <span>VADER</span>
                 <span>Visualization</span>
               </div>
+              <div class="link-row experience-link-row">
+                <a href="#project-dating-apps">View Project</a>
+              </div>
             </article>
 
             <article class="card">
-              <div class="card-kicker">Research Project · Sports Analytics</div>
-              <h3>PGA Tour Distance Analysis</h3>
+              <div class="card-kicker">Student Club · Sports Analytics</div>
+              <h3>Bruin Sports Analytics</h3>
               <p>
-                Studied whether driving distance predicts scoring and championship performance on the PGA Tour.
+                Published a sports analytics article studying whether PGA Tour driving distance predicts scoring and performance.
               </p>
               <div class="experience-meta">
                 <span>Regression</span>
                 <span>PGA data</span>
                 <span>Technical article</span>
+              </div>
+              <div class="link-row experience-link-row">
+                <a href="#project-golf-distance">View Project</a>
               </div>
             </article>
           </div>
@@ -331,7 +340,7 @@
       </div>
 
       <div class="card-grid project-grid technical-project-grid">
-        <article class="project-card reveal" data-href="reports/golf-distance-analysis.html" role="link" tabindex="0" aria-label="Read Distance in Modern Golf report">
+        <article id="project-golf-distance" class="project-card reveal" data-href="reports/golf-distance-analysis.html" role="link" tabindex="0" aria-label="Read Distance in Modern Golf report">
           <div class="project-body">
             <div class="card-kicker">Sports Analytics · Regression</div>
             <h3>Distance in Modern Golf</h3>
@@ -349,7 +358,7 @@
           </div>
         </article>
 
-        <article class="project-card reveal" data-href="reports/nba-outcome-prediction.html" role="link" tabindex="0" aria-label="Read Predicting NBA Game Outcomes report">
+        <article id="project-nba-outcome" class="project-card reveal" data-href="reports/nba-outcome-prediction.html" role="link" tabindex="0" aria-label="Read Predicting NBA Game Outcomes report">
           <div class="project-body">
             <div class="card-kicker">Sports Analytics · Machine Learning</div>
             <h3>Predicting NBA Game Outcomes</h3>
@@ -367,7 +376,7 @@
           </div>
         </article>
 
-        <article class="project-card reveal" data-href="reports/dating-apps-analysis.html" role="link" tabindex="0" aria-label="Read DataRizz Dating App Analysis report">
+        <article id="project-dating-apps" class="project-card reveal" data-href="reports/dating-apps-analysis.html" role="link" tabindex="0" aria-label="Read DataRizz Dating App Analysis report">
           <div class="project-body">
             <div class="card-kicker">Consumer Analytics · NLP</div>
             <h3>DataRizz: Dating App Analysis</h3>
