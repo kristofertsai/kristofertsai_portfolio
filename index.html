@@ -26,6 +26,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#bfr">BFR</a></li>
         <li><a href="#projects">Reports</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -186,6 +187,75 @@
             <li>Used regression analysis to test the relationship between distance and points.</li>
             <li>Published findings through Bruin Sports Analytics.</li>
           </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="bfr" class="section bfr-section" aria-labelledby="bfr-title">
+      <div class="bfr-intro-card reveal">
+        <div>
+          <p class="eyebrow">Formula SAE / UCLA</p>
+          <h2 id="bfr-title">Bruin Formula Racing</h2>
+          <p class="bfr-intro-subtitle">Vehicle Dynamics &amp; Telemetry Analysis</p>
+          <p>
+            I am working with Bruin Formula Racing on vehicle dynamics and telemetry analysis, focusing on turning
+            early-stage Formula Student sensor logs into usable engineering insight. The work begins with data cleaning
+            and channel validation before moving into powertrain energy, thermal drift, and endurance-style analysis.
+          </p>
+        </div>
+        <div class="bfr-intro-metrics" aria-label="Telemetry audit summary">
+          <span>2026 testing</span>
+          <strong>347 channels</strong>
+          <span>Inverter / BMS / IMU / thermal</span>
+        </div>
+      </div>
+
+      <div class="bfr-panel-grid">
+        <article class="bfr-panel bfr-panel-feature reveal" data-href="reports/bfr-raw-logs-telemetry.html" role="link" tabindex="0" aria-label="Read From Raw Logs to Usable Telemetry case study">
+          <div class="bfr-panel-topline">
+            <span class="status-tag status-usable">Data Processing</span>
+            <span class="bfr-panel-index">01</span>
+          </div>
+          <h3>From Raw Logs to Usable Telemetry</h3>
+          <p class="bfr-panel-subtitle">Data cleaning, channel validation, and analysis limitations</p>
+          <p>
+            Audited a 347-channel telemetry log to identify usable inverter, BMS, coolant, thermal, and IMU signals
+            while excluding invalid GPS, wheel speed, VCU, tyre, brake, and damper channels from performance conclusions.
+          </p>
+          <div class="bfr-signal-row" aria-label="Signal status summary">
+            <span class="status-tag status-usable">Usable</span>
+            <span class="status-tag status-caution">Caution</span>
+            <span class="status-tag status-excluded">Excluded</span>
+          </div>
+          <div class="link-row">
+            <a href="reports/bfr-raw-logs-telemetry.html">Open Case Study</a>
+          </div>
+        </article>
+
+        <article class="bfr-panel reveal">
+          <div class="bfr-panel-topline">
+            <span class="status-tag status-progress">Coming next / In progress</span>
+            <span class="bfr-panel-index">02</span>
+          </div>
+          <h3>Endurance Energy &amp; Powertrain Analysis</h3>
+          <p class="bfr-panel-subtitle">Electrical power, torque response, and cumulative energy</p>
+          <p>
+            Uses the cleaned telemetry signals to estimate inverter-side electrical power, compare torque command and
+            feedback, and analyse energy use during active running.
+          </p>
+        </article>
+
+        <article class="bfr-panel reveal">
+          <div class="bfr-panel-topline">
+            <span class="status-tag status-progress">Coming next / In progress</span>
+            <span class="bfr-panel-index">03</span>
+          </div>
+          <h3>Thermal Drift During Active Running</h3>
+          <p class="bfr-panel-subtitle">Battery, inverter, and coolant temperature trends</p>
+          <p>
+            Studies how BMS, inverter, and coolant temperatures evolve during active running to understand endurance
+            reliability and system behaviour.
+          </p>
         </article>
       </div>
     </section>

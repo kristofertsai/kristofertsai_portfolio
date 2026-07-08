@@ -9,7 +9,7 @@ const navLinks = document.querySelector('.nav-links');
 const navItems = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('main section[id]');
 const revealItems = document.querySelectorAll('.reveal');
-const clickableCards = document.querySelectorAll('.project-card[data-href]');
+const clickableCards = document.querySelectorAll('.project-card[data-href], .bfr-panel[data-href]');
 const year = document.querySelector('#year');
 
 if (year) {

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bruin Formula Racing telemetry case study covering data cleaning, channel validation, torque sign correction, and analysis limitations." />
+  <title>From Raw Logs to Usable Telemetry | Kristofer Tsai</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="report-page bfr-case-page">
+  <a class="skip-link" href="#report-content">Skip to case study</a>
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Case study navigation">
+      <a class="brand" href="../index.html#top" aria-label="Kristofer Tsai home">
+        <span class="brand-mark">KT</span>
+        <span class="brand-text">Kristofer Tsai</span>
+      </a>
+      <ul class="nav-links report-nav-links">
+        <li><a href="../index.html#bfr">Bruin Formula Racing</a></li>
+        <li><a href="../index.html#projects">Reports</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="report-content">
+    <section class="report-hero section bfr-case-hero">
+      <a class="back-link" href="../index.html#bfr">Back to Bruin Formula Racing</a>
+      <p class="eyebrow">Bruin Formula Racing / Telemetry Validation</p>
+      <h1>From Raw Logs to Usable Telemetry</h1>
+      <p class="hero-subtitle">Building a trustworthy analysis foundation from Bruin Formula endurance data</p>
+      <p class="case-hero-copy">
+        Before analysing endurance performance, I first validated the telemetry dataset to understand which signals were
+        reliable enough to support engineering conclusions. The log contained hundreds of channels from the inverter,
+        BMS, IMU, GPS, VCU, SDU, and sensor modules, but not every channel was usable. This case study walks through the
+        data-cleaning process: timestamp cleaning, channel health auditing, duplicate signal handling, torque sign
+        correction, canonical signal selection, and clearly documented limitations.
+      </p>
+      <div class="tool-row report-tools">
+        <span>Telemetry Cleaning</span>
+        <span>Channel Validation</span>
+        <span>Python / pandas</span>
+        <span>Formula SAE</span>
+      </div>
+    </section>
+
+    <section class="section report-shell bfr-case-shell" aria-label="Telemetry case study">
+      <aside class="report-aside bfr-case-aside">
+        <p class="eyebrow">Dataset</p>
+        <p><strong>Example file:</strong> BFR_2026-06-06_09-11-15_AM.csv</p>
+        <p>The cleaned dataset is strongest for inverter, BMS, coolant, inverter temperature, and selected IMU analysis.</p>
+        <p>It is not used here for lap timing, track maps, GPS speed, wheel speed, braking, tyre behaviour, or suspension conclusions.</p>
+      </aside>
+
+      <article class="report-document bfr-case-document">
+        <section aria-labelledby="audit-summary-title">
+          <h2 id="audit-summary-title">Audit Summary</h2>
+          <div class="case-summary-grid" aria-label="Telemetry audit metrics">
+            <div class="case-summary-card">
+              <strong>347</strong>
+              <span>telemetry channels audited</span>
+            </div>
+            <div class="case-summary-card">
+              <strong>~29k</strong>
+              <span>rows inspected</span>
+            </div>
+            <div class="case-summary-card">
+              <strong>~176 s</strong>
+              <span>logged data duration</span>
+            </div>
+            <div class="case-summary-card">
+              <strong>Selected</strong>
+              <span>inverter / BMS / thermal channels</span>
+            </div>
+            <div class="case-summary-card">
+              <strong>Excluded</strong>
+              <span>GPS / wheel speed / VCU inputs</span>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="workflow-title">
+          <h2 id="workflow-title">Cleaning Workflow</h2>
+          <div class="workflow-strip" aria-label="Telemetry cleaning workflow">
+            <span>Raw telemetry log</span>
+            <span>Timestamp cleaning</span>
+            <span>Channel health audit</span>
+            <span>Duplicate signal handling</span>
+            <span>Torque sign correction</span>
+            <span>Canonical signal selection</span>
+            <span>Analysis-ready telemetry</span>
+          </div>
+        </section>
+
+        <section aria-labelledby="cleaning-steps-title">
+          <h2 id="cleaning-steps-title">Validation Steps</h2>
+          <div class="case-step-grid">
+            <article class="case-step">
+              <span class="status-tag status-usable">Time axis</span>
+              <h3>Timestamp cleaning</h3>
+              <p>
+                Sorted the dataset by the raw <code>ts</code> timestamp and created <code>time_s</code> as elapsed time
+                from the start of the log. This gives a reliable time axis for plots, power integration, and thermal
+                trend analysis.
+              </p>
+            </article>
+            <article class="case-step">
+              <span class="status-tag status-caution">Audit</span>
+              <h3>Full channel health audit</h3>
+              <p>
+                Audited all 347 channels for missing values, flat signals, unrealistic ranges, standard deviation, and
+                unique values, then separated usable channels from suspicious or unusable ones.
+              </p>
+            </article>
+            <article class="case-step">
+              <span class="status-tag status-usable">Canonical names</span>
+              <h3>Duplicate signal handling</h3>
+              <p>
+                Some signals appeared under multiple names, so I used simpler canonical names for analysis:
+                <code>inv.rpm</code>, <code>inv.vdc</code>, <code>inv.tq_cmd</code>, <code>inv.tq_fb</code>, and
+                <code>inv.cool_t</code>.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="usable-signals-title">
+          <h2 id="usable-signals-title">Usable Signals</h2>
+          <div class="table-wrap technical-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">System</th>
+                  <th scope="col">Signals</th>
+                  <th scope="col">Role in analysis</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Inverter</td>
+                  <td><code>inv.rpm</code></td>
+                  <td>Motor speed / operating region</td>
+                </tr>
+                <tr>
+                  <td>Inverter</td>
+                  <td><code>inv.tq_cmd</code>, <code>inv.tq_fb</code></td>
+                  <td>Requested vs reported torque</td>
+                </tr>
+                <tr>
+                  <td>Inverter</td>
+                  <td><code>inv.vdc</code>, <code>inv.idc</code></td>
+                  <td>Electrical power estimate</td>
+                </tr>
+                <tr>
+                  <td>BMS</td>
+                  <td><code>bms.v</code>, <code>bms.i</code>, <code>bms.soc</code></td>
+                  <td>Battery state reference</td>
+                </tr>
+                <tr>
+                  <td>BMS</td>
+                  <td><code>bms.avg_t</code>, <code>bms.hi_t</code>, <code>bms.lo_t</code></td>
+                  <td>Battery thermal trend</td>
+                </tr>
+                <tr>
+                  <td>Cooling</td>
+                  <td><code>inv.cool_t</code></td>
+                  <td>Coolant temperature</td>
+                </tr>
+                <tr>
+                  <td>Inverter thermal</td>
+                  <td><code>inv.all.hot_spot_temp</code>, module temps</td>
+                  <td>Inverter temperature trend</td>
+                </tr>
+                <tr>
+                  <td>IMU</td>
+                  <td><code>imu[2].ax</code>, <code>imu[2].ay</code>, <code>imu[2].az</code>, <code>imu[2].gyro_z</code></td>
+                  <td>Rough vehicle motion checks</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section aria-labelledby="excluded-signals-title">
+          <h2 id="excluded-signals-title">Excluded Or Limited Signals</h2>
+          <div class="table-wrap technical-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Channel group</th>
+                  <th scope="col">Issue</th>
+                  <th scope="col">Decision</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>GPS</td>
+                  <td>Latitude, longitude, and velocity invalid/zero</td>
+                  <td><span class="status-tag status-excluded">Excluded</span> from track map and speed analysis</td>
+                </tr>
+                <tr>
+                  <td>Wheel speed</td>
+                  <td>Wheel RPM channels zero</td>
+                  <td><span class="status-tag status-excluded">Excluded</span> from vehicle speed analysis</td>
+                </tr>
+                <tr>
+                  <td>VCU speed/pedals/brake</td>
+                  <td>Mostly inactive</td>
+                  <td><span class="status-tag status-excluded">Excluded</span> from driver input analysis</td>
+                </tr>
+                <tr>
+                  <td>Motor temperature</td>
+                  <td>Constant unrealistic value</td>
+                  <td><span class="status-tag status-excluded">Excluded</span> from thermal conclusions</td>
+                </tr>
+                <tr>
+                  <td>Tyre/sensor module channels</td>
+                  <td>Suspicious or uncalibrated values</td>
+                  <td><span class="status-tag status-caution">Limited</span> for now</td>
+                </tr>
+                <tr>
+                  <td>Brake channels</td>
+                  <td>Mostly flat or unclear scaling</td>
+                  <td><span class="status-tag status-excluded">Excluded</span> from braking analysis</td>
+                </tr>
+                <tr>
+                  <td>Damper channels</td>
+                  <td>Too small or inconsistent</td>
+                  <td><span class="status-tag status-excluded">Excluded</span> from suspension conclusions</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section aria-labelledby="torque-sign-title">
+          <h2 id="torque-sign-title">Torque Sign Convention</h2>
+          <p>
+            Torque command and torque feedback used opposite sign conventions in the dataset. The command signal
+            reported positive torque during drive, while feedback reported a similar magnitude with the opposite sign. I
+            sign-corrected torque feedback for plotting and comparison so that positive values represented drive torque.
+            This allowed command and feedback to be compared directly and suggested that feedback was usable after sign
+            correction.
+          </p>
+          <pre class="formula-block"><code>torque_fb_nm = -inv.tq_fb</code></pre>
+        </section>
+
+        <section aria-labelledby="cleaned-set-title">
+          <h2 id="cleaned-set-title">Final Cleaned Signal Set</h2>
+          <div class="table-wrap technical-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Clean signal</th>
+                  <th scope="col">Source</th>
+                  <th scope="col">Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>time_s</code></td>
+                  <td><code>ts</code></td>
+                  <td>Elapsed time</td>
+                </tr>
+                <tr>
+                  <td><code>rpm</code></td>
+                  <td><code>inv.rpm</code></td>
+                  <td>Motor speed</td>
+                </tr>
+                <tr>
+                  <td><code>torque_cmd_nm</code></td>
+                  <td><code>inv.tq_cmd</code></td>
+                  <td>Requested torque</td>
+                </tr>
+                <tr>
+                  <td><code>torque_fb_nm</code></td>
+                  <td><code>-inv.tq_fb</code></td>
+                  <td>Sign-corrected torque feedback</td>
+                </tr>
+                <tr>
+                  <td><code>vdc</code></td>
+                  <td><code>inv.vdc</code></td>
+                  <td>Inverter DC voltage</td>
+                </tr>
+                <tr>
+                  <td><code>idc</code></td>
+                  <td><code>inv.idc</code></td>
+                  <td>Inverter DC current</td>
+                </tr>
+                <tr>
+                  <td><code>P_elec_kW</code></td>
+                  <td><code>inv.vdc x inv.idc / 1000</code></td>
+                  <td>Estimated inverter electrical power</td>
+                </tr>
+                <tr>
+                  <td><code>bms_avg_temp</code></td>
+                  <td><code>bms.avg_t</code></td>
+                  <td>Battery average temperature</td>
+                </tr>
+                <tr>
+                  <td><code>coolant_temp</code></td>
+                  <td><code>inv.cool_t</code></td>
+                  <td>Coolant temperature</td>
+                </tr>
+                <tr>
+                  <td><code>inverter_hotspot_temp</code></td>
+                  <td><code>inv.all.hot_spot_temp</code></td>
+                  <td>Inverter hot spot temperature</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section aria-labelledby="takeaway-title" class="engineering-takeaway">
+          <h2 id="takeaway-title">Engineering Takeaway</h2>
+          <p>
+            The cleaning process showed that this telemetry log was strongest for powertrain energy and thermal analysis,
+            not lap-time or vehicle-speed analysis. By validating the channels first, I avoided overclaiming from
+            incomplete data and built a trustworthy foundation for later endurance analysis.
+          </p>
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Kristofer Tsai. Bruin Formula Racing telemetry case study.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
