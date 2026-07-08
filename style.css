@@ -489,7 +489,56 @@ p {
 }
 
 .experience-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.experience-tabs {
+  display: grid;
+  gap: 1rem;
+}
+
+.experience-tab-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 24px rgba(31, 42, 52, 0.06);
+}
+
+.experience-tab {
+  min-height: 2.45rem;
+  padding: 0.55rem 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  color: var(--muted-strong);
+  background: transparent;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 850;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.experience-tab:hover,
+.experience-tab:focus-visible {
+  color: var(--text);
+  background: rgba(79, 110, 154, 0.08);
+  outline: none;
+}
+
+.experience-tab.active {
+  color: #f8f3ea;
+  background: var(--accent);
+  box-shadow: 0 8px 18px rgba(79, 110, 154, 0.16);
+}
+
+.experience-panel[hidden] {
+  display: none;
 }
 
 .experience-feature {
@@ -500,8 +549,30 @@ p {
   border-color: rgba(79, 110, 154, 0.22);
 }
 
+.experience-panel[data-panel="formula"] .experience-feature {
+  grid-column: 1 / -1;
+}
+
 .experience-compact {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(248, 243, 233, 0.72));
+}
+
+.experience-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.experience-meta span {
+  border: 1px solid rgba(79, 110, 154, 0.16);
+  border-radius: 999px;
+  padding: 0.3rem 0.55rem;
+  color: var(--muted-strong);
+  background: rgba(79, 110, 154, 0.08);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.3;
 }
 
 .card,
@@ -767,6 +838,16 @@ p {
   .skills-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .experience-tab-list {
+    display: grid;
+    width: 100%;
+    border-radius: var(--radius-lg);
+  }
+
+  .experience-tab {
+    width: 100%;
   }
 
   .experience-feature {

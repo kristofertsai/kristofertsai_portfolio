@@ -10,6 +10,8 @@ const navItems = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('main section[id]');
 const revealItems = document.querySelectorAll('.reveal');
 const clickableCards = document.querySelectorAll('.project-card[data-href], .bfr-panel[data-href]');
+const experienceTabs = document.querySelectorAll('.experience-tab');
+const experiencePanels = document.querySelectorAll('.experience-panel');
 const year = document.querySelector('#year');
 
 if (year) {
@@ -47,6 +49,39 @@ clickableCards.forEach((card) => {
     if (event.key !== 'Enter' && event.key !== ' ') return;
     event.preventDefault();
     window.location.href = card.dataset.href;
+  });
+});
+
+function activateExperienceTab(tab) {
+  const tabName = tab.dataset.tab;
+
+  experienceTabs.forEach((item) => {
+    const isActive = item === tab;
+    item.classList.toggle('active', isActive);
+    item.setAttribute('aria-selected', String(isActive));
+    item.tabIndex = isActive ? 0 : -1;
+  });
+
+  experiencePanels.forEach((panel) => {
+    panel.hidden = panel.dataset.panel !== tabName;
+  });
+}
+
+experienceTabs.forEach((tab, index) => {
+  tab.tabIndex = tab.classList.contains('active') ? 0 : -1;
+
+  tab.addEventListener('click', () => {
+    activateExperienceTab(tab);
+  });
+
+  tab.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+
+    event.preventDefault();
+    const direction = event.key === 'ArrowRight' ? 1 : -1;
+    const nextIndex = (index + direction + experienceTabs.length) % experienceTabs.length;
+    experienceTabs[nextIndex].focus();
+    activateExperienceTab(experienceTabs[nextIndex]);
   });
 });
 

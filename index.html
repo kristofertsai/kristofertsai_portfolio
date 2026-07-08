@@ -136,101 +136,121 @@
         <p>Role snapshots across motorsport telemetry, AI governance, operations, machine learning, and applied analytics.</p>
       </div>
 
-      <div class="card-grid experience-grid">
-        <article class="card experience-feature reveal">
-          <div class="card-kicker">Analyst · Vehicle Dynamics &amp; Telemetry</div>
-          <h3>Bruin Formula Racing</h3>
-          <p>
-            Working with UCLA's Formula SAE team on vehicle dynamics and telemetry analysis, focusing on turning
-            early-stage sensor logs into usable engineering insight.
-          </p>
-          <ul>
-            <li>Audited 2026 telemetry logs across inverter, BMS, IMU, GPS, VCU, and sensor channels.</li>
-            <li>Built cleaned signal sets for powertrain, thermal, and selected motion analysis.</li>
-            <li>Documented unreliable channels to avoid unsupported lap-time, GPS, braking, tyre, or suspension conclusions.</li>
-          </ul>
-          <div class="link-row experience-link-row">
-            <a href="#bfr">View BFR Case Studies</a>
+      <div class="experience-tabs reveal">
+        <div class="experience-tab-list" role="tablist" aria-label="Experience categories">
+          <button class="experience-tab active" id="tab-formula" type="button" role="tab" aria-selected="true" aria-controls="panel-formula" data-tab="formula">Formula Work</button>
+          <button class="experience-tab" id="tab-professional" type="button" role="tab" aria-selected="false" aria-controls="panel-professional" data-tab="professional">Professional Experience</button>
+          <button class="experience-tab" id="tab-research" type="button" role="tab" aria-selected="false" aria-controls="panel-research" data-tab="research">Research &amp; Club Projects</button>
+        </div>
+
+        <div class="experience-panel" id="panel-formula" role="tabpanel" aria-labelledby="tab-formula" data-panel="formula">
+          <div class="card-grid experience-grid">
+            <article class="card experience-feature">
+              <div class="card-kicker">Analyst · Vehicle Dynamics &amp; Telemetry</div>
+              <h3>Bruin Formula Racing</h3>
+              <p>
+                Working with UCLA's Formula SAE team on vehicle dynamics and telemetry analysis, with the detailed work
+                organized below as case studies.
+              </p>
+              <div class="experience-meta">
+                <span>Telemetry validation</span>
+                <span>Vehicle dynamics</span>
+                <span>Endurance data</span>
+              </div>
+              <div class="link-row experience-link-row">
+                <a href="#bfr">View BFR Case Studies</a>
+              </div>
+            </article>
           </div>
-        </article>
+        </div>
 
-        <article class="card reveal">
-          <div class="card-kicker">Internship · AI Governance &amp; Cybersecurity</div>
-          <h3>GovTech Singapore</h3>
-          <p>
-            Contributed to AI governance and cybersecurity work for public-sector technical audiences.
-          </p>
-          <ul>
-            <li>Investigated LLM cybersecurity threats and defenses for policy and engineering stakeholders.</li>
-            <li>Helped build an AI playbook adopted by multiple agencies.</li>
-            <li>Prepared technical memos that translated AI risk scenarios into usable guidance.</li>
-          </ul>
-        </article>
+        <div class="experience-panel" id="panel-professional" role="tabpanel" aria-labelledby="tab-professional" data-panel="professional" hidden>
+          <div class="card-grid experience-grid">
+            <article class="card">
+              <div class="card-kicker">Internship · AI Governance &amp; Cybersecurity</div>
+              <h3>GovTech Singapore</h3>
+              <p>
+                Supported public-sector AI governance and cybersecurity work through research, technical memos, and
+                playbook development.
+              </p>
+              <div class="experience-meta">
+                <span>AI risk</span>
+                <span>Cybersecurity</span>
+                <span>Technical writing</span>
+              </div>
+            </article>
 
-        <article class="card reveal">
-          <div class="card-kicker">National Service · Logistics &amp; Operations</div>
-          <h3>Singapore Armed Forces</h3>
-          <p>
-            Served in logistics and equipment support roles during Singapore National Service.
-          </p>
-          <ul>
-            <li>Coordinated supply support for 500+ personnel at Pasir Laba Camp.</li>
-            <li>Maintained and repaired military equipment supporting readiness for 1,000+ cadets.</li>
-            <li>Worked in structured operations where reliability, documentation, and accountability mattered daily.</li>
-          </ul>
-        </article>
+            <article class="card">
+              <div class="card-kicker">National Service · Logistics &amp; Operations</div>
+              <h3>Singapore Armed Forces</h3>
+              <p>
+                Served in logistics and equipment support roles during Singapore National Service, coordinating supply
+                and readiness work in structured operations.
+              </p>
+              <div class="experience-meta">
+                <span>Operations</span>
+                <span>Logistics</span>
+                <span>Accountability</span>
+              </div>
+            </article>
 
-        <article class="card reveal">
-          <div class="card-kicker">Research Project · Sports Machine Learning</div>
-          <h3>rideOS</h3>
-          <p>
-            Built a sports machine-learning research project predicting NBA game outcomes from historical data.
-          </p>
-          <ul>
-            <li>Processed 1,200+ NBA games and engineered 15+ model features.</li>
-            <li>Compared Naive Bayes, J48, regression, and K-NN-style methods.</li>
-            <li>Reached a maximum F-score of 0.61 and benchmarked results against prior work.</li>
-          </ul>
-        </article>
+            <article class="card experience-compact">
+              <div class="card-kicker">Internship · Data Auditing &amp; Market Research</div>
+              <h3>Singapore Mint</h3>
+              <p>
+                Supported data digitization, auditing, and circulation research during an early internship.
+              </p>
+              <div class="experience-meta">
+                <span>Excel workflows</span>
+                <span>Data auditing</span>
+                <span>Market research</span>
+              </div>
+            </article>
+          </div>
+        </div>
 
-        <article class="card reveal">
-          <div class="card-kicker">Research Project · Consumer Analytics</div>
-          <h3>Dating App Analytics</h3>
-          <p>
-            Analyzed dating-app reviews and profile data to understand sentiment, engagement, and user behavior.
-          </p>
-          <ul>
-            <li>Processed large review datasets with VADER sentiment analysis.</li>
-            <li>Built visualizations to compare app sentiment and profile engagement patterns.</li>
-            <li>Presented findings to a UCLA data science audience.</li>
-          </ul>
-        </article>
+        <div class="experience-panel" id="panel-research" role="tabpanel" aria-labelledby="tab-research" data-panel="research" hidden>
+          <div class="card-grid experience-grid">
+            <article class="card">
+              <div class="card-kicker">Research Project · Sports Machine Learning</div>
+              <h3>rideOS</h3>
+              <p>
+                Built a sports machine-learning research project predicting NBA game outcomes from historical data.
+              </p>
+              <div class="experience-meta">
+                <span>Python</span>
+                <span>Model comparison</span>
+                <span>NBA data</span>
+              </div>
+            </article>
 
-        <article class="card reveal">
-          <div class="card-kicker">Research Project · Sports Analytics</div>
-          <h3>PGA Tour Distance Analysis</h3>
-          <p>
-            Studied whether driving distance predicts scoring and championship performance on the PGA Tour.
-          </p>
-          <ul>
-            <li>Cleaned PGA Tour data and handled missing values and outliers.</li>
-            <li>Used regression analysis to test the relationship between distance and points.</li>
-            <li>Published findings through Bruin Sports Analytics.</li>
-          </ul>
-        </article>
+            <article class="card">
+              <div class="card-kicker">Research Project · Consumer Analytics</div>
+              <h3>Dating App Analytics</h3>
+              <p>
+                Analyzed dating-app reviews and profile data to understand sentiment, engagement, and user behavior.
+              </p>
+              <div class="experience-meta">
+                <span>NLP</span>
+                <span>VADER</span>
+                <span>Visualization</span>
+              </div>
+            </article>
 
-        <article class="card experience-compact reveal">
-          <div class="card-kicker">Internship · Data Auditing &amp; Market Research</div>
-          <h3>Singapore Mint</h3>
-          <p>
-            Supported data digitization, auditing, and circulation research for a short internship.
-          </p>
-          <ul>
-            <li>Streamlined Excel-based data digitization and auditing workflows.</li>
-            <li>Conducted market research on coin circulation and distribution strategy.</li>
-            <li>Audited 1,000+ data entries to identify inconsistencies and support compliance.</li>
-          </ul>
-        </article>
+            <article class="card">
+              <div class="card-kicker">Research Project · Sports Analytics</div>
+              <h3>PGA Tour Distance Analysis</h3>
+              <p>
+                Studied whether driving distance predicts scoring and championship performance on the PGA Tour.
+              </p>
+              <div class="experience-meta">
+                <span>Regression</span>
+                <span>PGA data</span>
+                <span>Technical article</span>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
