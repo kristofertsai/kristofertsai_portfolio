@@ -492,6 +492,14 @@ p {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.experience-feature {
+  grid-column: span 2;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 243, 233, 0.88)),
+    radial-gradient(circle at 92% 0%, rgba(79, 110, 154, 0.12), transparent 16rem);
+  border-color: rgba(79, 110, 154, 0.22);
+}
+
 .card,
 .skill-card {
   border-radius: var(--radius-lg);
@@ -512,6 +520,10 @@ p {
 
 .card li + li {
   margin-top: 0.45rem;
+}
+
+.experience-link-row {
+  margin-top: 1.1rem;
 }
 
 .project-grid {
@@ -685,6 +697,10 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .experience-feature {
+    grid-column: span 2;
+  }
+
   .skills-grid,
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -747,6 +763,10 @@ p {
   .skills-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .experience-feature {
+    grid-column: span 1;
   }
 
   .site-footer {
