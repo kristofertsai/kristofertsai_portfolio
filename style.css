@@ -650,6 +650,14 @@ p {
   font-size: 0.95rem;
 }
 
+.project-context {
+  margin: -0.25rem 0 0.85rem;
+  color: var(--accent-blue);
+  font-size: 0.82rem;
+  font-weight: 850;
+  line-height: 1.35;
+}
+
 .project-result {
   padding: 0.8rem;
   border-left: 3px solid var(--accent-blue);
@@ -682,7 +690,7 @@ p {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
