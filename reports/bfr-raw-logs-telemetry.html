@@ -48,7 +48,7 @@
       <aside class="report-aside bfr-case-aside">
         <p class="eyebrow">Dataset</p>
         <p><strong>Example file:</strong> BFR_2026-06-06_09-11-15_AM.csv</p>
-        <p>The cleaned dataset is strongest for inverter, BMS, coolant, inverter temperature, and selected IMU analysis.</p>
+        <p>The cleaned dataset is strongest for analyses using inverter, BMS, coolant-temperature, inverter-temperature, and selected IMU channels.</p>
         <p>It is not used here for lap timing, track maps, GPS speed, wheel speed, braking, tyre behaviour, or suspension conclusions.</p>
       </aside>
 
@@ -99,7 +99,7 @@
               <span class="status-tag status-usable">Time axis</span>
               <h3>Timestamp cleaning</h3>
               <p>
-                Sorted the dataset by the raw <code>ts</code> timestamp and created <code>time_s</code> as elapsed time
+                I sorted the dataset by the raw <code>ts</code> timestamp and created <code>time_s</code> as elapsed time
                 from the start of the log. This gives a reliable time axis for plots, power integration, and thermal
                 trend analysis.
               </p>
@@ -182,7 +182,7 @@
         </section>
 
         <section aria-labelledby="excluded-signals-title">
-          <h2 id="excluded-signals-title">Excluded Or Limited Signals</h2>
+          <h2 id="excluded-signals-title">Excluded or Limited Signals</h2>
           <div class="table-wrap technical-table-wrap">
             <table>
               <thead>
@@ -239,8 +239,8 @@
             Torque command and torque feedback used opposite sign conventions in the dataset. The command signal
             reported positive torque during drive, while feedback reported a similar magnitude with the opposite sign. I
             sign-corrected torque feedback for plotting and comparison so that positive values represented drive torque.
-            This allowed command and feedback to be compared directly and suggested that feedback was usable after sign
-            correction.
+            This allowed command and feedback to be compared directly and indicated that the feedback signal was usable
+            after sign correction.
           </p>
           <pre class="formula-block"><code>torque_fb_nm = -inv.tq_fb</code></pre>
         </section>
@@ -305,7 +305,7 @@
                 <tr>
                   <td><code>inverter_hotspot_temp</code></td>
                   <td><code>inv.all.hot_spot_temp</code></td>
-                  <td>Inverter hot spot temperature</td>
+                  <td>Inverter hot-spot temperature</td>
                 </tr>
               </tbody>
             </table>
@@ -316,8 +316,8 @@
           <h2 id="takeaway-title">Engineering Takeaway</h2>
           <p>
             The cleaning process showed that this telemetry log was strongest for powertrain energy and thermal analysis,
-            not lap-time or vehicle-speed analysis. By validating the channels first, I avoided overclaiming from
-            incomplete data and built a trustworthy foundation for later endurance analysis.
+            not lap-time or vehicle-speed analysis. By validating the channels first, I avoided drawing unsupported
+            conclusions from incomplete data and built a trustworthy foundation for later endurance analysis.
           </p>
         </section>
       </article>

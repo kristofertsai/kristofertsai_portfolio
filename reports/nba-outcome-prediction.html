@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A WEKA-based machine learning research project using NBA game data, engineered team-stat features, and multiple classifiers to predict home-team outcomes." />
-  <title>Predicting the Outcome of NBA Games using Machine Learning Methods | Kristofer Tsai</title>
+  <meta name="description" content="A WEKA-based machine learning research project using NBA game data, engineered team-level statistical features, and multiple classifiers to predict home-team outcomes." />
+  <title>Predicting the Outcome of NBA Games Using Machine Learning Methods | Kristofer Tsai</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
 <body class="report-page">
@@ -16,8 +16,8 @@
         <span class="brand-text">Kristofer Tsai</span>
       </a>
       <ul class="nav-links report-nav-links">
-        <li><a href="../index.html#projects">Projects</a></li>
-        <li><a href="../index.html#articles">Reports</a></li>
+        <li><a href="../index.html#top">Home</a></li>
+        <li><a href="../index.html#projects">Reports</a></li>
         <li><a href="../assets/documents/nba-outcome-prediction.docx" download>Download DOCX</a></li>
       </ul>
     </nav>
@@ -25,17 +25,17 @@
 
   <main id="report-content">
     <section class="report-hero section">
-      <a class="back-link" href="../index.html#projects">Back to projects</a>
+      <a class="back-link" href="../index.html#projects">Back to reports</a>
       <p class="eyebrow">Machine Learning / Sports Analytics</p>
-      <h1>Predicting the Outcome of NBA Games using Machine Learning Methods</h1>
-      <p class="hero-subtitle">A WEKA-based machine learning research project using NBA game data, engineered team-stat features, and multiple classifiers to predict home-team outcomes.</p>
+      <h1>Predicting the Outcome of NBA Games Using Machine Learning Methods</h1>
+      <p class="hero-subtitle">A WEKA-based machine learning research project using NBA game data, engineered team-level statistical features, and multiple classifiers to predict home-team outcomes.</p>
       <p class="report-meta">rideOS research project / NUS High School</p>
       <div class="tool-row report-tools">
         <span>Python</span>
               <span>API-NBA</span>
               <span>WEKA</span>
               <span>J48</span>
-              <span>Naive Bayes</span>
+              <span>Naïve Bayes</span>
       </div>
       <div class="hero-actions">
         <a class="button button-primary" href="../assets/documents/nba-outcome-prediction.docx" download>Download DOCX</a>
@@ -46,7 +46,7 @@
     <section class="section report-shell" aria-label="Report text">
       <aside class="report-aside">
         <p class="eyebrow">Key Takeaway</p>
-        <p>Processed 1,200+ NBA games and compared classifier performance with F-measure as the main evaluation metric.</p>
+        <p>The project processed 1,200+ NBA games and compared classifier performance using F-measure as the main evaluation metric.</p>
       </aside>
       <article class="report-document">
 <h2>Predicting the Outcome of NBA Games Using Machine Learning Methods</h2>
@@ -69,18 +69,18 @@
 <ol>
   <li>Extracting the data</li>
   <li>Reformatting the data</li>
-  <li>Analyzing the data in WEKA</li>
+  <li>Analysing the data in WEKA</li>
 </ol>
 <p>The data was extracted through a third-party API that provided access to an NBA data library. The extracted data was returned in JavaScript Object Notation (JSON), but WEKA requires comma-separated values (CSV). As a result, the data had to be reformatted before analysis. Different combinations of parameters and attributes were then tested to study the relationship between statistics and game outcomes.</p>
-<p>Data extraction was completed using API-NBA [4], a freemium API developed by API-SPORTS and verified by the RapidAPI community. Using Python, 1,231 requests were sent to extract game data from the 2018-2019 NBA season. Of those requests, 1,219 were successful. Game IDs 4640-4650 and 5065 returned blank results, but the missing games should not significantly affect the experiment because the sample size remains large.</p>
+<p>Data extraction was completed using API-NBA [4], a freemium API developed by API-SPORTS and verified by the RapidAPI community. Using Python, 1,231 requests were sent to extract game data from the 2018–2019 NBA season. Of those requests, 1,219 were successful. Game IDs 4640–4650 and 5065 returned blank results, but the missing games should not significantly affect the experiment because the sample size remains large.</p>
 <p>The JSON data was flattened and saved as a CSV file using Python. Converting JSON into CSV removes some hierarchical structure, but it makes the data more compact and easier for WEKA to process. Appendix A shows examples of both formats.</p>
 <p>The final CSV file contained 54 attributes, listed in Appendix B. To compare home and away team statistics, Excel was used to calculate difference attributes by subtracting the away-team value from the home-team value. For example, PointsInPaintDiff = HomePointsInPaint - AwayPointsInPaint. This produced 26 new difference attributes.</p>
-<p>Each of the 26 new attributes was first tested individually through a J48 tree to predict the game outcome. J48 is WEKA’s open-source Java implementation of the C4.5 decision-tree algorithm developed by Ross Quinlan. It was selected as the starting classifier because C4.5 is one of the most widely used algorithms in data mining and ranked first in the “Top 10 Algorithms in Data Mining” paper published by Springer LNCS in 2008 [5]. After testing all 26 features, the top five were selected based on average F-measure.</p>
+<p>Each of the 26 new attributes was first tested individually using a J48 tree to predict the game outcome. J48 is WEKA’s open-source Java implementation of the C4.5 decision-tree algorithm developed by Ross Quinlan. It was selected as the starting classifier because C4.5 is one of the most widely used algorithms in data mining and ranked first in the “Top 10 Algorithms in Data Mining” paper published by Springer LNCS in 2008 [5]. After testing all 26 features, the top five were selected based on average F-measure.</p>
 <p>F-measure is a measure of test accuracy calculated from precision and recall. Precision is the number of correctly identified positive results divided by all results identified as positive, while recall is the number of correctly identified positive results divided by all samples that should have been identified as positive. F-measure is the harmonic mean of precision and recall. In this project, WEKA classified each game as “1” for a home-team win or “0” for a home-team loss, then averaged F-measure across both outcomes.</p>
 <p>After identifying the top five features, combinations of those features were tested using 5C1, 5C2, and 5C3 groupings. The strongest combinations were then evaluated with traceback values of 3, 5, and 10 games. A traceback value represents the number of previous games used to predict the next game; for example, a traceback of 5 uses games 1 through 5 to predict game 6.</p>
-<p>The final step selected the strongest feature combinations regardless of traceback number and tested them across multiple classifier types. WEKA offers several classifier families, including Bayes, functions, lazy, meta, rules, and trees. The selected classifiers were Naive Bayes [6], Logistic [7], IBk [8], Classification via Regression [9], PART [10], and J48 [11]. Naive Bayes was included as a benchmark against previous research, while the remaining classifiers were selected because they are popular methods that had not yet been applied in this project.</p>
+<p>In the final step, the strongest feature combinations were selected regardless of traceback number and tested across multiple classifier types. WEKA offers several classifier families, including Bayes, functions, lazy, meta, rules, and trees. The selected classifiers were Naïve Bayes [6], Logistic [7], IBk [8], Classification via Regression [9], PART [10], and J48 [11]. Naïve Bayes was included as a benchmark against previous research, while the remaining classifiers were selected because they are popular methods that had not yet been applied in this project.</p>
 <h2>Data and Analysis</h2>
-<p>In this section, we present and discuss the experimental findings from each step.</p>
+<p>This section presents and discusses the experimental findings from each step.</p>
 <p class="report-caption">Table 1: Five features with the highest F-measure</p>
 <div class="table-wrap"><table><tr><td>Game Result</td><td>FGM Diff</td><td>FTP Diff</td><td>Personal Foul Diff</td><td>TPP Diff</td></tr>
 <tr><td>0.607</td><td>0.584</td><td>0.576</td><td>0.575</td><td>0.568</td></tr></table></div>
@@ -119,9 +119,9 @@
 <tr><td>FGM Diff (Traceback 5)</td><td>0.581</td><td>0.575</td><td>0.602</td><td>0.573</td><td>0.573</td><td>0.584</td></tr>
 <tr><td>Game Result - FTP Diff - TPP Diff (Traceback 5)</td><td>0.582</td><td>0.590</td><td>0.507</td><td>0.577</td><td>0.585</td><td>0.58</td></tr>
 <tr><td>FTP Diff (Traceback 5)</td><td>0.574</td><td>0.570</td><td>0.569</td><td>0.569</td><td>0.575</td><td>0.576</td></tr></table></div>
-<p>Table 5 shows five selected feature combinations tested against six classifiers: Naive Bayes, Logistic, IBk, Classification via Regression, PART, and J48. Game Result with traceback 3 had the highest F-measure in three of the six classifier types, possibly because short-term performance carries stronger predictive signal than longer-term performance. Other traceback 5 features performed comparatively better in the Naive Bayes, Logistic, and IBk classifiers. In this experiment, achieving an F-measure above 0.600 was difficult; as a result, scores above 0.57 were treated as desirable.</p>
+<p>Table 5 shows five selected feature combinations tested against six classifiers: Naïve Bayes, Logistic, IBk, Classification via Regression, PART, and J48. Game Result with traceback 3 had the highest F-measure in three of the six classifier types, possibly because short-term performance carries stronger predictive signal than longer-term performance. Other traceback 5 features performed comparatively better in the Naïve Bayes, Logistic, and IBk classifiers. In this experiment, achieving an F-measure above 0.600 was difficult; as a result, scores above 0.57 were treated as desirable.</p>
 <h3>Additional tests</h3>
-<p>We tested out a few other high scoring combinations of features on the classifiers present in table 5. The data can be found below.</p>
+<p>Several other high-scoring feature combinations were tested with the classifiers shown in Table 5. The results are presented below.</p>
 <p class="report-caption">Table 6: Top five F-measures from additional tests</p>
 <div class="table-wrap"><table><tr><td>Attributes</td><td>F-Measure (Recall 5)</td><td>F-Measure (Recall 3)</td><td>F-Measure (Recall 10)</td></tr>
 <tr><td>FGM Diff - FTP Diff</td><td>0.571</td><td>0.542</td><td>0.555</td></tr>
@@ -191,26 +191,26 @@
 <h3>Explanation of classifiers</h3>
 <p>The F-measure can vary because each classifier has different strengths and weaknesses. The Na&#239;ve Bayes classifier uses Bayes’ theorem, which calculates the conditional probability of an event based on prior knowledge of related conditions.</p>
 <p class="report-caption">Image 1: Bayes’ theorem</p>
-<figure><img src="../assets/reports/nba-outcome-prediction/image1.png" alt="Figure from Predicting the Outcome of NBA Games using Machine Learning Methods"></figure>
+<figure><img src="../assets/reports/nba-outcome-prediction/image1.png" alt="Figure from Predicting the Outcome of NBA Games Using Machine Learning Methods"></figure>
 <p>Image 1 shows Bayes’ theorem. P(A|B) is the likelihood, or the probability of A being true given that B is true. P(B|A) is the posterior probability, P(A) is the prior probability, and P(B) is the marginal probability.</p>
 <p>The Logistic classifier’s core is the logistic function. WEKA’s classifier uses a multinomial logistic regression model with a ridge estimator.</p>
 <p class="report-caption">Image 2: Logistic function</p>
-<figure><img src="../assets/reports/nba-outcome-prediction/image2.png" alt="Figure from Predicting the Outcome of NBA Games using Machine Learning Methods"></figure>
+<figure><img src="../assets/reports/nba-outcome-prediction/image2.png" alt="Figure from Predicting the Outcome of NBA Games Using Machine Learning Methods"></figure>
 <p>Image 2 represents the logistic function curve. Logistic regression combines input values linearly using learned weights or coefficients, then maps the result to a binary output. The logistic regression equation is y = e^(b0 + b1*x) / (1 + e^(b0 + b1*x)), where y is the predicted output, b0 is the bias or intercept term, and b1 is the coefficient for the input value.</p>
-<p>IBk classifier uses the k-nearest neighbors (KNN) algorithm.</p>
-<p class="report-caption">Image 3: K-nearest neighbors</p>
-<figure><img src="../assets/reports/nba-outcome-prediction/image3.png" alt="Figure from Predicting the Outcome of NBA Games using Machine Learning Methods"></figure>
-<p>Image 3 shows a spread of data points. KNN captures similarity by calculating the distance between points, then voting for the most frequent label among the nearest neighbors. In this project, K was set to 1, which can create instability but improves efficiency.</p>
+<p>The IBk classifier uses the k-nearest neighbours (KNN) algorithm.</p>
+<p class="report-caption">Image 3: K-nearest neighbours</p>
+<figure><img src="../assets/reports/nba-outcome-prediction/image3.png" alt="Figure from Predicting the Outcome of NBA Games Using Machine Learning Methods"></figure>
+<p>Image 3 shows a spread of data points. KNN captures similarity by calculating the distance between points, then voting for the most frequent label among the nearest neighbours. In this project, <em>k</em> was set to 1, which can create instability but improves efficiency.</p>
 <h3>Classification via regression</h3>
-<p>Classification via regression adapts regression methods for classification tasks. The class value is binarized as 1 or 0, and one regression model is built for each class. After training, the classifier predicts the likely outcome based on the learned models.</p>
+<p>Classification via regression adapts regression methods for classification tasks. The class value is binarised as 1 or 0, and one regression model is built for each class. After training, the classifier predicts the likely outcome based on the learned models.</p>
 <h3>J48</h3>
 <p>J48, also known as C4.5, uses a top-down, recursive, divide-and-conquer method to identify strong splitting attributes. In this experiment, the algorithm attempts to separate “1” outcomes from “0” outcomes as cleanly as possible.</p>
-<p>Take the example of training a J48 tree using the outcome of 8 games, 4 wins and 4 losses. “1” and “0” mean win and loss outcomes respectively. The tree could perform something like this:</p>
+<p>Consider a J48 tree trained on the outcomes of eight games: four wins and four losses. “1” and “0” denote wins and losses, respectively. A simplified split might look like this:</p>
 <p>If total points &gt; 100, outcome = 1, 1, 1, 0. (Subset 1)</p>
 <p>If total points &lt;= 100, outcome = 0, 0, 0, 1. (Subset 2)</p>
-<p>A perfect split is unlikely because each game contains substantial uncertainty. J48 continues splitting the data until each subset is as clean as possible. In general, a smaller tree is preferable because it is easier to interpret and less likely to overfit. After training, the test set is evaluated on the tree, and precision, recall, and F-measure are calculated.</p>
+<p>A perfect split is unlikely because each game contains substantial uncertainty. J48 continues splitting the data until each subset is as clean as possible. In general, a smaller tree is preferable because it is easier to interpret and less likely to overfit. Once trained, the tree is evaluated using the test set, and precision, recall, and F-measure are calculated.</p>
 <h3>PART</h3>
-<p>The PART algorithm is similar to a J48 tree, but it builds partial decision trees and converts the best leaf into a rule at each iteration. Its main advantage is simplicity: it avoids the need for global optimization, which can reduce training and testing time.</p>
+<p>The PART algorithm is similar to a J48 tree, but it builds partial decision trees and converts the best leaf into a rule at each iteration. Its main advantage is simplicity: it avoids the need for global optimisation, which can reduce training and testing time.</p>
       </article>
     </section>
   </main>
