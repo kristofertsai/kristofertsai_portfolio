@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Bruin Formula Racing case study examining inverter torque tracking, motor RPM usage, and positive-torque operating distributions."
+  />
+  <title>Motor Torque Response &amp; Operating Behaviour | Kristofer Tsai</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="report-page bfr-case-page motor-case-page">
+  <a class="skip-link" href="#report-content">Skip to case study</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Case study navigation">
+      <a class="brand" href="../index.html#top" aria-label="Kristofer Tsai home">
+        <span class="brand-mark">KT</span>
+        <span class="brand-text">Kristofer Tsai</span>
+      </a>
+      <ul class="nav-links report-nav-links motor-case-nav-links">
+        <li><a href="../index.html#bfr">Bruin Formula Racing</a></li>
+        <li><a href="../index.html#projects">Reports</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="report-content">
+    <section class="report-hero section bfr-case-hero motor-case-hero" aria-labelledby="motor-case-title">
+      <a class="back-link motor-case-back-link" href="../index.html#bfr">← Back to Bruin Formula Racing</a>
+      <p class="eyebrow">BRUIN FORMULA RACING · CASE STUDY 02</p>
+      <h1 id="motor-case-title">Motor Torque Response &amp; Operating Behaviour</h1>
+      <p class="hero-subtitle">Bruin Formula Racing — Inverter torque tracking and motor operating-region analysis</p>
+      <p class="motor-case-hero-copy">
+        This study examines how accurately the inverter delivered requested motor torque and where the motor operated
+        during the dynamic portion of the logged run. The analysis focuses on torque-command tracking, RPM usage, and
+        the distribution of positive motor torque.
+      </p>
+      <ul class="motor-case-meta" aria-label="Case study metadata">
+        <li class="motor-case-meta-item">347-channel source log</li>
+        <li class="motor-case-meta-item">93.6 s dynamic-running segment</li>
+        <li class="motor-case-meta-item">Inverter telemetry</li>
+        <li class="motor-case-meta-item">Python / pandas / Matplotlib</li>
+      </ul>
+    </section>
+
+    <section class="section motor-case-content" aria-label="Motor torque response case study">
+      <section class="motor-case-panel motor-case-metrics" aria-labelledby="motor-metrics-title">
+        <div class="motor-case-section-heading">
+          <p class="eyebrow">Measured results</p>
+          <h2 id="motor-metrics-title">Key metrics</h2>
+        </div>
+        <dl class="motor-metrics-grid">
+          <div class="motor-metric-card motor-metric-card--priority">
+            <dt class="motor-metric-label">Torque correlation</dt>
+            <dd class="motor-metric-value">0.9999</dd>
+          </div>
+          <div class="motor-metric-card motor-metric-card--priority">
+            <dt class="motor-metric-label">Mean absolute torque error</dt>
+            <dd class="motor-metric-value">0.17 Nm</dd>
+          </div>
+          <div class="motor-metric-card">
+            <dt class="motor-metric-label">Torque RMSE</dt>
+            <dd class="motor-metric-value">0.32 Nm</dd>
+          </div>
+          <div class="motor-metric-card">
+            <dt class="motor-metric-label">Maximum delivered torque</dt>
+            <dd class="motor-metric-value">95.5 Nm</dd>
+          </div>
+          <div class="motor-metric-card">
+            <dt class="motor-metric-label">Maximum motor speed</dt>
+            <dd class="motor-metric-value">3,967 RPM</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="motor-case-panel motor-case-question" aria-labelledby="motor-question-title">
+        <p class="eyebrow">Project question</p>
+        <h2 id="motor-question-title">What was investigated?</h2>
+        <p>
+          The analysis was designed to answer two questions: how closely did delivered motor torque follow the
+          inverter’s commanded value, and which RPM and torque regions were used most often during dynamic running?
+        </p>
+      </section>
+
+      <section class="motor-case-panel motor-case-method" aria-labelledby="motor-method-title">
+        <div class="motor-case-section-heading">
+          <p class="eyebrow">Analysis workflow</p>
+          <h2 id="motor-method-title">Method</h2>
+        </div>
+        <ol class="motor-method-list">
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">01</span>
+            <div class="motor-method-copy">
+              <h3>Select the motor channels</h3>
+              <p>Use:</p>
+              <ul class="motor-channel-list">
+                <li><code>time_s</code></li>
+                <li><code>inv.rpm</code></li>
+                <li><code>inv.tq_cmd</code></li>
+                <li><code>inv.tq_fb</code></li>
+              </ul>
+            </div>
+          </li>
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">02</span>
+            <div class="motor-method-copy">
+              <h3>Prepare the signals</h3>
+              <p>
+                The selected channels were converted to numeric values, sorted by elapsed time, and checked for
+                duplicate timestamps.
+              </p>
+            </div>
+          </li>
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">03</span>
+            <div class="motor-method-copy">
+              <h3>Align the torque convention</h3>
+              <p>
+                The torque-feedback signal used the opposite sign convention from the commanded-torque signal. Its sign
+                was corrected after confirming that the inverted signal produced the stronger command–feedback
+                correlation.
+              </p>
+            </div>
+          </li>
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">04</span>
+            <div class="motor-method-copy">
+              <h3>Resample the data</h3>
+              <p>
+                The data was resampled to 10 Hz so repeated held CAN values would not receive excessive weighting in the
+                analysis.
+              </p>
+            </div>
+          </li>
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">05</span>
+            <div class="motor-method-copy">
+              <h3>Isolate representative running</h3>
+              <p>
+                The dynamic-running section began at approximately 65 seconds, after the initial steady operating
+                period. This produced a 93.6-second segment for the operating-distribution analysis.
+              </p>
+            </div>
+          </li>
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">06</span>
+            <div class="motor-method-copy">
+              <h3>Calculate the results</h3>
+              <p>
+                Torque tracking was evaluated using correlation, mean absolute error, and root-mean-square error. RPM
+                and delivered torque were then grouped into operating bands to calculate their time shares.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="torque-tracking" class="motor-case-panel motor-result" aria-labelledby="motor-result-one-title">
+        <div class="motor-result-grid">
+          <figure class="motor-result-figure">
+            <img
+              class="motor-result-image"
+              src="../assets/reports/bfr-motor-torque-response/torque-command-feedback-accuracy.png"
+              width="689"
+              height="690"
+              loading="lazy"
+              decoding="async"
+              alt="Scatter plot of commanded torque against delivered torque, with nearly all points following the perfect-tracking line."
+            />
+            <figcaption class="motor-result-caption">
+              Torque command–feedback accuracy after aligning the feedback sign convention; the dashed line represents
+              perfect tracking.
+            </figcaption>
+          </figure>
+          <div class="motor-result-copy">
+            <p class="eyebrow motor-result-kicker">Result 01 · Torque tracking</p>
+            <h2 id="motor-result-one-title">Delivered torque closely followed the command</h2>
+            <p>
+              The command–feedback relationship remained almost perfectly linear across the recorded torque range.
+              Delivered torque followed commanded torque with a correlation of 0.9999, a mean absolute error of 0.17 Nm,
+              and an RMSE of 0.32 Nm.
+            </p>
+            <p>
+              The points remain close to the perfect-tracking line from low torque through the approximately 95 Nm
+              maximum-torque region.
+            </p>
+            <aside class="motor-result-highlight" aria-label="Highlighted torque tracking result">
+              <span>Average command–feedback difference:</span>
+              <strong>0.17 Nm</strong>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="rpm-distribution" class="motor-case-panel motor-result motor-result--reverse" aria-labelledby="motor-result-two-title">
+        <div class="motor-result-grid">
+          <figure class="motor-result-figure">
+            <img
+              class="motor-result-image"
+              src="../assets/reports/bfr-motor-torque-response/rpm-distribution-dynamic-running.png"
+              width="889"
+              height="490"
+              loading="lazy"
+              decoding="async"
+              alt="Bar chart showing the percentage of dynamic-running time spent in each motor RPM range."
+            />
+            <figcaption class="motor-result-caption">
+              Dynamic-running time share across the recorded motor-speed bands.
+            </figcaption>
+          </figure>
+          <div class="motor-result-copy">
+            <p class="eyebrow motor-result-kicker">Result 02 · RPM operating distribution</p>
+            <h2 id="motor-result-two-title">Most dynamic operation occurred between 1,500 and 3,000 RPM</h2>
+            <p>
+              During the 93.6-second dynamic-running segment, 81.3% of recorded operation occurred between 1,500 and
+              3,000 RPM. The most common individual range was 2,000–2,500 RPM, accounting for 37.7% of the segment.
+            </p>
+            <dl class="motor-distribution-list" aria-label="Dynamic-running RPM distribution">
+              <div class="motor-distribution-row">
+                <dt>Below 1,500 RPM</dt>
+                <dd>7.4%</dd>
+              </div>
+              <div class="motor-distribution-row">
+                <dt>1,500–2,000 RPM</dt>
+                <dd>19.3%</dd>
+              </div>
+              <div class="motor-distribution-row">
+                <dt>2,000–2,500 RPM</dt>
+                <dd>37.7%</dd>
+              </div>
+              <div class="motor-distribution-row">
+                <dt>2,500–3,000 RPM</dt>
+                <dd>24.3%</dd>
+              </div>
+              <div class="motor-distribution-row">
+                <dt>3,000–3,500 RPM</dt>
+                <dd>8.2%</dd>
+              </div>
+              <div class="motor-distribution-row">
+                <dt>Above 3,500 RPM</dt>
+                <dd>3.1%</dd>
+              </div>
+            </dl>
+            <p class="motor-result-supporting">Only 11.3% of dynamic operation occurred above 3,000 RPM.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="torque-distribution" class="motor-case-panel motor-result" aria-labelledby="motor-result-three-title">
+        <div class="motor-result-grid">
+          <figure class="motor-result-figure">
+            <img
+              class="motor-result-image"
+              src="../assets/reports/bfr-motor-torque-response/torque-distribution-motoring.png"
+              width="889"
+              height="490"
+              loading="lazy"
+              decoding="async"
+              alt="Bar chart showing the percentage of positive-torque operation spent in each delivered torque range."
+            />
+            <figcaption class="motor-result-caption">
+              Positive-torque time share across delivered-torque bands during motoring.
+            </figcaption>
+          </figure>
+          <div class="motor-result-copy">
+            <p class="eyebrow motor-result-kicker">Result 03 · Torque operating distribution</p>
+            <h2 id="motor-result-three-title">Positive torque demand was split between moderate and high-load operation</h2>
+            <p>
+              Positive-torque operation showed two prominent behaviours: moderate demand in the 20–40 Nm range and
+              strong acceleration above 60 Nm. In total, 52.2% of positive-torque operation occurred between 60 and
+              100 Nm.
+            </p>
+            <dl class="motor-distribution-list" aria-label="Positive-torque operating distribution">
+              <div class="motor-distribution-row">
+                <dt>5–20 Nm</dt>
+                <dd>5.1%</dd>
+              </div>
+              <div class="motor-distribution-row">
+                <dt>20–40 Nm</dt>
+                <dd>26.4%</dd>
+              </div>
+              <div class="motor-distribution-row">
+                <dt>40–60 Nm</dt>
+                <dd>16.2%</dd>
+              </div>
+              <div class="motor-distribution-row">
+                <dt>60–80 Nm</dt>
+                <dd>25.8%</dd>
+              </div>
+              <div class="motor-distribution-row">
+                <dt>80–100 Nm</dt>
+                <dd>26.4%</dd>
+              </div>
+            </dl>
+            <p class="motor-result-supporting">
+              The 80–100 Nm band accounted for 26.4% of positive-torque operation, showing repeated use of the
+              approximately 95 Nm maximum-torque region.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="motor-case-panel motor-case-interpretation" aria-labelledby="motor-interpretation-title">
+        <div class="motor-case-section-heading">
+          <p class="eyebrow">What the results show</p>
+          <h2 id="motor-interpretation-title">Engineering interpretation</h2>
+        </div>
+        <div class="motor-interpretation-grid">
+          <article class="motor-interpretation-card">
+            <h3>Torque response</h3>
+            <p>
+              The inverter delivered the requested motor torque with extremely small tracking error across the measured
+              range.
+            </p>
+          </article>
+          <article class="motor-interpretation-card">
+            <h3>Operating speed</h3>
+            <p>
+              The motor spent most of the dynamic segment in the 2,000–3,000 RPM region rather than continuously
+              operating near its recorded maximum speed.
+            </p>
+          </article>
+          <article class="motor-interpretation-card">
+            <h3>Driver demand</h3>
+            <p>
+              The torque distribution suggests repeated switching between moderate demand and high-load acceleration,
+              with relatively little operation in the 5–20 Nm range.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="motor-case-panel motor-case-takeaway" aria-labelledby="motor-takeaway-title">
+        <p class="eyebrow">Summary</p>
+        <h2 id="motor-takeaway-title">Key takeaway</h2>
+        <p>
+          The inverter’s torque response was highly consistent: commanded and delivered torque remained almost
+          perfectly aligned despite repeated transitions between moderate and maximum demand. During dynamic running,
+          the motor operated primarily between 1,500 and 3,000 RPM, while more than half of positive-torque operation
+          occurred above 60 Nm.
+        </p>
+      </section>
+
+      <nav class="motor-case-footer-nav" aria-label="Case study footer navigation">
+        <a class="back-link motor-case-back-link" href="../index.html#bfr">← Back to Bruin Formula Racing</a>
+        <p class="motor-next-project">
+          <span>Next analysis:</span>
+          <strong>Thermal Drift During Active Running</strong>
+        </p>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Kristofer Tsai. Bruin Formula Racing motor torque case study.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
