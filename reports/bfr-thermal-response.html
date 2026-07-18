@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Bruin Formula Racing case study examining battery, inverter, coolant, and power-module thermal response during dynamic running."
+  />
+  <title>Thermal Response During Dynamic Running | Kristofer Tsai</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body class="report-page bfr-case-page motor-case-page thermal-case-page">
+  <a class="skip-link" href="#report-content">Skip to case study</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Case study navigation">
+      <a class="brand" href="../index.html#top" aria-label="Kristofer Tsai home">
+        <span class="brand-mark">KT</span>
+        <span class="brand-text">Kristofer Tsai</span>
+      </a>
+      <ul class="nav-links report-nav-links motor-case-nav-links">
+        <li><a href="../index.html#bfr">Bruin Formula Racing</a></li>
+        <li><a href="../index.html#projects">Reports</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="report-content">
+    <section class="report-hero section bfr-case-hero motor-case-hero thermal-case-hero" aria-labelledby="thermal-case-title">
+      <nav class="thermal-hero-navigation" aria-label="Related Bruin Formula case studies">
+        <a class="back-link motor-case-back-link" href="../index.html#bfr">← Back to Bruin Formula Racing</a>
+        <a class="back-link thermal-previous-link" href="bfr-motor-torque-response.html">
+          Previous: Motor Torque Response &amp; Operating Behaviour
+        </a>
+      </nav>
+      <p class="eyebrow">BRUIN FORMULA RACING · CASE STUDY 03</p>
+      <h1 id="thermal-case-title">Thermal Response During Dynamic Running</h1>
+      <p class="hero-subtitle">
+        Bruin Formula Racing — Battery, inverter, coolant, and power-module temperature analysis
+      </p>
+      <p class="motor-case-hero-copy">
+        This study examines how battery, inverter, coolant, and power-module temperatures changed during the dynamic
+        portion of the logged run. The analysis compares peak temperature rise, cooling behaviour, and the different
+        response rates of fast-heating power electronics and slower thermal systems.
+      </p>
+      <ul class="motor-case-meta" aria-label="Case study metadata">
+        <li class="motor-case-meta-item">347-channel source log</li>
+        <li class="motor-case-meta-item">93.6 s dynamic-running segment</li>
+        <li class="motor-case-meta-item">1 Hz thermal resampling</li>
+        <li class="motor-case-meta-item">Inverter and BMS telemetry</li>
+        <li class="motor-case-meta-item">Python / pandas / Matplotlib</li>
+      </ul>
+    </section>
+
+    <section class="section motor-case-content thermal-case-content" aria-label="Thermal response case study">
+      <section class="motor-case-panel motor-case-metrics" aria-labelledby="thermal-metrics-title">
+        <div class="motor-case-section-heading">
+          <p class="eyebrow">Measured results</p>
+          <h2 id="thermal-metrics-title">Key metrics</h2>
+        </div>
+        <dl class="motor-metrics-grid">
+          <div class="motor-metric-card motor-metric-card--priority">
+            <dt class="motor-metric-label">Highest recorded module temperature</dt>
+            <dd class="motor-metric-value">38.99°C</dd>
+          </div>
+          <div class="motor-metric-card motor-metric-card--priority">
+            <dt class="motor-metric-label">Largest module temperature rise</dt>
+            <dd class="motor-metric-value">3.49°C</dd>
+          </div>
+          <div class="motor-metric-card motor-metric-card--priority">
+            <dt class="motor-metric-label">Inverter hot-spot rise</dt>
+            <dd class="motor-metric-value">3.10°C</dd>
+          </div>
+          <div class="motor-metric-card">
+            <dt class="motor-metric-label">Coolant temperature rise</dt>
+            <dd class="motor-metric-value">0.70°C</dd>
+          </div>
+          <div class="motor-metric-card">
+            <dt class="motor-metric-label">BMS average peak rise</dt>
+            <dd class="motor-metric-value">1.47°C</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="motor-case-panel thermal-context" aria-labelledby="thermal-context-title">
+        <div class="motor-case-section-heading">
+          <p class="eyebrow">System context</p>
+          <h2 id="thermal-context-title">Where the heat comes from</h2>
+        </div>
+        <p class="thermal-context-intro">
+          The battery supplies direct-current electrical energy to the inverter. The inverter rapidly switches that DC
+          supply into controlled three-phase current for the motor. These switching and conduction processes are not
+          perfectly efficient, so part of the electrical energy becomes heat inside the inverter power modules and
+          surrounding electronics.
+        </p>
+
+        <ol class="thermal-energy-flow" aria-label="Electrical energy flow from battery to motor torque">
+          <li>Battery DC</li>
+          <li>Inverter</li>
+          <li>Three-phase motor current</li>
+          <li>Motor torque</li>
+        </ol>
+
+        <dl class="thermal-component-grid">
+          <div class="thermal-component-card">
+            <dt>BMS average</dt>
+            <dd>The average battery temperature reported by the Battery Management System.</dd>
+          </div>
+          <div class="thermal-component-card">
+            <dt>Coolant</dt>
+            <dd>The temperature of the liquid carrying heat away from the inverter and related components.</dd>
+          </div>
+          <div class="thermal-component-card">
+            <dt>Inverter hot spot</dt>
+            <dd>The hottest monitored internal region of the inverter.</dd>
+          </div>
+          <div class="thermal-component-card">
+            <dt>Control board</dt>
+            <dd>
+              The lower-power electronics that process commands, read sensors, and control the inverter’s switching.
+            </dd>
+          </div>
+          <div class="thermal-component-card thermal-component-card--wide">
+            <dt>Modules A, B, and C</dt>
+            <dd>
+              The three inverter power sections responsible for producing the motor’s three-phase electrical supply.
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="motor-case-panel motor-case-question" aria-labelledby="thermal-question-title">
+        <p class="eyebrow">Project question</p>
+        <h2 id="thermal-question-title">What was investigated?</h2>
+        <p>
+          The analysis was designed to answer three questions: which components experienced the largest short-term
+          temperature rise, how quickly did different parts of the system respond to changing load, and did inverter
+          temperature behaviour align with periods of repeated motor torque demand?
+        </p>
+      </section>
+
+      <section class="motor-case-panel motor-case-method" aria-labelledby="thermal-method-title">
+        <div class="motor-case-section-heading">
+          <p class="eyebrow">Analysis workflow</p>
+          <h2 id="thermal-method-title">Method</h2>
+        </div>
+        <ol class="motor-method-list thermal-method-list">
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">01</span>
+            <div class="motor-method-copy">
+              <h3>Select validated thermal channels</h3>
+              <p>Use:</p>
+              <ul class="motor-channel-list" aria-label="Validated thermal and inverter channels">
+                <li><code>bms.avg_t</code></li>
+                <li><code>bms.hi_t</code></li>
+                <li><code>bms.lo_t</code></li>
+                <li><code>inv.all.coolant_temp</code></li>
+                <li><code>inv.all.hot_spot_temp</code></li>
+                <li><code>inv.all.control_board_temp</code></li>
+                <li><code>inv.all.module_a_temp</code></li>
+                <li><code>inv.all.module_b_temp</code></li>
+                <li><code>inv.all.module_c_temp</code></li>
+                <li><code>inv.rpm</code></li>
+                <li><code>inv.tq_fb</code></li>
+              </ul>
+            </div>
+          </li>
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">02</span>
+            <div class="motor-method-copy">
+              <h3>Isolate dynamic running</h3>
+              <p>
+                The same dynamic-running section used in the motor analysis was selected, beginning at approximately
+                65 seconds and ending at approximately 158 seconds.
+              </p>
+            </div>
+          </li>
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">03</span>
+            <div class="motor-method-copy">
+              <h3>Resample thermal data</h3>
+              <p>
+                Temperature signals were resampled to 1 Hz because thermal behaviour changes much more slowly than the
+                original high-frequency telemetry. Short gaps were interpolated only where appropriate.
+              </p>
+            </div>
+          </li>
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">04</span>
+            <div class="motor-method-copy">
+              <h3>Calculate thermal changes</h3>
+              <p>
+                For each component, the starting and ending temperatures were estimated using the average of the first
+                and final five seconds. The maximum recorded value was used to calculate peak temperature rise.
+              </p>
+            </div>
+          </li>
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">05</span>
+            <div class="motor-method-copy">
+              <h3>Compare inverter modules</h3>
+              <p>
+                Modules A, B, and C were compared individually to check whether the three power sections exhibited
+                similar heating and cooling behaviour.
+              </p>
+            </div>
+          </li>
+          <li class="motor-method-step">
+            <span class="motor-method-number" aria-hidden="true">06</span>
+            <div class="motor-method-copy">
+              <h3>Align torque and temperature</h3>
+              <p>
+                Delivered torque and thermal data were grouped by whole elapsed seconds. Torque was smoothed over three
+                seconds, while inverter temperatures were smoothed over five seconds to make the overall load and
+                thermal trends easier to compare.
+              </p>
+            </div>
+          </li>
+          <li class="motor-method-step thermal-method-step--final">
+            <span class="motor-method-number" aria-hidden="true">07</span>
+            <div class="motor-method-copy">
+              <h3>Interpret thermal lag</h3>
+              <p>
+                Temperature peaks were not expected to occur at exactly the same moment as torque peaks because heat
+                generation, conduction, sensor response, and cooling introduce a delay.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="system-temperatures" class="motor-case-panel motor-result thermal-result" aria-labelledby="thermal-result-one-title">
+        <div class="thermal-result-stack">
+          <figure class="motor-result-figure thermal-result-figure">
+            <a
+              class="thermal-plot-link"
+              href="../assets/reports/bfr-thermal-response/system-temperatures-dynamic-running.png"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open the system-temperatures plot at full resolution in a new tab"
+            >
+              <img
+                class="motor-result-image"
+                src="../assets/reports/bfr-thermal-response/system-temperatures-dynamic-running.png"
+                width="3870"
+                height="1765"
+                loading="lazy"
+                decoding="async"
+                alt="Line chart comparing BMS average, coolant, inverter hot-spot, and control-board temperatures during the dynamic-running segment."
+              />
+              <span class="thermal-plot-zoom" aria-hidden="true">View full resolution</span>
+            </a>
+            <figcaption class="motor-result-caption thermal-result-caption">
+              System temperatures across the 93.6-second dynamic-running segment. Select the plot to inspect the
+              full-resolution figure.
+            </figcaption>
+          </figure>
+
+          <div class="thermal-result-details">
+            <div class="motor-result-copy thermal-result-copy">
+              <p class="eyebrow motor-result-kicker">Result 01 · System temperatures</p>
+              <h2 id="thermal-result-one-title">The inverter hot spot accumulated heat most clearly</h2>
+              <p>
+                The inverter hot spot rose from 33.70°C to a peak of 36.80°C, an increase of 3.10°C. It ended at
+                36.58°C, retaining most of the accumulated heat near the end of the segment.
+              </p>
+              <aside class="motor-result-highlight" aria-label="Engineering interpretation">
+                The inverter hot spot and control board accumulated heat more steadily, while coolant and battery
+                temperatures changed more gradually over the short segment.
+              </aside>
+            </div>
+
+            <div class="thermal-data-block" aria-labelledby="system-results-title">
+              <h3 id="system-results-title">Recorded temperature changes</h3>
+              <dl class="thermal-stat-list">
+                <div class="thermal-stat-row">
+                  <dt>BMS average</dt>
+                  <dd>
+                    <span>Start <strong>23.60°C</strong></span>
+                    <span>Peak <strong>25.07°C</strong></span>
+                    <span>End <strong>24.15°C</strong></span>
+                    <span>Peak rise <strong>1.47°C</strong></span>
+                    <span>End change <strong>+0.55°C</strong></span>
+                  </dd>
+                </div>
+                <div class="thermal-stat-row">
+                  <dt>Coolant</dt>
+                  <dd>
+                    <span>Start <strong>33.40°C</strong></span>
+                    <span>Peak <strong>34.10°C</strong></span>
+                    <span>End <strong>33.96°C</strong></span>
+                    <span>Peak rise <strong>0.70°C</strong></span>
+                    <span>End change <strong>+0.56°C</strong></span>
+                  </dd>
+                </div>
+                <div class="thermal-stat-row thermal-stat-row--priority">
+                  <dt>Inverter hot spot</dt>
+                  <dd>
+                    <span>Start <strong>33.70°C</strong></span>
+                    <span>Peak <strong>36.80°C</strong></span>
+                    <span>End <strong>36.58°C</strong></span>
+                    <span>Peak rise <strong>3.10°C</strong></span>
+                    <span>End change <strong>+2.88°C</strong></span>
+                  </dd>
+                </div>
+                <div class="thermal-stat-row">
+                  <dt>Control board</dt>
+                  <dd>
+                    <span>Start <strong>32.41°C</strong></span>
+                    <span>Peak <strong>33.81°C</strong></span>
+                    <span>End <strong>33.69°C</strong></span>
+                    <span>Peak rise <strong>1.41°C</strong></span>
+                    <span>End change <strong>+1.29°C</strong></span>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="module-temperatures" class="motor-case-panel motor-result thermal-result thermal-result--reverse" aria-labelledby="thermal-result-two-title">
+        <div class="thermal-result-stack">
+          <figure class="motor-result-figure thermal-result-figure">
+            <a
+              class="thermal-plot-link"
+              href="../assets/reports/bfr-thermal-response/inverter-module-temperatures.png"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open the inverter-module temperatures plot at full resolution in a new tab"
+            >
+              <img
+                class="motor-result-image"
+                src="../assets/reports/bfr-thermal-response/inverter-module-temperatures.png"
+                width="3870"
+                height="1765"
+                loading="lazy"
+                decoding="async"
+                alt="Line chart comparing temperatures of inverter Modules A, B, and C during dynamic running."
+              />
+              <span class="thermal-plot-zoom" aria-hidden="true">View full resolution</span>
+            </a>
+            <figcaption class="motor-result-caption thermal-result-caption">
+              Inverter power-module temperatures during changing torque demand. Select the plot to inspect the
+              full-resolution figure.
+            </figcaption>
+          </figure>
+
+          <div class="thermal-result-details">
+            <div class="motor-result-copy thermal-result-copy">
+              <p class="eyebrow motor-result-kicker">Result 02 · Inverter modules</p>
+              <h2 id="thermal-result-two-title">The three inverter modules responded consistently to changing demand</h2>
+              <p>
+                Modules A, B, and C followed closely matched heating and cooling patterns. Their temperatures rose
+                during repeated periods of motor demand and fell rapidly after torque demand ended.
+              </p>
+              <p class="motor-result-supporting">
+                Module A reached the highest absolute temperature at 38.99°C, while Module C showed the largest rise
+                from its starting temperature at 3.49°C.
+              </p>
+              <aside class="motor-result-highlight" aria-label="Explanation of negative ending temperature changes">
+                The modules ended below their starting temperatures because torque demand stopped near the end of the
+                segment and the modules cooled rapidly during the final low-load period.
+              </aside>
+            </div>
+
+            <div class="thermal-data-block" aria-labelledby="module-results-title">
+              <h3 id="module-results-title">Module temperature changes</h3>
+              <dl class="thermal-stat-list">
+                <div class="thermal-stat-row thermal-stat-row--priority">
+                  <dt>Module A</dt>
+                  <dd>
+                    <span>Start <strong>35.62°C</strong></span>
+                    <span>Peak <strong>38.99°C</strong></span>
+                    <span>End <strong>34.08°C</strong></span>
+                    <span>Peak rise <strong>3.37°C</strong></span>
+                    <span>End change <strong>−1.54°C</strong></span>
+                  </dd>
+                </div>
+                <div class="thermal-stat-row">
+                  <dt>Module B</dt>
+                  <dd>
+                    <span>Start <strong>34.98°C</strong></span>
+                    <span>Peak <strong>38.01°C</strong></span>
+                    <span>End <strong>33.77°C</strong></span>
+                    <span>Peak rise <strong>3.03°C</strong></span>
+                    <span>End change <strong>−1.22°C</strong></span>
+                  </dd>
+                </div>
+                <div class="thermal-stat-row thermal-stat-row--priority">
+                  <dt>Module C</dt>
+                  <dd>
+                    <span>Start <strong>34.90°C</strong></span>
+                    <span>Peak <strong>38.39°C</strong></span>
+                    <span>End <strong>33.55°C</strong></span>
+                    <span>Peak rise <strong>3.49°C</strong></span>
+                    <span>End change <strong>−1.35°C</strong></span>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="peak-temperature-rise" class="motor-case-panel motor-result thermal-result" aria-labelledby="thermal-result-three-title">
+        <div class="thermal-result-stack">
+          <figure class="motor-result-figure thermal-result-figure">
+            <a
+              class="thermal-plot-link"
+              href="../assets/reports/bfr-thermal-response/peak-temperature-rise.png"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open the peak-temperature-rise plot at full resolution in a new tab"
+            >
+              <img
+                class="motor-result-image"
+                src="../assets/reports/bfr-thermal-response/peak-temperature-rise.png"
+                width="2970"
+                height="1466"
+                loading="lazy"
+                decoding="async"
+                alt="Bar chart comparing the peak temperature rise of battery, coolant, inverter hot spot, control board, and three inverter modules."
+              />
+              <span class="thermal-plot-zoom" aria-hidden="true">View full resolution</span>
+            </a>
+            <figcaption class="motor-result-caption thermal-result-caption">
+              Peak temperature rise relative to each component’s starting temperature. Select the plot to inspect the
+              full-resolution figure.
+            </figcaption>
+          </figure>
+
+          <div class="thermal-result-details">
+            <div class="motor-result-copy thermal-result-copy">
+              <p class="eyebrow motor-result-kicker">Result 03 · Peak temperature rise</p>
+              <h2 id="thermal-result-three-title">Power electronics showed the largest short-term thermal response</h2>
+              <p>
+                The inverter hot spot and three power modules experienced peak rises of approximately 3.0–3.5°C.
+                Coolant rose by only 0.70°C, while the BMS average and control board rose by approximately 1.4°C.
+              </p>
+              <p class="motor-result-supporting">
+                The faster power-module response is consistent with heat being generated directly in the high-current
+                switching components, while coolant and battery temperatures respond more slowly because of their
+                larger thermal mass.
+              </p>
+            </div>
+
+            <div class="thermal-data-block thermal-table-wrap">
+              <table class="thermal-result-table">
+                <caption>Peak temperature rise by component</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Component</th>
+                    <th scope="col">Peak rise</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">BMS average</th><td>1.47°C</td></tr>
+                  <tr><th scope="row">Coolant</th><td>0.70°C</td></tr>
+                  <tr class="thermal-table-priority"><th scope="row">Inverter hot spot</th><td>3.10°C</td></tr>
+                  <tr><th scope="row">Control board</th><td>1.41°C</td></tr>
+                  <tr class="thermal-table-priority"><th scope="row">Module A</th><td>3.37°C</td></tr>
+                  <tr class="thermal-table-priority"><th scope="row">Module B</th><td>3.03°C</td></tr>
+                  <tr class="thermal-table-priority"><th scope="row">Module C</th><td>3.49°C</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="torque-thermal-response" class="motor-case-panel motor-result thermal-result thermal-result--reverse" aria-labelledby="thermal-result-four-title">
+        <div class="thermal-result-stack">
+          <figure class="motor-result-figure thermal-result-figure">
+            <a
+              class="thermal-plot-link"
+              href="../assets/reports/bfr-thermal-response/torque-and-inverter-thermal-response.png"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open the torque-and-inverter thermal-response plot at full resolution in a new tab"
+            >
+              <img
+                class="motor-result-image"
+                src="../assets/reports/bfr-thermal-response/torque-and-inverter-thermal-response.png"
+                width="3870"
+                height="1765"
+                loading="lazy"
+                decoding="async"
+                alt="Dual-axis line chart comparing delivered motor torque with inverter hot-spot and average module temperature over elapsed time."
+              />
+              <span class="thermal-plot-zoom" aria-hidden="true">View full resolution</span>
+            </a>
+            <figcaption class="motor-result-caption thermal-result-caption">
+              Delivered torque and inverter-temperature trends aligned by elapsed time. Select the plot to inspect the
+              full-resolution figure.
+            </figcaption>
+          </figure>
+
+          <div class="thermal-result-details">
+            <div class="motor-result-copy thermal-result-copy">
+              <p class="eyebrow motor-result-kicker">Result 04 · Torque and thermal response</p>
+              <h2 id="thermal-result-four-title">Module temperatures followed repeated periods of motor demand</h2>
+              <p>
+                The average inverter-module temperature generally increased after sustained high-torque periods and
+                fell during lower-load or zero-torque operation. The inverter hot-spot temperature responded more
+                slowly and retained accumulated heat after individual torque events had ended.
+              </p>
+              <aside class="thermal-caution" aria-label="Interpretation caution">
+                The dual-axis plot is used to compare timing and general behaviour. It does not prove that torque and
+                temperature are directly proportional.
+              </aside>
+            </div>
+
+            <div class="thermal-data-block" aria-labelledby="torque-observations-title">
+              <h3 id="torque-observations-title">Observed timing</h3>
+              <ul class="thermal-observation-list">
+                <li>High torque around 80–84 seconds was followed by a module-temperature peak.</li>
+                <li>Repeated demand around 116–121 seconds was followed by a larger thermal peak.</li>
+                <li>Strong operation around 130–136 seconds preceded the highest module temperatures.</li>
+                <li>Once delivered torque fell to zero near 149 seconds, average module temperature dropped rapidly.</li>
+                <li>The inverter hot spot remained elevated for longer, showing greater thermal inertia.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="motor-case-panel motor-case-interpretation" aria-labelledby="thermal-interpretation-title">
+        <div class="motor-case-section-heading">
+          <p class="eyebrow">What the results show</p>
+          <h2 id="thermal-interpretation-title">Engineering interpretation</h2>
+        </div>
+        <div class="motor-interpretation-grid thermal-interpretation-grid">
+          <article class="motor-interpretation-card">
+            <h3>Power modules</h3>
+            <p>
+              The inverter power modules reacted quickly to changing motor load, producing repeated temperature peaks
+              during high-demand operation.
+            </p>
+          </article>
+          <article class="motor-interpretation-card">
+            <h3>Hot-spot accumulation</h3>
+            <p>
+              The inverter hot spot warmed more gradually and retained most of its temperature rise near the end of the
+              segment.
+            </p>
+          </article>
+          <article class="motor-interpretation-card">
+            <h3>Cooling response</h3>
+            <p>
+              Module temperatures dropped rapidly once torque demand ended, whereas the coolant, battery, and hot-spot
+              signals changed more slowly.
+            </p>
+          </article>
+          <article class="motor-interpretation-card">
+            <h3>Module consistency</h3>
+            <p>
+              The three inverter modules followed similar temperature patterns, with only small differences in
+              absolute temperature and peak rise.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="motor-case-panel thermal-scope" aria-labelledby="thermal-scope-title">
+        <p class="eyebrow">Analysis boundary</p>
+        <h2 id="thermal-scope-title">Scope of the result</h2>
+        <p>
+          This analysis describes short-term thermal response during a 93.6-second dynamic-running segment. It is
+          useful for comparing component behaviour and identifying thermal lag, but it does not establish steady-state
+          temperatures or validate reliability across a full endurance event.
+        </p>
+      </section>
+
+      <section class="motor-case-panel motor-case-takeaway" aria-labelledby="thermal-takeaway-title">
+        <p class="eyebrow">Summary</p>
+        <h2 id="thermal-takeaway-title">Key takeaway</h2>
+        <p>
+          The inverter power modules responded quickly to repeated motor demand, reaching peak temperature rises of
+          approximately 3.0–3.5°C before cooling rapidly when torque demand ended. The inverter hot spot accumulated
+          heat more gradually and retained most of its rise, while coolant and battery temperatures changed more slowly
+          over the short dynamic segment.
+        </p>
+      </section>
+
+      <nav class="motor-case-footer-nav thermal-case-footer-nav" aria-label="Case study footer navigation">
+        <a class="back-link motor-case-back-link" href="../index.html#bfr">← Back to Bruin Formula Racing</a>
+        <a class="thermal-footer-previous" href="bfr-motor-torque-response.html">
+          Previous analysis: Motor Torque Response &amp; Operating Behaviour
+        </a>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Kristofer Tsai. Bruin Formula Racing thermal-response case study.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

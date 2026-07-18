@@ -265,7 +265,7 @@
           <p>
             I am working with Bruin Formula Racing on vehicle dynamics and telemetry analysis, focusing on turning
             early-stage Formula Student sensor logs into usable engineering insight. The work spans data cleaning,
-            channel validation, motor-torque response, thermal drift, and endurance-style analysis.
+            channel validation, motor-torque response, thermal response, and endurance-style analysis.
           </p>
         </div>
         <div class="bfr-intro-metrics" aria-label="Telemetry audit summary">
@@ -318,18 +318,26 @@
           </span>
         </a>
 
-        <article class="bfr-panel reveal">
+        <a
+          class="bfr-panel bfr-panel-link reveal"
+          href="reports/bfr-thermal-response.html"
+          aria-label="Open Thermal Response During Dynamic Running case study"
+        >
           <div class="bfr-panel-topline">
-            <span class="status-tag status-progress">Coming next / In progress</span>
+            <span class="status-tag status-complete">ANALYSIS COMPLETE</span>
             <span class="bfr-panel-index">03</span>
           </div>
-          <h3>Thermal Drift During Active Running</h3>
-          <p class="bfr-panel-subtitle">Battery, inverter, and coolant temperature trends</p>
+          <h3>Thermal Response During Dynamic Running</h3>
+          <p class="bfr-panel-subtitle">Battery, inverter, coolant, and thermal-load behaviour</p>
           <p>
-            Studies how BMS, inverter, and coolant temperatures evolve during active running to understand endurance
-            reliability and system behaviour.
+            Tracks how validated battery, inverter, coolant, and power-module temperatures changed during a 93.6-second
+            dynamic-running segment. The analysis compares short-term temperature rise, cooling behaviour, and the
+            relationship between motor demand and inverter heating.
           </p>
-        </article>
+          <span class="link-row" aria-hidden="true">
+            <span class="bfr-panel-cta">Open Case Study</span>
+          </span>
+        </a>
       </div>
     </section>
 
