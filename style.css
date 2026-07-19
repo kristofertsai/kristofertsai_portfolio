@@ -1319,24 +1319,21 @@ p {
 }
 
 .f1-strategy-shell {
-  --f1-panel: #111b24;
-  --f1-panel-soft: #172631;
-  --f1-line: rgba(171, 197, 210, 0.2);
-  --f1-copy: #c7d1d8;
-  --f1-muted: #94a3ad;
-  --f1-signal: #8cdd70;
-  --f1-cyan: #75cbd0;
+  --f1-line: rgba(79, 110, 154, 0.2);
+  --f1-copy: var(--muted-strong);
+  --f1-muted: var(--muted);
+  --f1-signal: var(--accent-blue);
   position: relative;
   overflow: hidden;
   padding: clamp(1.35rem, 4vw, 3rem);
-  border: 1px solid rgba(31, 42, 52, 0.22);
+  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  color: #f5f7f8;
+  color: var(--text);
   background:
-    radial-gradient(circle at 92% 6%, rgba(117, 203, 208, 0.15), transparent 21rem),
-    radial-gradient(circle at 4% 100%, rgba(140, 221, 112, 0.09), transparent 24rem),
-    linear-gradient(145deg, #101820 0%, #15232e 58%, #101920 100%);
-  box-shadow: 0 18px 42px rgba(31, 42, 52, 0.16);
+    radial-gradient(circle at 92% 6%, rgba(79, 110, 154, 0.1), transparent 22rem),
+    radial-gradient(circle at 4% 100%, rgba(198, 176, 140, 0.2), transparent 24rem),
+    linear-gradient(145deg, rgba(252, 250, 246, 0.98), rgba(242, 233, 219, 0.92));
+  box-shadow: var(--shadow);
 }
 
 .f1-strategy-shell::before {
@@ -1345,8 +1342,8 @@ p {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(79, 110, 154, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 110, 154, 0.04) 1px, transparent 1px);
   background-size: 42px 42px;
   -webkit-mask-image: linear-gradient(115deg, transparent 12%, #000 78%);
   mask-image: linear-gradient(115deg, transparent 12%, #000 78%);
@@ -1373,7 +1370,7 @@ p {
 
 .f1-strategy-intro h2 {
   max-width: 760px;
-  color: #f7f9fa;
+  color: var(--text);
   font-size: var(--type-section-title);
   letter-spacing: -0.035em;
 }
@@ -1386,9 +1383,11 @@ p {
 
 .f1-strategy-disclaimer {
   margin: 0;
-  padding: 0.8rem 0 0.8rem 1rem;
+  padding: 0.8rem 1rem;
   border-left: 3px solid var(--f1-signal);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   color: var(--f1-muted);
+  background: rgba(79, 110, 154, 0.07);
   font-size: var(--type-small);
   font-weight: 750;
   line-height: 1.55;
@@ -1409,19 +1408,22 @@ p {
   border: 1px solid var(--f1-line);
   border-radius: var(--radius-lg);
   background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
-    rgba(5, 11, 16, 0.36);
-  box-shadow: inset 0 3px 0 rgba(117, 203, 208, 0.6);
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    linear-gradient(115deg, rgba(255, 255, 255, 0.9), rgba(248, 243, 233, 0.82));
+  box-shadow:
+    inset 0 3px 0 rgba(79, 110, 154, 0.62),
+    0 8px 22px rgba(41, 55, 71, 0.06);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
 .f1-study-card:hover,
 .f1-study-card:focus-visible {
   transform: translateY(-4px);
-  border-color: rgba(140, 221, 112, 0.55);
+  border-color: rgba(79, 110, 154, 0.42);
   background:
-    linear-gradient(115deg, rgba(117, 203, 208, 0.1), rgba(140, 221, 112, 0.035)),
-    rgba(5, 11, 16, 0.48);
+    linear-gradient(115deg, rgba(255, 255, 255, 0.98), rgba(232, 237, 244, 0.78));
+  box-shadow:
+    inset 0 3px 0 rgba(79, 110, 154, 0.78),
+    0 12px 28px rgba(41, 55, 71, 0.1);
 }
 
 .f1-study-card:focus-visible {
@@ -1460,7 +1462,7 @@ p {
 
 .f1-study-body h3 {
   max-width: 760px;
-  color: #f7f9fa;
+  color: var(--text);
   font-size: clamp(1.65rem, 3vw, 2.65rem);
   letter-spacing: -0.035em;
   line-height: 1.08;
@@ -1487,7 +1489,7 @@ p {
   border: 1px solid var(--f1-line);
   border-radius: 999px;
   color: var(--f1-copy);
-  background: rgba(117, 203, 208, 0.07);
+  background: rgba(79, 110, 154, 0.08);
   font-size: var(--type-label);
   font-weight: 800;
   line-height: 1.25;
@@ -1501,7 +1503,7 @@ p {
   gap: 0.65rem;
   margin-top: auto;
   padding-top: 1.5rem;
-  color: #f7f9fa;
+  color: var(--text);
   font-size: var(--type-small);
   font-weight: 900;
 }
