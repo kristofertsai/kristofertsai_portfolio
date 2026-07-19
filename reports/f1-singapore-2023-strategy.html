@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Independent public-data analysis of Mercedes’ late Virtual Safety Car tyre strategy at the 2023 Singapore Grand Prix."
+  />
+  <title>Singapore 2023: Stop for Fresh Mediums or Stay on Hards? | Kristofer Tsai</title>
+  <link rel="stylesheet" href="../style.css?v=20260718-f1" />
+</head>
+<body class="report-page f1-case-page strategy-case-page">
+  <a class="skip-link" href="#strategy-content">Skip to case study</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Case study navigation">
+      <a class="brand" href="../index.html#top" aria-label="Kristofer Tsai home">
+        <span class="brand-mark">KT</span>
+        <span class="brand-text">Kristofer Tsai</span>
+      </a>
+      <ul class="nav-links report-nav-links strategy-nav-links">
+        <li><a href="../index.html#f1-strategy">F1 Strategy Analysis</a></li>
+        <li><a href="../index.html#bfr">Bruin Formula Racing</a></li>
+        <li><a href="../index.html#projects">Reports</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="strategy-content">
+    <section class="report-hero section strategy-hero" aria-labelledby="strategy-title">
+      <a class="back-link strategy-back-link" href="../index.html#f1-strategy">← Back to F1 Strategy Analysis</a>
+      <p class="eyebrow">F1 STRATEGY ANALYSIS / CASE STUDY 01</p>
+      <h1 id="strategy-title">Singapore 2023: Stop for Fresh Mediums or Stay on Hards?</h1>
+      <p class="hero-subtitle strategy-hero-subtitle">
+        Mercedes surrendered track position under the late Virtual Safety Car to put George Russell and Lewis
+        Hamilton on fresh medium tyres. This study tests whether the available pace justified that decision—and why
+        catching the leaders did not lead to victory.
+      </p>
+      <p class="strategy-disclaimer" role="note">
+        Independent analysis using publicly available data. Not affiliated with Formula 1 or any team.
+      </p>
+      <ul class="strategy-topic-list" aria-label="Case study topics">
+        <li>Tyre strategy</li>
+        <li>Virtual Safety Car</li>
+        <li>Break-even analysis</li>
+        <li>DRS defence</li>
+      </ul>
+    </section>
+
+    <section class="section strategy-content" aria-label="Singapore 2023 strategy case study">
+      <section class="strategy-panel strategy-decision" aria-labelledby="strategy-decision-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">The decision</p>
+          <h2 id="strategy-decision-title">Trade track position for fresh-medium pace?</h2>
+        </div>
+        <p class="strategy-lead">
+          The central question is whether Mercedes was correct to surrender track position during the late Virtual
+          Safety Car for fresh medium tyres while Carlos Sainz and Lando Norris stayed out on used hard tyres. The tyre
+          decision is the main subject; the Sainz–Norris DRS arrangement is supporting evidence for why Mercedes caught
+          the leaders but did not pass them.
+        </p>
+        <ol class="strategy-decision-list">
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">01</span>
+            <div>
+              <h3>Lap-20 Safety Car</h3>
+              <p>Sainz and Norris stopped for hard tyres, then remained on that set to the finish.</p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">02</span>
+            <div>
+              <h3>Mercedes follows the same opening path</h3>
+              <p>Russell and Hamilton also stopped on lap 20 and fitted hard tyres.</p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">03</span>
+            <div>
+              <h3>Lap-44 Virtual Safety Car</h3>
+              <p>Mercedes stopped both drivers again, exchanging track position for fresh medium tyres.</p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">04</span>
+            <div>
+              <h3>The strategic split</h3>
+              <p>
+                Russell and Hamilton gained a substantial tyre-life and compound advantage, but first had to recover
+                the time lost in the VSC stops.
+              </p>
+            </div>
+          </li>
+        </ol>
+
+        <figure class="strategy-figure">
+          <a
+            class="strategy-figure-link"
+            href="../assets/reports/f1-singapore-2023-strategy/tyre-strategy-timeline.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open the Singapore 2023 tyre-strategy timeline at full resolution in a new tab"
+          >
+            <img
+              class="strategy-figure-image"
+              src="../assets/reports/f1-singapore-2023-strategy/tyre-strategy-timeline-display.png"
+              width="2000"
+              height="874"
+              loading="lazy"
+              decoding="async"
+              alt="Tyre-strategy timeline for Sainz, Norris, Russell, and Hamilton showing the lap-20 Safety Car stops and Mercedes’ additional lap-44 Virtual Safety Car stops."
+            />
+            <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
+          </a>
+          <figcaption class="strategy-figure-caption">
+            The late VSC divided the leading group: Sainz and Norris protected track position on used hards, while
+            Mercedes committed both cars to fresh mediums. Select the chart to inspect the full-resolution figure.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="strategy-panel strategy-break-even" aria-labelledby="strategy-break-even-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">The break-even test</p>
+          <h2 id="strategy-break-even-title">Did the fresh-medium advantage justify the stop cost?</h2>
+        </div>
+        <p class="strategy-lead">
+          The decision can be tested by comparing each driver’s measured VSC stop cost with the average recovery
+          required over the 17 laps available after the out-lap, then comparing that threshold with the observed
+          clean-air strategy-package advantage.
+        </p>
+
+        <div class="strategy-driver-grid">
+          <article class="strategy-driver-card" aria-labelledby="strategy-russell-title">
+            <p class="strategy-driver-label">George Russell</p>
+            <h3 id="strategy-russell-title">The lower break-even threshold</h3>
+            <dl class="strategy-metric-list">
+              <div class="strategy-metric-row">
+                <dt>Measured VSC stop cost</dt>
+                <dd>16.7 seconds</dd>
+              </div>
+              <div class="strategy-metric-row">
+                <dt>Laps available after the out-lap</dt>
+                <dd>17</dd>
+              </div>
+              <div class="strategy-metric-row strategy-metric-row--priority">
+                <dt>Required average recovery</dt>
+                <dd>0.98 seconds per lap</dd>
+              </div>
+              <div class="strategy-metric-row strategy-metric-row--priority">
+                <dt>Observed clean-air strategy-package advantage</dt>
+                <dd>1.26 seconds per lap</dd>
+              </div>
+              <div class="strategy-metric-row">
+                <dt>Theoretical break-even</dt>
+                <dd>Approximately lap 58.2</dd>
+              </div>
+              <div class="strategy-metric-row">
+                <dt>Reached within two seconds of Sainz</dt>
+                <dd>Lap 57</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="strategy-driver-card" aria-labelledby="strategy-hamilton-title">
+            <p class="strategy-driver-label">Lewis Hamilton</p>
+            <h3 id="strategy-hamilton-title">A larger cost, but a larger observed advantage</h3>
+            <dl class="strategy-metric-list">
+              <div class="strategy-metric-row">
+                <dt>Measured VSC stop cost</dt>
+                <dd>19.4 seconds</dd>
+              </div>
+              <div class="strategy-metric-row">
+                <dt>Laps available after the out-lap</dt>
+                <dd>17</dd>
+              </div>
+              <div class="strategy-metric-row strategy-metric-row--priority">
+                <dt>Required average recovery</dt>
+                <dd>1.14 seconds per lap</dd>
+              </div>
+              <div class="strategy-metric-row strategy-metric-row--priority">
+                <dt>Observed clean-air strategy-package advantage</dt>
+                <dd>1.54 seconds per lap</dd>
+              </div>
+              <div class="strategy-metric-row">
+                <dt>Theoretical break-even</dt>
+                <dd>Approximately lap 57.6</dd>
+              </div>
+              <div class="strategy-metric-row">
+                <dt>Reached within two seconds of Sainz</dt>
+                <dd>Lap 58</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+
+        <aside class="strategy-pair-summary" aria-labelledby="strategy-pair-title">
+          <div>
+            <p class="eyebrow">Pair comparison</p>
+            <h3 id="strategy-pair-title">The observed clean-air advantage cleared both thresholds</h3>
+          </div>
+          <dl class="strategy-pair-metrics">
+            <div>
+              <dt>Mean across laps 46–56</dt>
+              <dd>Approximately 1.40 seconds per lap</dd>
+            </div>
+            <div>
+              <dt>Median across laps 46–56</dt>
+              <dd>Approximately 1.46 seconds per lap</dd>
+            </div>
+          </dl>
+        </aside>
+
+        <aside class="strategy-caveat" aria-labelledby="strategy-break-even-caveat-title">
+          <p class="eyebrow">Interpretation boundary</p>
+          <h3 id="strategy-break-even-caveat-title">Pace potential is not guaranteed elapsed-time recovery</h3>
+          <p>
+            The theoretical break-even calculation assumes that the clean-air pace advantage continues. It represents
+            the strategy’s pace potential, not a guaranteed final gain or an assertion that both drivers fully repaid
+            the stop loss in actual elapsed time.
+          </p>
+        </aside>
+
+        <figure class="strategy-figure">
+          <a
+            class="strategy-figure-link"
+            href="../assets/reports/f1-singapore-2023-strategy/fresh-medium-break-even-analysis.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open the Singapore 2023 fresh-medium break-even analysis at full resolution in a new tab"
+          >
+            <img
+              class="strategy-figure-image"
+              src="../assets/reports/f1-singapore-2023-strategy/fresh-medium-break-even-analysis-display.png"
+              width="2000"
+              height="880"
+              loading="lazy"
+              decoding="async"
+              alt="Two-panel break-even analysis comparing Mercedes’ observed fresh-medium strategy-package advantage with Russell’s and Hamilton’s required recovery rates and cumulative VSC stop costs."
+            />
+            <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
+          </a>
+          <figcaption class="strategy-figure-caption">
+            Clean-air pace exceeded the break-even requirement before traffic interrupted the recovery. The shaded
+            period identifies the leading-group and DRS-train phase. Select the chart to inspect the full-resolution
+            figure.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="strategy-panel strategy-outcome" aria-labelledby="strategy-outcome-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">The outcome</p>
+          <h2 id="strategy-outcome-title">Mercedes solved the catching problem, not the passing problem</h2>
+        </div>
+        <div class="strategy-copy-grid">
+          <div>
+            <p>
+              The fresh-medium pace was sufficient to bring Mercedes back to the leading group. Russell reached within
+              two seconds of Sainz on lap 57, and Hamilton reached the same threshold on lap 58.
+            </p>
+            <p>
+              Once Mercedes arrived, the cars were no longer operating in clean air. Sainz kept Norris close enough to
+              receive DRS, strengthening Norris’ straight-line defence. Mercedes had recovered the gap, but overtaking
+              the coordinated leading pair was a separate task.
+            </p>
+          </div>
+          <ul class="strategy-findings" aria-label="Late-race outcome milestones">
+            <li><strong>Lap 57</strong><span>Russell within two seconds of Sainz</span></li>
+            <li><strong>Lap 58</strong><span>Hamilton within two seconds of Sainz</span></li>
+            <li><strong>Laps 57–62</strong><span>Leading-group and defensive-DRS phase</span></li>
+          </ul>
+        </div>
+
+        <figure class="strategy-figure">
+          <a
+            class="strategy-figure-link"
+            href="../assets/reports/f1-singapore-2023-strategy/catch-and-drs-outcome.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open the Singapore 2023 catch-and-DRS outcome analysis at full resolution in a new tab"
+          >
+            <img
+              class="strategy-figure-image"
+              src="../assets/reports/f1-singapore-2023-strategy/catch-and-drs-outcome-display.png"
+              width="2000"
+              height="880"
+              loading="lazy"
+              decoding="async"
+              alt="Two-panel late-race analysis showing Russell and Hamilton closing on Sainz and Norris’ observed maximum speed rising during the recorded defensive DRS phase."
+            />
+            <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
+          </a>
+          <figcaption class="strategy-figure-caption">
+            Mercedes reached the leaders as Norris entered a sustained defensive-DRS phase. Maximum speed is an
+            observed association affected by several race conditions, not an isolated DRS-performance measurement.
+            Select the chart to inspect the full-resolution figure.
+          </figcaption>
+        </figure>
+
+        <blockquote class="strategy-pull-quote">
+          <p>
+            “Mercedes had enough fresh-medium pace to make the VSC stop a rational, high-upside attempt to win. The
+            stop brought both cars back to the leaders, but the resulting DRS train prevented the theoretical tyre
+            advantage from converting cleanly into track position.”
+          </p>
+        </blockquote>
+      </section>
+
+      <section class="strategy-panel strategy-drs" aria-labelledby="strategy-drs-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Supporting mechanism</p>
+          <h2 id="strategy-drs-title">Why the DRS defence mattered</h2>
+        </div>
+        <p class="strategy-lead">
+          The DRS evidence helps explain the race’s final phase, but it does not replace the tyre decision as the main
+          analytical question.
+        </p>
+        <dl class="strategy-evidence-grid">
+          <div class="strategy-evidence-card">
+            <dt>Mean finish-line gap to Sainz, laps 57–62</dt>
+            <dd>Approximately 0.99 seconds</dd>
+          </div>
+          <div class="strategy-evidence-card">
+            <dt>Finish-line gap range</dt>
+            <dd>Approximately 0.70–1.54 seconds</dd>
+          </div>
+          <div class="strategy-evidence-card">
+            <dt>Recorded defensive-lap DRS activation</dt>
+            <dd>All six laps</dd>
+          </div>
+          <div class="strategy-evidence-card">
+            <dt>Sustained DRS telemetry</dt>
+            <dd>Laps 58–62</dd>
+          </div>
+          <div class="strategy-evidence-card strategy-evidence-card--wide">
+            <dt>Norris’ observed mean maximum speed</dt>
+            <dd>Approximately 294.6 km/h in the comparison period; 313.2 km/h in sustained-DRS samples</dd>
+          </div>
+          <div class="strategy-evidence-card">
+            <dt>Maximum-speed difference relative to Sainz</dt>
+            <dd>Increased by approximately 15.1 km/h</dd>
+          </div>
+        </dl>
+        <div class="strategy-drs-notes">
+          <p>
+            OpenF1 recorded DRS activation on each of the six defensive laps from 57 through 62, with sustained DRS
+            telemetry observed from laps 58 through 62. Norris’ mean finish-line gap remained near the one-second
+            threshold, although that finish-line measurement is only a proxy for the official DRS detection-point gap.
+          </p>
+          <p>
+            Maximum speed is affected by DRS, slipstream, energy deployment, throttle use, and traffic. The change is
+            therefore an observed association consistent with the defensive mechanism, not an isolated causal
+            measurement of DRS performance.
+          </p>
+          <p>
+            In the
+            <a
+              href="https://www.formula1.com/en/latest/article/fia-post-race-press-conference-singapore-2023.6wQkVaz9oW55DkpB538RxT"
+              target="_blank"
+              rel="noopener"
+            >official post-race press conference</a>, Sainz explained that he deliberately kept Norris within DRS
+            range. That intent is attributed to Sainz’s comments; telemetry alone does not establish it.
+          </p>
+        </div>
+      </section>
+
+      <section class="strategy-panel strategy-verdict" aria-labelledby="strategy-verdict-title">
+        <p class="eyebrow">Verdict</p>
+        <h2 id="strategy-verdict-title">The stop was justified.</h2>
+        <p class="strategy-verdict-lead">
+          Mercedes needed roughly 0.98–1.14 seconds per lap to overcome the measured VSC stop loss. The observed
+          clean-air strategy-package advantage exceeded those thresholds, and both cars reached the leaders before the
+          finish.
+        </p>
+        <p>
+          The decision created a credible opportunity to win, but traffic, overtaking difficulty, and the
+          Sainz–Norris DRS arrangement prevented the clean-air advantage from continuing. It was a rational,
+          high-upside attempt—not a strategy that guaranteed a Mercedes victory.
+        </p>
+      </section>
+
+      <section class="strategy-panel strategy-methodology" aria-labelledby="strategy-methodology-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Transparency</p>
+          <h2 id="strategy-methodology-title">Methodology and limitations</h2>
+        </div>
+        <div class="strategy-method-grid">
+          <article class="strategy-method-card">
+            <h3>Data and lap treatment</h3>
+            <ul>
+              <li>Race data came primarily from OpenF1.</li>
+              <li>Completed lap records were used for Sainz, Norris, Russell, and Hamilton.</li>
+              <li>Lap 45 was treated as the Mercedes out-lap.</li>
+              <li>Laps 46–56 were used as the cleaner pre-traffic comparison window.</li>
+              <li>Cumulative lap times were used to reconstruct gaps.</li>
+            </ul>
+          </article>
+
+          <article class="strategy-method-card">
+            <h3>Incomplete records excluded</h3>
+            <p>Incomplete final timing-feed placeholders were excluded:</p>
+            <ul>
+              <li>Sainz: lap 63</li>
+              <li>Norris: lap 63</li>
+              <li>Hamilton: lap 63</li>
+              <li>Russell: lap 62</li>
+            </ul>
+          </article>
+
+          <article class="strategy-method-card">
+            <h3>Completed laps retained</h3>
+            <dl class="strategy-lap-counts">
+              <div><dt>Sainz</dt><dd>62</dd></div>
+              <div><dt>Norris</dt><dd>62</dd></div>
+              <div><dt>Hamilton</dt><dd>62</dd></div>
+              <div><dt>Russell</dt><dd>61</dd></div>
+            </dl>
+          </article>
+
+          <article class="strategy-method-card strategy-method-card--wide">
+            <h3>Interpretive limits</h3>
+            <ul>
+              <li>
+                “Strategy-package advantage” is used because the measured difference combines tyre, car, driver,
+                traffic, energy deployment, and pace-management effects.
+              </li>
+              <li>The observed lap-time trend is not presented as pure tyre degradation.</li>
+              <li>Finish-line gap is only a proxy for the official DRS detection-point gap.</li>
+              <li>Maximum-speed observations are not a pure measurement of DRS gain.</li>
+              <li>
+                Theoretical break-even extends clean-air pace and should not be read as proof of equivalent realised
+                elapsed-time recovery once the Mercedes drivers reached traffic.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="strategy-panel strategy-sources" aria-labelledby="strategy-sources-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">References</p>
+          <h2 id="strategy-sources-title">Sources</h2>
+        </div>
+        <ul class="strategy-source-list">
+          <li>
+            <a href="https://openf1.org/docs/" target="_blank" rel="noopener">
+              <span>OpenF1 documentation</span>
+              <span aria-hidden="true">openf1.org ↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.statsf1.com/en/2023/singapour.aspx" target="_blank" rel="noopener">
+              <span>StatsF1 — 2023 Singapore Grand Prix</span>
+              <span aria-hidden="true">statsf1.com ↗</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.formula1.com/en/latest/article/fia-post-race-press-conference-singapore-2023.6wQkVaz9oW55DkpB538RxT"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>Official Formula 1 post-race press conference</span>
+              <span aria-hidden="true">formula1.com ↗</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <nav class="strategy-footer-nav" aria-label="Case study footer navigation">
+        <a class="back-link strategy-back-link" href="../index.html#f1-strategy">← Back to F1 Strategy Analysis</a>
+        <a class="strategy-top-link" href="#top">Back to top ↑</a>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Kristofer Tsai. Independent public-data race-strategy case study.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
