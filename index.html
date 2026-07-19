@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Kristofer Tsai, UCLA Mechanical Engineering portfolio focused on motorsport and data analytics." />
   <title>Kristofer Tsai | Motorsport Engineering Portfolio</title>
-  <link rel="stylesheet" href="style.css?v=20260718-f1" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="style.css?v=20260718-site-cleanup" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -17,13 +18,13 @@
         <span class="brand-text">Kristofer Tsai</span>
       </a>
 
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <ul class="nav-links">
+      <ul class="nav-links" id="primary-navigation">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#bfr">BFR</a></li>
@@ -47,21 +48,21 @@
           I build analytical workflows for race telemetry, vehicle performance, sports analytics, and user behaviour.
           The goal is simple: turn complex datasets into clear, actionable insight.
         </p>
-        <div class="hero-actions" aria-label="Primary actions">
-          <a class="button button-primary" href="#projects">View Projects</a>
+        <div class="hero-actions" role="group" aria-label="Primary actions">
+          <a class="button button-primary" href="#projects">View Reports</a>
           <a class="button button-secondary" href="assets/documents/kristofer-tsai-2025-resume-redbull.docx" download>Download Resume</a>
           <a class="button button-ghost" href="#contact">Contact</a>
         </div>
       </div>
 
       <div class="hero-portrait reveal">
-        <img src="images/profile-portrait-4x5-centered.jpg" alt="Kristofer Tsai smiling outside the Royal Albert Hall" />
+        <img src="images/profile-portrait-4x5-centered.jpg" width="1600" height="2000" alt="Kristofer Tsai smiling outside the Royal Albert Hall" decoding="async" fetchpriority="high" />
       </div>
     </section>
 
-    <section id="about" class="section section-grid" aria-labelledby="about-title">
+    <section id="about" class="section" aria-labelledby="about-title">
       <div class="section-heading reveal">
-        <h2 id="about-title">About me</h2>
+        <h2 id="about-title">About Me</h2>
       </div>
       <div class="about-layout">
         <div class="about-bio reveal">
@@ -243,7 +244,7 @@
               <div class="card-kicker">Student Club</div>
               <h3>Bruin Sports Analytics</h3>
               <p class="experience-project-title">Distance in Modern Golf</p>
-              <p>Published sports-analytics article on PGA Tour driving distance and scoring.</p>
+              <p>Published sports-analytics article on PGA Tour driving distance, official earnings, and strategic value.</p>
               <div class="experience-meta">
                 <span>Regression</span>
                 <span>PGA data</span>
@@ -269,7 +270,7 @@
             channel validation, motor-torque response, thermal response, and endurance-style analysis.
           </p>
         </div>
-        <div class="bfr-intro-metrics" aria-label="Telemetry audit summary">
+        <div class="bfr-intro-metrics" role="group" aria-label="Telemetry audit summary">
           <span>2026 testing</span>
           <strong>347 channels</strong>
           <span>Inverter / BMS / IMU / thermal</span>
@@ -277,9 +278,9 @@
       </div>
 
       <div class="bfr-panel-grid">
-        <article class="bfr-panel bfr-panel-feature reveal" data-href="reports/bfr-raw-logs-telemetry.html" role="link" tabindex="0" aria-label="Read From Raw Logs to Usable Telemetry case study">
+        <a class="bfr-panel bfr-panel-feature bfr-panel-link reveal" href="reports/bfr-raw-logs-telemetry.html" aria-label="View the From Raw Logs to Usable Telemetry case study">
           <div class="bfr-panel-topline">
-            <span class="status-tag status-usable">Data Processing</span>
+            <span class="status-tag status-usable">Telemetry Validation</span>
             <span class="bfr-panel-index">01</span>
           </div>
           <h3>From Raw Logs to Usable Telemetry</h3>
@@ -288,23 +289,23 @@
             Audited a 347-channel telemetry log to identify usable inverter, BMS, coolant, thermal, and IMU signals,
             excluding invalid GPS, wheel-speed, VCU, tyre, brake, and damper data from performance conclusions.
           </p>
-          <div class="bfr-signal-row" aria-label="Signal status summary">
+          <div class="bfr-signal-row" role="group" aria-label="Signal status summary">
             <span class="status-tag status-usable">Usable</span>
             <span class="status-tag status-caution">Caution</span>
             <span class="status-tag status-excluded">Excluded</span>
           </div>
-          <div class="link-row">
-            <a href="reports/bfr-raw-logs-telemetry.html">Open Case Study</a>
-          </div>
-        </article>
+          <span class="link-row" aria-hidden="true">
+            <span class="bfr-panel-cta">View Case Study</span>
+          </span>
+        </a>
 
         <a
           class="bfr-panel bfr-panel-link reveal"
           href="reports/bfr-motor-torque-response.html"
-          aria-label="Open Motor Torque Response and Operating Behaviour case study"
+          aria-label="View the Motor Torque Response and Operating Behaviour case study"
         >
           <div class="bfr-panel-topline">
-            <span class="status-tag status-complete">Analysis Complete</span>
+            <span class="status-tag status-complete">Torque Analysis</span>
             <span class="bfr-panel-index">02</span>
           </div>
           <h3>Motor Torque Response &amp; Operating Behaviour</h3>
@@ -315,17 +316,17 @@
             quantifies the system&rsquo;s operating behaviour.
           </p>
           <span class="link-row" aria-hidden="true">
-            <span class="bfr-panel-cta">Open Case Study</span>
+            <span class="bfr-panel-cta">View Case Study</span>
           </span>
         </a>
 
         <a
           class="bfr-panel bfr-panel-link reveal"
           href="reports/bfr-thermal-response.html"
-          aria-label="Open Thermal Response During Dynamic Running case study"
+          aria-label="View the Thermal Response During Dynamic Running case study"
         >
           <div class="bfr-panel-topline">
-            <span class="status-tag status-complete">ANALYSIS COMPLETE</span>
+            <span class="status-tag status-complete">Thermal Analysis</span>
             <span class="bfr-panel-index">03</span>
           </div>
           <h3>Thermal Response During Dynamic Running</h3>
@@ -336,7 +337,7 @@
             relationship between motor demand and inverter heating.
           </p>
           <span class="link-row" aria-hidden="true">
-            <span class="bfr-panel-cta">Open Case Study</span>
+            <span class="bfr-panel-cta">View Case Study</span>
           </span>
         </a>
       </div>
@@ -346,16 +347,16 @@
       <div class="f1-strategy-shell reveal">
         <div class="f1-strategy-intro">
           <div>
-            <p class="eyebrow">Independent public-data case studies</p>
+            <p class="eyebrow">Independent Analysis · Public Data</p>
             <h2 id="f1-strategy-title">F1 Strategy Analysis</h2>
             <p>
-              Independent studies of historical Formula 1 race strategy using publicly available data. Each case
+              Historical Formula 1 strategy studies built from publicly available data. Each case
               reconstructs a decision, tests its trade-offs, and separates what the evidence supports from what it
               cannot prove.
             </p>
           </div>
           <p class="f1-strategy-disclaimer">
-            Personal research<br />Not affiliated with Formula 1 or any team
+            Personal research<br />Not affiliated with Formula 1 or any Formula 1 team
           </p>
         </div>
 
@@ -363,7 +364,7 @@
           <a
             class="f1-study-card"
             href="reports/f1-singapore-2023-strategy.html"
-            aria-label="View Singapore 2023 tyre-strategy case study"
+            aria-label="View the Singapore 2023 Formula 1 strategy case study"
           >
             <div class="f1-study-topline">
               <span class="f1-study-eyebrow">F1 Strategy Analysis</span>
@@ -384,7 +385,7 @@
                 <li>DRS defence</li>
               </ul>
             </div>
-            <span class="f1-study-cta" aria-hidden="true">View case study <span>&rarr;</span></span>
+            <span class="f1-study-cta" aria-hidden="true">View Case Study <span>&rarr;</span></span>
           </a>
         </div>
       </div>
@@ -397,7 +398,7 @@
       </div>
 
       <div class="card-grid project-grid technical-project-grid">
-        <article id="project-nba-outcome" class="project-card reveal" data-href="reports/nba-outcome-prediction.html" role="link" tabindex="0" aria-label="Read Predicting NBA Game Outcomes report">
+        <a id="project-nba-outcome" class="project-card reveal" href="reports/nba-outcome-prediction.html" aria-label="Read the Predicting NBA Game Outcomes report">
           <div class="project-body">
             <div class="card-kicker">Research Project</div>
             <h3>rideOS</h3>
@@ -406,17 +407,15 @@
               Sports machine-learning research project using NBA game data, engineered statistical features, and WEKA
               classifiers to test outcome prediction.
             </p>
-            <p class="project-result"><strong>Highlight:</strong> Processed 1,200+ games and compared models with F-measure across J48, Naive Bayes, regression, and K-NN-style methods.</p>
+            <p class="project-result"><strong>Highlight:</strong> Processed 1,200+ games and compared models with F-measure across J48, Naïve Bayes, logistic regression, and KNN-based methods.</p>
             <div class="tool-row">
               <span>Python</span><span>WEKA</span><span>Machine Learning</span><span>API Data</span>
             </div>
-            <div class="link-row">
-              <a href="reports/nba-outcome-prediction.html">Read Report</a>
-            </div>
+            <span class="link-row" aria-hidden="true"><span class="project-card-cta">Read Report</span></span>
           </div>
-        </article>
+        </a>
 
-        <article id="project-dating-apps" class="project-card reveal" data-href="reports/dating-apps-analysis.html" role="link" tabindex="0" aria-label="Read DataRizz Dating App Analysis report">
+        <a id="project-dating-apps" class="project-card reveal" href="reports/dating-apps-analysis.html" aria-label="Read the DataRizz Dating App Analysis report">
           <div class="project-body">
             <div class="card-kicker">Student Club</div>
             <h3>DataRes</h3>
@@ -429,30 +428,26 @@
             <div class="tool-row">
               <span>Python</span><span>VADER NLP</span><span>pandas</span><span>Visualisation</span>
             </div>
-            <div class="link-row">
-              <a href="reports/dating-apps-analysis.html">Read Report</a>
-            </div>
+            <span class="link-row" aria-hidden="true"><span class="project-card-cta">Read Report</span></span>
           </div>
-        </article>
+        </a>
 
-        <article id="project-golf-distance" class="project-card reveal" data-href="reports/golf-distance-analysis.html" role="link" tabindex="0" aria-label="Read Distance in Modern Golf report">
+        <a id="project-golf-distance" class="project-card reveal" href="reports/golf-distance-analysis.html" aria-label="Read the Distance in Modern Golf report">
           <div class="project-body">
             <div class="card-kicker">Student Club</div>
             <h3>Bruin Sports Analytics</h3>
             <p class="project-context">Distance in Modern Golf</p>
             <p>
-              Published sports-analytics article examining whether PGA Tour driving distance correlates with scoring,
-              leaderboard success, and strategic advantage.
+              Published sports-analytics article examining whether PGA Tour driving distance is associated with official
+              earnings and what distance means strategically.
             </p>
-            <p class="project-result"><strong>Highlight:</strong> Regression results showed distance creates opportunities, but overall scoring success depends on a wider performance profile.</p>
+            <p class="project-result"><strong>Highlight:</strong> Regression found only a weak relationship with official earnings; distance creates opportunities but does not explain overall tournament success.</p>
             <div class="tool-row">
               <span>Python</span><span>PGA Data</span><span>Regression</span><span>Seaborn</span>
             </div>
-            <div class="link-row">
-              <a href="reports/golf-distance-analysis.html">Read Report</a>
-            </div>
+            <span class="link-row" aria-hidden="true"><span class="project-card-cta">Read Report</span></span>
           </div>
-        </article>
+        </a>
       </div>
     </section>
 
@@ -474,7 +469,7 @@
           </ul>
         </article>
         <article class="skill-card reveal">
-          <h3>Motorsport & Engineering</h3>
+          <h3>Motorsport &amp; Engineering</h3>
           <ul class="skill-tags">
             <li>Telemetry</li>
             <li>Vehicle dynamics</li>
@@ -508,11 +503,11 @@
           <ul class="outside-list">
             <li>
               <span>Golf</span>
-              <p>Approximately a 10 handicap (unofficial)</p>
+              <p>Approximate handicap: 10 (unofficial)</p>
             </li>
             <li>
               <span>Tennis</span>
-              <p>UTR approximately 5 (unofficial)</p>
+              <p>Approximate UTR: 5 (unofficial)</p>
             </li>
             <li>
               <span>Track Days</span>
@@ -551,7 +546,7 @@
     <a href="#top">Back to top</a>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260718-site-cleanup"></script>
 </body>
 </html>
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="A collaborative DataRes analysis of dating-app reviews and profile behaviour, combining VADER sentiment analysis, visualisations, and user-engagement findings." />
   <title>DataRizz: A Statistical Deep Dive into Dating Apps | Kristofer Tsai</title>
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../style.css?v=20260718-site-cleanup" />
 </head>
 <body class="report-page">
   <a class="skip-link" href="#report-content">Skip to report</a>
@@ -16,7 +16,6 @@
         <span class="brand-text">Kristofer Tsai</span>
       </a>
       <ul class="nav-links report-nav-links">
-        <li><a href="../index.html#top">Home</a></li>
         <li><a href="../index.html#projects">Reports</a></li>
         <li><a href="../assets/documents/dating-apps-analysis.docx" download>Download DOCX</a></li>
       </ul>
@@ -25,17 +24,17 @@
 
   <main id="report-content">
     <section class="report-hero section">
-      <a class="back-link" href="../index.html#projects">Back to reports</a>
-      <p class="eyebrow">NLP / Consumer Data Analysis</p>
+      <a class="back-link" href="../index.html#projects">← Back to Reports</a>
+      <p class="eyebrow">NLP · Consumer Data Analysis</p>
       <h1>DataRizz: A Statistical Deep Dive into Dating Apps</h1>
       <p class="hero-subtitle">A collaborative DataRes analysis of dating-app reviews and profile behaviour, combining VADER sentiment analysis, visualisations, and user-engagement findings.</p>
-      <p class="report-meta">DataRes / UCLA</p>
+      <p class="report-meta">DataRes · UCLA</p>
       <div class="tool-row report-tools">
         <span>Python</span>
-              <span>VADER NLP</span>
-              <span>pandas</span>
-              <span>Matplotlib</span>
-              <span>Data Visualisation</span>
+        <span>VADER NLP</span>
+        <span>pandas</span>
+        <span>Matplotlib</span>
+        <span>Data Visualisation</span>
       </div>
       <div class="hero-actions">
         <a class="button button-primary" href="../assets/documents/dating-apps-analysis.docx" download>Download DOCX</a>
@@ -44,56 +43,55 @@
     </section>
 
     <section class="section report-shell" aria-label="Report text">
-      <aside class="report-aside">
-        <p class="eyebrow">Key Takeaway</p>
+      <aside class="report-aside" aria-labelledby="dating-takeaway-title">
+        <p class="eyebrow" id="dating-takeaway-title">Key takeaway</p>
         <p>The analysis classified large review datasets by sentiment and surfaced recurring user frustrations around fake profiles, pricing, technical issues, and engagement.</p>
       </aside>
       <article class="report-document">
-<figure><img src="../assets/reports/dating-apps-analysis/image4.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
-<h3>DataRizz: A Statistical Deep Dive into Dating Apps</h3>
+<figure><img src="../assets/reports/dating-apps-analysis/image4.png" width="1200" height="630" loading="lazy" decoding="async" alt="DataRizz project title graphic featuring the analysis team and dating-app imagery"></figure>
 <p class="report-byline"><strong>Authors:</strong> Kailani Hoang (Project Lead), Kristofer Tsai, Bob Wang, Deshna Govil, Philbert Fan</p>
 <p>Dating apps have grown in popularity and changed how people meet, interact, and form relationships. Millions of people use these platforms every day to swipe, like, match, and message potential partners. The resulting data allows us to examine user demographics and identify patterns in engagement and reported success.</p>
 <p>Through these data visualisations, we examine relationships between user demographics, overall opinions of dating apps, and the profile characteristics associated with engagement. The findings provide a clearer view of how people use dating apps and what shapes their experiences.</p>
-<h3>Sentiment Analysis of User Reviews</h3>
+<h2>Sentiment Analysis of User Reviews</h2>
 <p>In this section, we perform sentiment analysis on Google Play reviews of three popular dating apps. The datasets are obtained from Kaggle at the following links:</p>
 <p>Hinge: <a href="https://www.kaggle.com/datasets/shivkumarganesh/hinge-google-play-store-review" target="_blank" rel="noopener">https://www.kaggle.com/datasets/shivkumarganesh/hinge-google-play-store-review</a></p>
 <p>Bumble: <a href="https://www.kaggle.com/datasets/shivkumarganesh/bumble-dating-app-google-play-store-review" target="_blank" rel="noopener">https://www.kaggle.com/datasets/shivkumarganesh/bumble-dating-app-google-play-store-review</a></p>
-<p>Tinder:<a href="https://www.kaggle.com/datasets/shivkumarganesh/tinder-google-play-store-review" target="_blank" rel="noopener">https://www.kaggle.com/datasets/shivkumarganesh/tinder-google-play-store-review</a></p>
+<p>Tinder: <a href="https://www.kaggle.com/datasets/shivkumarganesh/tinder-google-play-store-review" target="_blank" rel="noopener">https://www.kaggle.com/datasets/shivkumarganesh/tinder-google-play-store-review</a></p>
 <p>We use VADER (Valence Aware Dictionary and sEntiment Reasoner), which produces a compound sentiment score. Each score is categorised as positive (above 0.05), negative (below -0.05), or neutral (between -0.05 and 0.05).</p>
 <p>Positive words such as &quot;love&quot;, &quot;great&quot;, and &quot;amazing&quot; contribute to a higher sentiment score, while negative words such as &quot;terrible&quot;, &quot;disappointing&quot;, and &quot;scam&quot; lower it. VADER is particularly effective for social media and other short texts because it considers punctuation, capitalisation, and negation.</p>
 <p>The sentiment-distribution bar charts and time-series plots show how user opinions evolved over the period analysed.</p>
-<div class="sentiment-chart-grid" aria-label="Sentiment distribution and average sentiment over time by app">
+<div class="sentiment-chart-grid" role="group" aria-label="Sentiment distribution and average sentiment over time by app">
   <section class="sentiment-chart-card">
-    <h4>Hinge</h4>
-    <figure><img src="../assets/reports/dating-apps-analysis/image12.png" alt="Hinge sentiment distribution bar chart"></figure>
-    <figure><img src="../assets/reports/dating-apps-analysis/image20.png" alt="Hinge average sentiment over time chart"></figure>
+    <h3>Hinge</h3>
+    <figure><img src="../assets/reports/dating-apps-analysis/image12.png" width="589" height="455" loading="lazy" decoding="async" alt="Hinge review sentiment distribution bar chart"></figure>
+    <figure><img src="../assets/reports/dating-apps-analysis/image20.png" width="857" height="470" loading="lazy" decoding="async" alt="Hinge average review sentiment over time"></figure>
   </section>
   <section class="sentiment-chart-card">
-    <h4>Bumble</h4>
-    <figure><img src="../assets/reports/dating-apps-analysis/image18.png" alt="Bumble sentiment distribution bar chart"></figure>
-    <figure><img src="../assets/reports/dating-apps-analysis/image6.png" alt="Bumble average sentiment over time chart"></figure>
+    <h3>Bumble</h3>
+    <figure><img src="../assets/reports/dating-apps-analysis/image18.png" width="589" height="455" loading="lazy" decoding="async" alt="Bumble review sentiment distribution bar chart"></figure>
+    <figure><img src="../assets/reports/dating-apps-analysis/image6.png" width="866" height="470" loading="lazy" decoding="async" alt="Bumble average review sentiment over time"></figure>
   </section>
   <section class="sentiment-chart-card">
-    <h4>Tinder</h4>
-    <figure><img src="../assets/reports/dating-apps-analysis/image14.png" alt="Tinder sentiment distribution bar chart"></figure>
-    <figure><img src="../assets/reports/dating-apps-analysis/image21.png" alt="Tinder average sentiment over time chart"></figure>
+    <h3>Tinder</h3>
+    <figure><img src="../assets/reports/dating-apps-analysis/image14.png" width="597" height="455" loading="lazy" decoding="async" alt="Tinder review sentiment distribution bar chart"></figure>
+    <figure><img src="../assets/reports/dating-apps-analysis/image21.png" width="857" height="470" loading="lazy" decoding="async" alt="Tinder average review sentiment over time"></figure>
   </section>
 </div>
 <p>The plots suggest a general decline in sentiment across all three apps during the period analysed. One notable dip coincides with the COVID-19 pandemic and may reflect frustration among people who turned to dating apps during lockdowns. New users who were unfamiliar with online dating may also have struggled with virtual interactions or brought different expectations to the platforms.</p>
 <p>Sentiment may also have declined in response to changing app features, monetisation strategies, and recommendation algorithms. Subscription costs, ghosting, and perceived inauthenticity in profiles could likewise have contributed to negative reviews.</p>
 <p>To examine user experience more closely, the word clouds below show the terms most frequently mentioned in Tinder, Bumble, and Hinge reviews. They highlight common points of praise and frustration: words with positive sentiment appear in pink, while words with negative sentiment appear in orange.</p>
-<div class="word-cloud-grid" aria-label="Word clouds from dating app reviews">
+<div class="word-cloud-grid" role="group" aria-label="Word clouds from dating app reviews">
   <figure>
     <figcaption>Hinge</figcaption>
-    <img src="../assets/reports/dating-apps-analysis/image22.png" alt="Frequent words in Hinge reviews word cloud">
+    <img src="../assets/reports/dating-apps-analysis/image22.png" width="902" height="670" loading="lazy" decoding="async" alt="Word cloud of frequent terms in Hinge reviews">
   </figure>
   <figure>
     <figcaption>Bumble</figcaption>
-    <img src="../assets/reports/dating-apps-analysis/image16.png" alt="Frequent words in Bumble reviews word cloud">
+    <img src="../assets/reports/dating-apps-analysis/image16.png" width="776" height="682" loading="lazy" decoding="async" alt="Word cloud of frequent terms in Bumble reviews">
   </figure>
   <figure>
     <figcaption>Tinder</figcaption>
-    <img src="../assets/reports/dating-apps-analysis/image19.png" alt="Frequent words in Tinder reviews word cloud">
+    <img src="../assets/reports/dating-apps-analysis/image19.png" width="856" height="688" loading="lazy" decoding="async" alt="Word cloud of frequent terms in Tinder reviews">
   </figure>
 </div>
 <p>Across Tinder, Hinge, and Bumble, frequent words include &quot;fake&quot;, &quot;scam&quot;, &quot;waste&quot;, &quot;likes&quot;, &quot;free&quot;, &quot;issue&quot;, and &quot;worst&quot;. This suggests widespread frustration with bots and fake profiles. The appearance of &quot;free&quot; alongside terms such as &quot;waste&quot; and &quot;scam&quot; also points to dissatisfaction with monetisation strategies, particularly when users feel pressured to pay to see likes or access other features.</p>
@@ -101,14 +99,14 @@
 <p>Hinge reviews uniquely feature &quot;support&quot;, &quot;decent&quot;, and &quot;recommend&quot;, suggesting that some users recognise the app’s customer support despite experiencing technical problems. Words such as &quot;friendly&quot; and &quot;attractive&quot; also appear more frequently, which may indicate more positive perceptions of match quality and interaction.</p>
 <p>Bumble reviews focus more heavily on pricing and value, with words such as &quot;boost&quot;, &quot;refund&quot;, &quot;expensive&quot;, &quot;worth&quot;, and &quot;pay&quot;. This suggests that users question the value of premium features. Terms such as &quot;inactive&quot;, &quot;wasting&quot;, and &quot;unable&quot; also point to frustration with low response rates.</p>
 <p>Overall, fake profiles, technical problems, and pricing concerns appear across all three apps, but the emphasis differs by platform. Tinder reviews focus more on technical reliability, Bumble reviews more often question pricing and inactive users, and Hinge reviews contain more language associated with positive interactions and perceived match quality.</p>
-<h3>Most Common Profile on Dating Apps</h3>
+<h2>Most Common Profile on Dating Apps</h2>
 <p>Dating-app use has become increasingly common, but who uses these platforms and what are they looking for? The following visualisation breaks down the demographics of female users by age, relationship goal, and occupation. The top three occupations in each branch are shown, while the remainder are grouped under “Other” for readability.</p>
-<figure class="profile-breakdown-figure"><img src="../assets/reports/dating-apps-analysis/image24.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<figure class="profile-breakdown-figure"><img src="../assets/reports/dating-apps-analysis/image24.png" width="1080" height="1080" loading="lazy" decoding="async" alt="Demographic breakdown of female dating-app profiles by age, relationship goal, and occupation"></figure>
 <p>Among female profiles, the median age is 27 and the average height is 5’5”. The most common interests are travel, music, and sports, and most users report wanting children. High school is the most commonly reported education level, while artist is the most common occupation. The next graph presents the same demographic breakdown for male users.</p>
-<figure class="profile-breakdown-figure"><img src="../assets/reports/dating-apps-analysis/image23.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<figure class="profile-breakdown-figure"><img src="../assets/reports/dating-apps-analysis/image23.png" width="1920" height="1080" loading="lazy" decoding="async" alt="Demographic breakdown of male dating-app profiles by age, relationship goal, and occupation"></figure>
 <p>Among male profiles, the median age is 28 and the median height is 5’6”. Entrepreneur is the most common occupation, while travel, hiking, and reading are the most common interests. Long-term relationships are the most frequently reported goal, and most users report that they do not want children. The median education level is a bachelor’s degree.</p>
 <p>Overall, the typical ages of male and female users are similar. One notable difference is that more men report seeking long-term relationships, while women more often report seeking something casual. These differing goals may help explain why some users struggle to find compatible matches. The age distribution of women aged 18–35 is relatively even, while male profiles include a smaller share of users aged 18–20 and larger shares aged 21–25 and 31–35. The next section examines whether demographic factors such as age and education are associated with app-usage frequency.</p>
-<h3>Demographics and Online Dating Trends</h3>
+<h2>Demographics and Online Dating Trends</h2>
 <p>The practical questions are straightforward: What makes an effective bio, and which profile characteristics are associated with more engagement? Before considering profile strategies, we first examine users’ demographics—age, gender, height, and education—and their app-usage patterns, including relationship goals, usage frequency, and swipe volume.</p>
 <p>To make these patterns more concrete, we introduce two fictional users, Alex and Beth. Neither character represents an individual in the dataset; both are illustrative scenarios created with user privacy in mind.</p>
 <p>Alex is a 22-year-old electrical engineer who recently graduated and now works at a small biotech firm. He uses a dating app only a few times each month but has already arranged a couple of dates, including a weekend jet-skiing trip with a recent match. At 6’1”, he is also taller than many of his peers.</p>
@@ -124,17 +122,17 @@
 <p>Beth is more indoors-oriented and is seeking a serious relationship rather than an activity partner.</p>
 <p>Across these scenarios, the analysis highlights several relationships between demographics and dating-app usage.</p>
 <p>Education Level vs. Age at First Use: PhD students begin using dating apps earlier than users with a bachelor’s degree.</p>
-<figure class="education-chart-figure"><img src="../assets/reports/dating-apps-analysis/image9.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<figure class="education-chart-figure"><img src="../assets/reports/dating-apps-analysis/image9.png" width="640" height="480" loading="lazy" decoding="async" alt="Chart comparing education level with age at first dating-app use"></figure>
 <p>Age Group vs. Relationship Goal and Swipe Volume: Users aged 18–22 tend to seek casual friendships, while those over 30 more often seek long-term commitments. Users aged 23–30 report a mixture of both goals and record the most swipes.</p>
-<figure><img src="../assets/reports/dating-apps-analysis/image13.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
-<figure><img src="../assets/reports/dating-apps-analysis/image11.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<figure><img src="../assets/reports/dating-apps-analysis/image13.png" width="680" height="476" loading="lazy" decoding="async" alt="Chart comparing age groups with dating-app relationship goals"></figure>
+<figure><img src="../assets/reports/dating-apps-analysis/image11.png" width="640" height="480" loading="lazy" decoding="async" alt="Chart comparing age groups with dating-app swipe volume"></figure>
 <p>Outdoor Orientation vs. Relationship Goal: Outdoors-oriented users more often seek friendships, while indoors-oriented users tend to seek either casual or more serious relationships.</p>
-<figure><img src="../assets/reports/dating-apps-analysis/image7.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<figure><img src="../assets/reports/dating-apps-analysis/image7.png" width="680" height="539" loading="lazy" decoding="async" alt="Chart comparing outdoor orientation with relationship goals"></figure>
 <p>Men: Height vs. Swipe Volume and Usage Frequency: Shorter men record fewer swipes than taller men but use the app more frequently—daily rather than monthly. No comparable relationship appears among women.</p>
-<figure><img src="../assets/reports/dating-apps-analysis/image3.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
-<figure><img src="../assets/reports/dating-apps-analysis/image15.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<figure><img src="../assets/reports/dating-apps-analysis/image3.png" width="640" height="480" loading="lazy" decoding="async" alt="Chart comparing men’s height with dating-app swipe volume"></figure>
+<figure><img src="../assets/reports/dating-apps-analysis/image15.png" width="533" height="476" loading="lazy" decoding="async" alt="Chart comparing men’s height with dating-app usage frequency"></figure>
 <p>In summary: outdoor-oriented users are more likely to seek friendships, users in their twenties are the most active, and users over 30 are more likely to look for long-term relationships. PhD users begin using dating apps earlier than other education groups, while shorter male users tend to use the apps more frequently but swipe less often.</p>
-<h3>What Kinds of People Get the Most Engagement on Their Dating Profiles?</h3>
+<h2>What Kinds of People Get the Most Engagement on Their Dating Profiles?</h2>
 <p>Now that we’ve seen how Alex and Beth represent different dating app users—one swiping occasionally for adventure partners, the other searching daily for a long-term relationship—you might be wondering: Who actually gets the most attention on these apps?</p>
 <p>While personality, preferences, and usage habits all play a role, certain profile traits are consistently associated with more engagement. Understanding these factors can help users interpret and optimise their profiles.</p>
 <h3>Meet Kevin and Sophie: Two Users with Different Engagement Levels</h3>
@@ -144,42 +142,44 @@
 <h4>Sophie, 27 | Indoor, Searching for Long-Term Commitment</h4>
 <p>Sophie, like Beth, is more serious about dating. She is 27, a PhD student, and looking for a long-term partner. She lists her interest as “dating”, believing that clarity will help her find the right match. She lives in a small city, speaks only English, does not have VIP or verified status, and has one picture on her profile. Sophie’s engagement is lower than Kevin’s.</p>
 <h3>Six Factors Affecting Engagement on Dating Apps</h3>
-<h3>1. Age &amp; Engagement</h3>
-<figure><img src="../assets/reports/dating-apps-analysis/image8.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<h4>1. Age &amp; Engagement</h4>
+<figure><img src="../assets/reports/dating-apps-analysis/image8.png" width="846" height="470" loading="lazy" decoding="async" alt="Engagement by user age, showing profile visits and kisses peaking in the early twenties"></figure>
 <p>Users in their early twenties receive the highest engagement in this dataset, with profile visits and “kisses” generally peaking around age 22. Engagement declines at older ages, so Kevin’s profile would be expected to receive more visits and kisses than Sophie’s. After age 25, the difference becomes more pronounced.</p>
-<h3>2. Interest Type</h3>
-<figure><img src="../assets/reports/dating-apps-analysis/image1.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<h4>2. Interest Type</h4>
+<figure><img src="../assets/reports/dating-apps-analysis/image1.png" width="1014" height="547" loading="lazy" decoding="async" alt="Dating-profile engagement compared across friendship, chat, and dating interest types"></figure>
 <p>Users who list friendship as their primary interest receive the most engagement, while those who select chatting also receive relatively high engagement. Profiles that list dating receive the fewest interactions. This suggests that users may be more willing to approach profiles that feel low-pressure and open-ended. Kevin, who selected “Chat” and “Friends”, therefore receives more swipes than Sophie, who selected “Dating”.</p>
-<h3>3. VIP &amp; Verification</h3>
-<figure><img src="../assets/reports/dating-apps-analysis/image10.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<h4>3. VIP &amp; Verification</h4>
+<figure><img src="../assets/reports/dating-apps-analysis/image10.png" width="1014" height="547" loading="lazy" decoding="async" alt="Dating-profile engagement compared by VIP and verification status"></figure>
 <p>Many dating apps also offer VIP services. Our analysis suggests that users who have both VIP and verified status (Yes, Yes) receive the highest engagement, while users with neither VIP nor verified status (No, No) have the lowest engagement. Interestingly, users with only verification (No, Yes) receive more engagement than users with only VIP status (Yes, No).</p>
 <p>This suggests that verification has a stronger association with engagement than VIP status alone, possibly because users place more trust in verified accounts.</p>
 <p>VIP status can increase profile visibility, while verification can build trust by signalling that an account is authentic. In this dataset, profiles with both attributes receive the highest engagement.</p>
 <p>Kevin’s verified status may therefore contribute to his receiving more profile visits than Sophie, who has neither VIP nor verified status.</p>
-<h3>4. Profile Pictures</h3>
-<figure><img src="../assets/reports/dating-apps-analysis/image5.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<h4>4. Profile Pictures</h4>
+<figure><img src="../assets/reports/dating-apps-analysis/image5.png" width="868" height="470" loading="lazy" decoding="async" alt="Relationship between number of profile pictures and dating-profile engagement"></figure>
 <p>The graph shows a positive correlation between the number of profile pictures and engagement. As the number of pictures increases, both profile visits and kisses tend to rise. Users with no pictures, or very few, receive substantially less engagement. The trend begins to flatten at around six to eight pictures. Kevin, who has six high-quality pictures, therefore receives more profile visits than Sophie, who uploaded only one.</p>
-<h3>5. Distance</h3>
-<figure><img src="../assets/reports/dating-apps-analysis/image2.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<h4>5. Distance</h4>
+<figure><img src="../assets/reports/dating-apps-analysis/image2.png" width="859" height="470" loading="lazy" decoding="async" alt="Relationship between user distance and dating-profile engagement"></figure>
 <p>Profile visits and kisses are concentrated at shorter distances, likely because nearby users can meet more easily in person. Engagement is highest within 100 kilometres and declines substantially beyond that range, as reflected by the downward-sloping regression line. Kevin’s location in a major city may therefore expose his profile to more nearby users than Sophie’s location in a smaller town.</p>
-<h3>6. Languages Spoken</h3>
-<figure><img src="../assets/reports/dating-apps-analysis/image17.png" alt="Figure from DataRizz: A Statistical Deep Dive into Dating Apps"></figure>
+<h4>6. Languages Spoken</h4>
+<figure><img src="../assets/reports/dating-apps-analysis/image17.png" width="859" height="470" loading="lazy" decoding="async" alt="Relationship between languages listed and dating-profile engagement"></figure>
 <p>The regression line shows a positive correlation between the number of languages listed and engagement. Engagement is highest among users who list three to five languages, although the apparent benefit may plateau beyond six. Many users list only one language, but bilingual and multilingual profiles tend to receive more engagement. Kevin, who lists English, Spanish, and French, therefore receives more interaction than Sophie, who lists only English.</p>
 <h2>Final Insights: How to Build the Most Engaging Profile</h2>
 <p>From Kevin and Sophie’s experiences, here’s what we learned about who gets the most engagement:</p>
-<p>Young users (early 20s) get the most attention.</p>
-<p>Profiles listing “Friendship” or “Chat” as an interest receive the highest engagement.</p>
-<p>Combining VIP and verified status is associated with substantially higher engagement.</p>
-<p>More profile pictures are associated with more profile visits and swipes.</p>
-<p>Geographic proximity is associated with higher engagement.</p>
-<p>Listing multiple languages is associated with more interactions.</p>
+<ul>
+  <li>Young users (early twenties) receive the most attention.</li>
+  <li>Profiles listing “Friendship” or “Chat” as an interest receive the highest engagement.</li>
+  <li>Combining VIP and verified status is associated with substantially higher engagement.</li>
+  <li>More profile pictures are associated with more profile visits and kisses.</li>
+  <li>Geographic proximity is associated with higher engagement.</li>
+  <li>Listing multiple languages is associated with more interactions.</li>
+</ul>
 <p>Across the factors analysed, profile visits are the dominant engagement metric. This suggests that users often view profiles without taking further action.</p>
 <h3>What Does This Mean for You?</h3>
-<p>Users who take a casual approach and focus on friendship may receive stronger engagement, as illustrated by Alex’s profile.</p>
-<p>Users seeking a long-term commitment may receive lower engagement, as illustrated by Beth’s profile, but profile quality and clarity still matter.</p>
+<p>Users who take a casual approach and focus on friendship may receive stronger engagement, as illustrated by Kevin’s profile.</p>
+<p>Users seeking a long-term commitment may receive lower engagement, as illustrated by Sophie’s profile, but profile quality and clarity still matter.</p>
 <p>If height is a concern, profile quality and engagement strategy still matter more than a single demographic trait.</p>
 <p>These factors provide a useful starting point for understanding and improving profile engagement.</p>
-<h3>Conclusion</h3>
+<h2>Conclusion</h2>
 <p>Dating apps are a relatively new way to meet people and form relationships. This analysis identifies patterns in user demographics, profile characteristics, engagement, and satisfaction, providing greater insight into how people use these platforms. Combined with the findings from review sentiment, these results could help developers improve the overall user experience.</p>
 <p>As new platforms emerge and established apps evolve, deeper analysis of dating-app data will remain important to understanding relationships in an increasingly digital world.</p>
       </article>
@@ -187,10 +187,10 @@
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Kristofer Tsai. Formatted from the original project document.</p>
+    <p>© <span id="year"></span> Kristofer Tsai. DataRes dating-app analysis.</p>
     <a href="#top">Back to top</a>
   </footer>
 
-  <script src="../script.js"></script>
+  <script src="../script.js?v=20260718-site-cleanup"></script>
 </body>
 </html>
