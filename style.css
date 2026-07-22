@@ -1529,7 +1529,7 @@ a.contact-card:focus-visible {
 
 .f1-study-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  grid-template-columns: 1fr;
   gap: var(--gap-grid);
   margin-top: clamp(1.25rem, 3vw, 2rem);
 }
@@ -3800,6 +3800,218 @@ a.contact-card:focus-visible {
   background: rgba(79, 110, 154, 0.08);
 }
 
+/* Brazil 2024 strategy case */
+.strategy-research-question {
+  max-width: 920px;
+  margin-top: 1.35rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(79, 110, 154, 0.22);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.46);
+}
+
+.strategy-research-question .eyebrow {
+  margin-bottom: 0.4rem;
+}
+
+.strategy-research-question p:last-child {
+  margin: 0;
+  color: var(--strategy-ink);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 780;
+  line-height: 1.45;
+}
+
+.strategy-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+}
+
+.strategy-summary-card {
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--strategy-line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.strategy-summary-card--qualified {
+  border-left: 4px solid var(--accent-warm);
+  background: rgba(198, 176, 140, 0.11);
+}
+
+.strategy-summary-card dt {
+  font-size: var(--type-label);
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.strategy-summary-card dd {
+  margin: 0.65rem 0 0;
+  color: var(--strategy-accent-strong);
+  font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.strategy-summary-card dd > span {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--muted-strong);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+.strategy-event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.strategy-event-grid li {
+  display: grid;
+  min-width: 0;
+  gap: 0.2rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--strategy-line);
+  border-top: 3px solid rgba(79, 110, 154, 0.48);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.strategy-event-grid strong {
+  color: var(--strategy-accent-strong);
+  font-size: var(--type-label);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.strategy-event-grid span {
+  color: var(--strategy-ink);
+  font-size: 0.92rem;
+  font-weight: 820;
+}
+
+.strategy-phase-list {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.strategy-caveat--key {
+  border-color: rgba(79, 110, 154, 0.3);
+  border-left-color: var(--strategy-accent);
+  background: rgba(79, 110, 154, 0.09);
+}
+
+.strategy-counterfactual-results {
+  margin-top: 1.4rem;
+}
+
+.strategy-counterfactual-results .strategy-evidence-card {
+  min-height: 0;
+}
+
+.strategy-counterfactual-results dd {
+  font-size: clamp(1rem, 1.55vw, 1.18rem);
+  overflow-wrap: anywhere;
+}
+
+.strategy-driver-note {
+  margin: 0.9rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.strategy-subheading {
+  margin-top: 1.6rem;
+  font-size: 1.15rem;
+}
+
+.strategy-pace-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.8rem;
+}
+
+.strategy-pace-card {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--strategy-line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.strategy-pace-card h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  color: var(--strategy-accent-strong);
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.strategy-pace-card dl {
+  margin: 0.8rem 0 0;
+}
+
+.strategy-pace-card dl > div {
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--strategy-line);
+}
+
+.strategy-pace-card dt,
+.strategy-pace-card dd {
+  margin: 0;
+}
+
+.strategy-pace-card dt {
+  font-size: var(--type-label);
+  font-weight: 820;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.strategy-pace-card dd {
+  margin-top: 0.25rem;
+  color: var(--strategy-ink);
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.strategy-verdict-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.strategy-verdict-takeaway {
+  margin-top: 1rem !important;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(79, 110, 154, 0.24);
+  border-left: 4px solid var(--strategy-accent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--strategy-ink) !important;
+  font-weight: 780;
+}
+
+.strategy-footer-case-link {
+  margin-left: auto !important;
+  text-align: right;
+}
+
 @media (max-width: 1050px) {
   .strategy-decision-list,
   .strategy-method-grid {
@@ -3813,6 +4025,15 @@ a.contact-card:focus-visible {
   .strategy-evidence-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .strategy-summary-grid,
+  .strategy-pace-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .strategy-counterfactual-results {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px) {
@@ -3821,6 +4042,10 @@ a.contact-card:focus-visible {
   .strategy-copy-grid,
   .strategy-drs-notes {
     grid-template-columns: 1fr;
+  }
+
+  .strategy-event-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .strategy-driver-card h3 {
@@ -3868,7 +4093,10 @@ a.contact-card:focus-visible {
   .strategy-decision-list,
   .strategy-pair-metrics,
   .strategy-evidence-grid,
-  .strategy-method-grid {
+  .strategy-method-grid,
+  .strategy-summary-grid,
+  .strategy-event-grid,
+  .strategy-pace-grid {
     grid-template-columns: 1fr;
   }
 
@@ -3895,6 +4123,11 @@ a.contact-card:focus-visible {
   .strategy-footer-nav {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .strategy-footer-case-link {
+    margin-left: 0 !important;
+    text-align: left;
   }
 }
 

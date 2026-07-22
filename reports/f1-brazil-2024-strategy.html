@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="A data-led analysis of Max Verstappen’s P17-to-P1 victory in Brazil 2024, separating on-track recovery, pit strategy, red-flag benefit and post-restart race pace."
+  />
+  <title>Brazil 2024 F1 Strategy Analysis | Kristofer Tsai</title>
+  <link rel="stylesheet" href="../style.css?v=20260722-brazil-case" />
+</head>
+<body class="report-page f1-case-page strategy-case-page brazil-case-page">
+  <a class="skip-link" href="#strategy-content">Skip to case study</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Case study navigation">
+      <a class="brand" href="../index.html#top" aria-label="Kristofer Tsai home">
+        <span class="brand-mark">KT</span>
+        <span class="brand-text">Kristofer Tsai</span>
+      </a>
+      <ul class="nav-links report-nav-links strategy-nav-links">
+        <li><a href="../index.html#f1-strategy">F1 Strategy Analysis</a></li>
+        <li><a href="f1-singapore-2023-strategy.html">Singapore 2023</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="strategy-content">
+    <section class="report-hero section strategy-hero" aria-labelledby="strategy-title">
+      <a class="back-link strategy-back-link" href="../index.html#f1-strategy">← Back to F1 Strategy Analysis</a>
+      <p class="eyebrow">F1 STRATEGY ANALYSIS · CASE 02 · BRAZIL 2024</p>
+      <h1 id="strategy-title">Brazil 2024: Recovery, Strategy and Conversion</h1>
+      <p class="hero-subtitle strategy-hero-subtitle">
+        Max Verstappen won the 2024 São Paulo Grand Prix after starting P17 in difficult wet conditions. This study
+        separates the contribution of his opening recovery, the Lap 28 pit decisions, the subsequent red flag and his
+        pace after the final restart.
+      </p>
+      <aside class="strategy-research-question" aria-labelledby="strategy-question-label">
+        <p class="eyebrow" id="strategy-question-label">Research question</p>
+        <p>How much of Max Verstappen&rsquo;s P17-to-P1 victory came from on-track recovery, strategic positioning and the red flag?</p>
+      </aside>
+      <p class="strategy-disclaimer" role="note">
+        Independent analysis using publicly available data. Not affiliated with Formula 1 or any Formula 1 team.
+      </p>
+      <ul class="strategy-topic-list" aria-label="Case study topics">
+        <li>Wet-weather strategy</li>
+        <li>Position reconstruction</li>
+        <li>Red-flag scenario</li>
+        <li>Post-restart pace</li>
+      </ul>
+    </section>
+
+    <section class="section strategy-content" aria-label="Brazil 2024 strategy case study">
+      <section class="strategy-panel strategy-summary" aria-labelledby="strategy-summary-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Executive summary</p>
+          <h2 id="strategy-summary-title">The result in four measures</h2>
+        </div>
+        <p class="strategy-lead">
+          Verstappen created most of the recovery on track, gained race-winning position during the Lap 28 pit split,
+          then converted that opportunity with the strongest pace after the final restart.
+        </p>
+        <dl class="strategy-summary-grid">
+          <div class="strategy-summary-card">
+            <dt>On-track recovery before the VSC</dt>
+            <dd>P17 → P5<span>Twelve positions gained before the central strategic sequence.</span></dd>
+          </div>
+          <div class="strategy-summary-card">
+            <dt>Gain when leading rivals stopped</dt>
+            <dd>+3 positions<span>The Lap 28 pit split moved Verstappen from P5 to P2.</span></dd>
+          </div>
+          <div class="strategy-summary-card strategy-summary-card--qualified">
+            <dt>Observed same-window Lap 28 stop estimate</dt>
+            <dd>~26 seconds<span>A scenario input, not a certain cost for every alternative strategy.</span></dd>
+          </div>
+          <div class="strategy-summary-card">
+            <dt>Final-stint advantage over comparison drivers</dt>
+            <dd>0.70–0.97 s/lap<span>Mean advantage across 26 shared clean laps.</span></dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="strategy-panel strategy-reconstruction" aria-labelledby="strategy-reconstruction-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Race reconstruction</p>
+          <h2 id="strategy-reconstruction-title">The Recovery Was Already Underway</h2>
+        </div>
+        <p class="strategy-lead">
+          Verstappen gained six positions on the opening lap, moving from P17 to P11. He then gained another six
+          positions through the wet-weather opening phase, reaching P5 before the Virtual Safety Car on Lap 28.
+          Twelve of his sixteen total positions had therefore been gained before the central strategic sequence.
+        </p>
+
+        <ul class="strategy-event-grid" aria-label="Key race events">
+          <li><strong>Lap 1</strong><span>P17 to P11</span></li>
+          <li><strong>Before Lap 28</strong><span>P11 to P5</span></li>
+          <li><strong>Lap 28</strong><span>Virtual Safety Car</span></li>
+          <li><strong>Lap 30</strong><span>Safety Car</span></li>
+          <li><strong>Lap 32</strong><span>Red flag</span></li>
+          <li><strong>Lap 39</strong><span>Second Safety Car</span></li>
+        </ul>
+
+        <figure class="strategy-figure">
+          <a
+            class="strategy-figure-link"
+            href="../assets/reports/f1-brazil-2024-strategy/01_brazil_2024_position_timeline.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open the Brazil 2024 position-by-lap timeline at full resolution in a new tab"
+          >
+            <img
+              class="strategy-figure-image"
+              src="../assets/reports/f1-brazil-2024-strategy/01_brazil_2024_position_timeline.png"
+              width="3935"
+              height="2174"
+              loading="lazy"
+              decoding="async"
+              alt="Position-by-lap chart for the 2024 São Paulo Grand Prix showing Verstappen’s recovery and the major neutralisation events."
+            />
+            <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
+          </a>
+          <figcaption class="strategy-figure-caption">
+            Position-by-lap reconstruction for Verstappen, Norris, Russell, Ocon and Gasly. Verstappen had already
+            reached P5 before the Lap 28 VSC and the subsequent pit sequence. Select the chart to inspect the
+            full-resolution figure.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="strategy-panel strategy-decomposition" aria-labelledby="strategy-decomposition-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Position-gain decomposition</p>
+          <h2 id="strategy-decomposition-title">Where the Sixteen Positions Came From</h2>
+        </div>
+        <p class="strategy-lead">
+          Breaking the recovery into strategic phases separates the positions Verstappen won on track from those
+          created by the pit split and the position he gained after the final restart.
+        </p>
+
+        <ol class="strategy-decision-list strategy-phase-list">
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">01</span>
+            <div>
+              <h3>+6 positions</h3>
+              <p>Opening lap: P17 to P11.</p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">02</span>
+            <div>
+              <h3>+6 positions</h3>
+              <p>Pre-VSC progress: P11 to P5.</p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">03</span>
+            <div>
+              <h3>+3 positions</h3>
+              <p>Lap 28 pit decisions: P5 to P2.</p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">04</span>
+            <div>
+              <h3>0 positions</h3>
+              <p>Safety Car and red flag: P2 remained P2.</p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">05</span>
+            <div>
+              <h3>+1 position</h3>
+              <p>Post-restart phase: P2 to P1.</p>
+            </div>
+          </li>
+        </ol>
+
+        <figure class="strategy-figure">
+          <a
+            class="strategy-figure-link"
+            href="../assets/reports/f1-brazil-2024-strategy/03_verstappen_position_progression.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open Verstappen’s Brazil 2024 position-progression chart at full resolution in a new tab"
+          >
+            <img
+              class="strategy-figure-image"
+              src="../assets/reports/f1-brazil-2024-strategy/03_verstappen_position_progression.png"
+              width="3275"
+              height="1735"
+              loading="lazy"
+              decoding="async"
+              alt="Staircase chart showing Verstappen’s progression from P17 to P1 across five strategic phases."
+            />
+            <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
+          </a>
+          <figcaption class="strategy-figure-caption">
+            Verstappen gained twelve positions before the VSC, three as rivals stopped, none directly through the
+            red-flag sequence, and one after the final restart. Select the chart to inspect the full-resolution figure.
+          </figcaption>
+        </figure>
+
+        <aside class="strategy-caveat strategy-caveat--key" aria-labelledby="strategy-position-distinction-title">
+          <p class="eyebrow">Key distinction</p>
+          <h3 id="strategy-position-distinction-title">The red flag protected track position; it did not create the three-place gain</h3>
+          <p>
+            The pit decisions moved Verstappen from P5 to P2. The red flag then preserved that track position by
+            allowing the stay-out group to change tyres without a conventional pit-lane loss.
+          </p>
+        </aside>
+      </section>
+
+      <section class="strategy-panel strategy-counterfactual" aria-labelledby="strategy-counterfactual-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Red-flag counterfactual</p>
+          <h2 id="strategy-counterfactual-title">What If the Stay-Out Drivers Had Pitted on Lap 28?</h2>
+        </div>
+        <p class="strategy-lead">
+          The scenario uses the observed Norris and Russell pit window to estimate where Ocon, Verstappen and Gasly
+          might have rejoined if they had also stopped at that moment.
+        </p>
+
+        <ol class="strategy-decision-list">
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">01</span>
+            <div>
+              <h3>Observe the pit window</h3>
+              <p>Norris and Russell stopped during the Lap 28 window.</p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">02</span>
+            <div>
+              <h3>Estimate the loss</h3>
+              <p>Their effective loss to non-stopping reference drivers was approximately 26 seconds.</p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">03</span>
+            <div>
+              <h3>Apply the scenario</h3>
+              <p>The observed loss was applied to Ocon, Verstappen and Gasly.</p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">04</span>
+            <div>
+              <h3>Compare restart order</h3>
+              <p>Projected positions were compared with the actual first-restart order.</p>
+            </div>
+          </li>
+        </ol>
+
+        <dl class="strategy-evidence-grid strategy-counterfactual-results">
+          <div class="strategy-evidence-card">
+            <dt>Esteban Ocon</dt>
+            <dd>Actual P1 → modelled P4</dd>
+          </div>
+          <div class="strategy-evidence-card">
+            <dt>Max Verstappen</dt>
+            <dd>Actual P2 → modelled P7</dd>
+          </div>
+          <div class="strategy-evidence-card">
+            <dt>Pierre Gasly</dt>
+            <dd>Actual P3 → modelled P8</dd>
+          </div>
+        </dl>
+
+        <aside class="strategy-caveat" aria-labelledby="strategy-counterfactual-caveat-title">
+          <p class="eyebrow">Critical limitation</p>
+          <h3 id="strategy-counterfactual-caveat-title">This is not a certain classification without the red flag</h3>
+          <p>
+            This is a same-window Lap 28 stop scenario. Without the red flag, the stay-out drivers may instead have
+            stopped later under the Safety Car, which could have reduced their position loss. The model therefore
+            shows the potential value of the free tyre change, not a definitive alternate race result.
+          </p>
+        </aside>
+
+        <figure class="strategy-figure">
+          <a
+            class="strategy-figure-link"
+            href="../assets/reports/f1-brazil-2024-strategy/04_red_flag_position_protection_refined.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open the Brazil 2024 modelled Lap 28 pit-stop comparison at full resolution in a new tab"
+          >
+            <img
+              class="strategy-figure-image"
+              src="../assets/reports/f1-brazil-2024-strategy/04_red_flag_position_protection_refined.png"
+              width="3278"
+              height="1733"
+              loading="lazy"
+              decoding="async"
+              alt="Comparison of actual restart positions and modelled Lap 28 pit-stop positions for Ocon, Verstappen and Gasly."
+            />
+            <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
+          </a>
+          <figcaption class="strategy-figure-caption">
+            Actual first-restart positions compared with a same-window Lap 28 stop scenario. The model estimates
+            Verstappen around P7 rather than P2, but it does not simulate a later Safety Car stop or every possible
+            no-red-flag race path. Select the chart to inspect the full-resolution figure.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="strategy-panel strategy-pace" aria-labelledby="strategy-pace-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Post-restart pace</p>
+          <h2 id="strategy-pace-title">Strategy Created the Opportunity — Pace Converted It</h2>
+        </div>
+        <p class="strategy-lead">
+          The two green-flag phases tell different stories. Ocon was quicker immediately after the red flag, while
+          Verstappen established the decisive advantage only after the second restart.
+        </p>
+
+        <div class="strategy-driver-grid strategy-restart-grid">
+          <article class="strategy-driver-card" aria-labelledby="strategy-first-restart-title">
+            <p class="strategy-driver-label">First restart · Laps 34–38</p>
+            <h3 id="strategy-first-restart-title">Verstappen did not immediately dominate</h3>
+            <dl class="strategy-metric-list">
+              <div class="strategy-metric-row">
+                <dt>Shared laps</dt>
+                <dd>5</dd>
+              </div>
+              <div class="strategy-metric-row strategy-metric-row--priority">
+                <dt>Ocon&rsquo;s average advantage</dt>
+                <dd>~0.52 s/lap</dd>
+              </div>
+            </dl>
+            <p class="strategy-driver-note">
+              Ocon was faster across this short phase, so the first red flag did not immediately translate into
+              superior Verstappen pace.
+            </p>
+          </article>
+
+          <article class="strategy-driver-card" aria-labelledby="strategy-final-restart-title">
+            <p class="strategy-driver-label">Final green-flag phase · Laps 44–69</p>
+            <h3 id="strategy-final-restart-title">The race-winning pace emerged</h3>
+            <dl class="strategy-metric-list">
+              <div class="strategy-metric-row">
+                <dt>Shared clean laps</dt>
+                <dd>26</dd>
+              </div>
+              <div class="strategy-metric-row strategy-metric-row--priority">
+                <dt>Verstappen median lap time</dt>
+                <dd>81.934 seconds</dd>
+              </div>
+            </dl>
+            <p class="strategy-driver-note">
+              Across the final shared comparison window, every selected rival accumulated substantial time loss to
+              Verstappen.
+            </p>
+          </article>
+        </div>
+
+        <h3 class="strategy-subheading" id="strategy-pace-comparison-title">Final-stint comparison</h3>
+        <div class="strategy-pace-grid" aria-labelledby="strategy-pace-comparison-title">
+          <article class="strategy-pace-card">
+            <h4>Ocon</h4>
+            <dl>
+              <div><dt>Mean loss</dt><dd>+0.697 s/lap</dd></div>
+              <div><dt>Cumulative loss</dt><dd>+18.1 seconds</dd></div>
+            </dl>
+          </article>
+          <article class="strategy-pace-card">
+            <h4>Russell</h4>
+            <dl>
+              <div><dt>Mean loss</dt><dd>+0.718 s/lap</dd></div>
+              <div><dt>Cumulative loss</dt><dd>+18.7 seconds</dd></div>
+            </dl>
+          </article>
+          <article class="strategy-pace-card">
+            <h4>Gasly</h4>
+            <dl>
+              <div><dt>Mean loss</dt><dd>+0.775 s/lap</dd></div>
+              <div><dt>Cumulative loss</dt><dd>+20.1 seconds</dd></div>
+            </dl>
+          </article>
+          <article class="strategy-pace-card">
+            <h4>Norris</h4>
+            <dl>
+              <div><dt>Mean loss</dt><dd>+0.968 s/lap</dd></div>
+              <div><dt>Cumulative loss</dt><dd>+25.2 seconds</dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <figure class="strategy-figure">
+          <a
+            class="strategy-figure-link"
+            href="../assets/reports/f1-brazil-2024-strategy/05_post_restart_cumulative_pace.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open the Brazil 2024 post-restart cumulative-pace chart at full resolution in a new tab"
+          >
+            <img
+              class="strategy-figure-image"
+              src="../assets/reports/f1-brazil-2024-strategy/05_post_restart_cumulative_pace.png"
+              width="3498"
+              height="1733"
+              loading="lazy"
+              decoding="async"
+              alt="Cumulative lap-time loss to Verstappen for Ocon, Gasly, Russell and Norris from Lap 44 to Lap 69."
+            />
+            <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
+          </a>
+          <figcaption class="strategy-figure-caption">
+            Pace-only comparison across 26 shared clean laps from Lap 44 to Lap 69. Every driver is reset to zero at
+            the beginning of the analysed stint, so the chart measures relative pace accumulation rather than actual
+            on-track gaps. Select the chart to inspect the full-resolution figure.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="strategy-panel strategy-verdict" aria-labelledby="strategy-verdict-title">
+        <p class="eyebrow">Verdict</p>
+        <h2 id="strategy-verdict-title">Verstappen&rsquo;s victory came from three distinct contributions</h2>
+        <ol class="strategy-decision-list strategy-verdict-list">
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">01</span>
+            <div>
+              <h3>On-track recovery</h3>
+              <p>
+                He moved from P17 to P5 before the VSC, gaining twelve positions without relying on the decisive
+                strategic sequence.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">02</span>
+            <div>
+              <h3>Strategic positioning</h3>
+              <p>
+                The Lap 28 stops ahead moved Verstappen from P5 to P2. The red flag then let the stay-out group
+                replace its tyres without surrendering that position through a conventional stop.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="strategy-step-number" aria-hidden="true">03</span>
+            <div>
+              <h3>Race conversion</h3>
+              <p>
+                After the second restart, Verstappen was approximately 0.70 to 0.97 seconds per lap faster than the
+                comparison drivers and turned the strategic opportunity into a decisive victory.
+              </p>
+            </div>
+          </li>
+        </ol>
+        <p class="strategy-verdict-takeaway">
+          The red flag was materially beneficial, but it neither created Verstappen&rsquo;s opening recovery nor
+          directly moved him from P5 to P2. Strategy placed him in a race-winning position; his final-stint pace
+          completed the win.
+        </p>
+      </section>
+
+      <section class="strategy-panel strategy-methodology" aria-labelledby="strategy-methodology-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Transparency</p>
+          <h2 id="strategy-methodology-title">Methodology and limitations</h2>
+        </div>
+        <div class="strategy-method-grid">
+          <article class="strategy-method-card">
+            <h3>Data source</h3>
+            <p>
+              Public <a href="https://openf1.org/docs/" target="_blank" rel="noopener">OpenF1 data</a> for the 2024
+              São Paulo Grand Prix, including:
+            </p>
+            <ul>
+              <li>Lap timing and driver positions</li>
+              <li>Tyre stints and pit stops</li>
+              <li>Race-control messages</li>
+              <li>Session results</li>
+            </ul>
+          </article>
+
+          <article class="strategy-method-card">
+            <h3>Methods</h3>
+            <ul>
+              <li>Lap-by-lap position reconstruction</li>
+              <li>Strategic checkpoint comparison</li>
+              <li>Position-gain decomposition</li>
+              <li>Same-window pit-loss counterfactual</li>
+              <li>Shared-lap post-restart pace comparison</li>
+            </ul>
+          </article>
+
+          <article class="strategy-method-card">
+            <h3>Interpretive limits</h3>
+            <ul>
+              <li>The counterfactual does not simulate every Safety Car, tyre, traffic or restart outcome.</li>
+              <li>The modelled P7 assumes a Lap 28 stop comparable to Norris and Russell.</li>
+              <li>A later stop under the Safety Car may have cost fewer positions.</li>
+              <li>The cumulative pace chart resets drivers to zero and excludes actual starting gaps.</li>
+              <li>
+                Public timing data cannot fully represent team information, driver confidence, visibility or
+                real-time forecasts.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <nav class="strategy-footer-nav" aria-label="Case study footer navigation">
+        <a class="back-link strategy-back-link" href="../index.html#f1-strategy">← Back to F1 Strategy Analysis</a>
+        <a class="back-link strategy-back-link strategy-footer-case-link" href="f1-singapore-2023-strategy.html">
+          ← Previous case: Singapore 2023
+        </a>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Kristofer Tsai. Independent Formula 1 strategy case study.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="../script.js?v=20260718-site-cleanup"></script>
+</body>
+</html>
