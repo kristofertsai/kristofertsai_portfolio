@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="A data-led analysis of Red Bull’s second-stop strategy at the 2021 French Grand Prix, measuring Verstappen’s catch rate, tyre offset and one-stop alternatives."
+  />
+  <title>France 2021: When Did Verstappen’s Second Stop Become the Winning Strategy? | Kristofer Tsai</title>
+  <link rel="stylesheet" href="../style.css?v=20260722-france-case" />
+</head>
+<body class="report-page f1-case-page strategy-case-page france-case-page">
+  <a class="skip-link" href="#strategy-content">Skip to case study</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Case study navigation">
+      <a class="brand" href="../index.html#top" aria-label="Kristofer Tsai home">
+        <span class="brand-mark">KT</span>
+        <span class="brand-text">Kristofer Tsai</span>
+      </a>
+      <ul class="nav-links report-nav-links strategy-nav-links">
+        <li><a href="../index.html#f1-strategy">F1 Strategy Analysis</a></li>
+        <li><a href="f1-brazil-2024-strategy.html">Brazil 2024</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="strategy-content">
+    <section class="report-hero section strategy-hero" aria-labelledby="strategy-title">
+      <a class="back-link strategy-back-link" href="../index.html#f1-strategy">← Back to F1 Strategy Analysis</a>
+      <p class="eyebrow">F1 STRATEGY ANALYSIS · CASE 03 · FRANCE 2021</p>
+      <h1 id="strategy-title">France 2021: When Did Verstappen&rsquo;s Second Stop Become the Winning Strategy?</h1>
+      <p class="hero-subtitle strategy-hero-subtitle">
+        Red Bull surrendered the lead by stopping Max Verstappen for a second time on Lap 32. By the end of Lap 33,
+        he was more than 18 seconds behind Lewis Hamilton, but had a substantial tyre-compound and tyre-age offset for the
+        final 20 laps. This study reconstructs the required catch rate and tests the principal alternatives.
+      </p>
+      <aside class="strategy-research-question" aria-labelledby="strategy-question-label">
+        <p class="eyebrow" id="strategy-question-label">Research question</p>
+        <p>
+          Did the advantage provided by the fresher medium tyres justify surrendering the lead, and was the second stop
+          genuinely necessary to win?
+        </p>
+      </aside>
+      <p class="strategy-disclaimer" role="note">
+        Independent analysis using publicly available data. Not affiliated with Formula 1 or any Formula 1 team.
+      </p>
+      <ul class="strategy-topic-list" aria-label="Case study topics">
+        <li>Two-stop strategy</li>
+        <li>Tyre degradation</li>
+        <li>Catch-rate analysis</li>
+        <li>Counterfactual analysis</li>
+      </ul>
+    </section>
+
+    <section class="section strategy-content" aria-label="France 2021 strategy case study">
+      <section class="strategy-panel strategy-context" aria-labelledby="strategy-context-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Strategic context</p>
+          <h2 id="strategy-context-title">The first stop won the lead; the second gave it back</h2>
+        </div>
+        <p class="strategy-lead">
+          Verstappen, Hamilton, Sergio Pérez and Valtteri Bottas began on used medium tyres. Bottas stopped on Lap 17,
+          Verstappen stopped on Lap 18 and undercut Hamilton, and Hamilton responded on Lap 19. Verstappen led on hard
+          tyres before Red Bull stopped him again on Lap 32 for another set of used medium tyres. Hamilton kept his hard tyres
+          to the finish; Verstappen regained the lead on Lap 52 and won.
+        </p>
+
+        <ul class="strategy-event-grid" aria-label="Key strategy events">
+          <li><strong>Race start</strong><span>All four on used medium tyres</span></li>
+          <li><strong>Lap 17</strong><span>Bottas makes the first stop</span></li>
+          <li><strong>Lap 18</strong><span>Verstappen stops and undercuts Hamilton</span></li>
+          <li><strong>Lap 19</strong><span>Hamilton responds</span></li>
+          <li><strong>Lap 32</strong><span>Verstappen makes his second stop</span></li>
+          <li><strong>Lap 52</strong><span>Verstappen regains the lead</span></li>
+        </ul>
+
+        <figure class="strategy-figure">
+          <a
+            class="strategy-figure-link"
+            href="../assets/reports/f1-france-2021-strategy/01_france_2021_strategy_overview.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Race-position and tyre-stint chart for Verstappen, Hamilton, Pérez and Bottas at the 2021 French Grand Prix, highlighting Verstappen’s Lap 32 second stop. Open the full-resolution figure in a new tab."
+          >
+            <img
+              class="strategy-figure-image"
+              src="../assets/reports/f1-france-2021-strategy/01_france_2021_strategy_overview.png"
+              width="3968"
+              height="2437"
+              loading="lazy"
+              decoding="async"
+              alt="Race-position and tyre-stint chart for Verstappen, Hamilton, Pérez and Bottas at the 2021 French Grand Prix, highlighting Verstappen’s Lap 32 second stop."
+            />
+            <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
+          </a>
+          <figcaption class="strategy-figure-caption">
+            The opening pit cycle placed Verstappen ahead, but Red Bull surrendered that track position on Lap 32 to
+            create a large late-race tyre offset. Select the chart to inspect the full-resolution figure.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="strategy-panel strategy-break-even" aria-labelledby="strategy-break-even-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">The second-stop break-even</p>
+          <h2 id="strategy-break-even-title">Could Verstappen repay the second stop?</h2>
+        </div>
+        <p class="strategy-lead">
+          The measured pit cycle turned a 2.241-second lead at the end of Lap 31 into an 18.160-second deficit at the
+          end of Lap 33. With 20 laps remaining, Verstappen needed an average gap-closure rate of approximately
+          0.91 seconds per lap to draw level by the finish.
+        </p>
+
+        <dl class="strategy-summary-grid">
+          <div class="strategy-summary-card">
+            <dt>End of Lap 31</dt>
+            <dd>2.241 s ahead<span>Track position before the second-stop cycle.</span></dd>
+          </div>
+          <div class="strategy-summary-card">
+            <dt>End of Lap 33</dt>
+            <dd>18.160 s behind<span>Measured deficit after the pit cycle.</span></dd>
+          </div>
+          <div class="strategy-summary-card">
+            <dt>Relative pit-cycle swing</dt>
+            <dd>20.401 seconds<span>Includes the relative performance around the stop.</span></dd>
+          </div>
+          <div class="strategy-summary-card strategy-summary-card--qualified">
+            <dt>Minimum gap-closure rate</dt>
+            <dd>~0.91 s/lap<span>Required across the 20 remaining laps.</span></dd>
+          </div>
+        </dl>
+
+        <aside class="strategy-pair-summary" aria-labelledby="strategy-break-even-outcome-title">
+          <div>
+            <p class="eyebrow">Observed outcome</p>
+            <h3 id="strategy-break-even-outcome-title">The recovery cleared the required trajectory</h3>
+          </div>
+          <dl class="strategy-pair-metrics">
+            <div>
+              <dt>Lead regained</dt>
+              <dd>Lap 52</dd>
+            </div>
+            <div>
+              <dt>Final margin</dt>
+              <dd>~2.9 seconds ahead</dd>
+            </div>
+          </dl>
+        </aside>
+
+        <figure class="strategy-figure">
+          <a
+            class="strategy-figure-link"
+            href="../assets/reports/f1-france-2021-strategy/02_france_2021_second_stop_break_even.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Two-panel chart showing Verstappen’s 18.2-second post-stop deficit, minimum recovery trajectory and lap-by-lap pace gain over Hamilton. Open the full-resolution figure in a new tab."
+          >
+            <img
+              class="strategy-figure-image"
+              src="../assets/reports/f1-france-2021-strategy/02_france_2021_second_stop_break_even.png"
+              width="3919"
+              height="2502"
+              loading="lazy"
+              decoding="async"
+              alt="Two-panel chart showing Verstappen’s 18.2-second post-stop deficit, minimum recovery trajectory and lap-by-lap pace gain over Hamilton."
+            />
+            <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
+          </a>
+          <figcaption class="strategy-figure-caption">
+            The stop created a demanding but achievable target. Verstappen recovered faster than the minimum break-even
+            trajectory from the opening laps of the chase and regained the race lead on Lap 52. Select the chart to
+            inspect the full-resolution figure.
+          </figcaption>
+        </figure>
+
+        <aside class="strategy-caveat" aria-labelledby="strategy-break-even-caveat-title">
+          <p class="eyebrow">Interpretation boundary</p>
+          <h3 id="strategy-break-even-caveat-title">Drawing level is not the same as guaranteeing a pass</h3>
+          <p>
+            The 0.91 s/lap threshold is an arithmetic gap-closure rate. Traffic, overtaking difficulty and changing
+            pace can still prevent a theoretical recovery from becoming a race-winning overtake.
+          </p>
+        </aside>
+      </section>
+
+      <section class="strategy-panel strategy-tyre-offset" aria-labelledby="strategy-tyre-offset-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Tyre-offset pace</p>
+          <h2 id="strategy-tyre-offset-title">How the tyre offset powered the chase</h2>
+        </div>
+        <p class="strategy-lead">
+          Across the same-lap comparison window from Laps 34–51, Verstappen averaged approximately 0.97 seconds per
+          lap faster than Hamilton. The largest share of that measured advantage arrived in the first four laps; the
+          advantage narrowed later but remained positive.
+        </p>
+
+        <aside class="strategy-pair-summary" aria-labelledby="strategy-tyre-age-title">
+          <div>
+            <p class="eyebrow">Tyre age at Lap 34</p>
+            <h3 id="strategy-tyre-age-title">An approximately ten-lap offset</h3>
+          </div>
+          <dl class="strategy-pair-metrics">
+            <div>
+              <dt>Verstappen · used medium</dt>
+              <dd>5 laps old</dd>
+            </div>
+            <div>
+              <dt>Hamilton · hard</dt>
+              <dd>15 laps old</dd>
+            </div>
+          </dl>
+        </aside>
+
+        <h3 class="strategy-subheading" id="strategy-chase-phases-title">Observed phase averages</h3>
+        <div class="strategy-pace-grid" aria-labelledby="strategy-chase-phases-title">
+          <article class="strategy-pace-card">
+            <h4>Full chase</h4>
+            <dl>
+              <div><dt>Window</dt><dd>Laps 34–51</dd></div>
+              <div><dt>Mean advantage</dt><dd>~0.97 s/lap</dd></div>
+            </dl>
+          </article>
+          <article class="strategy-pace-card">
+            <h4>Early chase</h4>
+            <dl>
+              <div><dt>Window</dt><dd>Laps 34–37</dd></div>
+              <div><dt>Mean advantage</dt><dd>~2.12 s/lap</dd></div>
+            </dl>
+          </article>
+          <article class="strategy-pace-card">
+            <h4>Middle chase</h4>
+            <dl>
+              <div><dt>Window</dt><dd>Laps 38–44</dd></div>
+              <div><dt>Mean advantage</dt><dd>~0.64 s/lap</dd></div>
+            </dl>
+          </article>
+          <article class="strategy-pace-card">
+            <h4>Late chase</h4>
+            <dl>
+              <div><dt>Window</dt><dd>Laps 45–51</dd></div>
+              <div><dt>Mean advantage</dt><dd>~0.63 s/lap</dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <figure class="strategy-figure">
+          <a
+            class="strategy-figure-link"
+            href="../assets/reports/f1-france-2021-strategy/03_france_2021_tyre_offset_pace.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Two-panel same-lap pace comparison between Verstappen on medium tyres and Hamilton on hard tyres across Laps 34 to 51, with average advantages for three chase phases. Open the full-resolution figure in a new tab."
+          >
+            <img
+              class="strategy-figure-image"
+              src="../assets/reports/f1-france-2021-strategy/03_france_2021_tyre_offset_pace.png"
+              width="3926"
+              height="2735"
+              loading="lazy"
+              decoding="async"
+              alt="Two-panel same-lap pace comparison between Verstappen on medium tyres and Hamilton on hard tyres across Laps 34 to 51, with average advantages for three chase phases."
+            />
+            <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
+          </a>
+          <figcaption class="strategy-figure-caption">
+            The early chase accounted for the largest share of the observed gap reduction. The same-lap advantage then
+            narrowed as the chase progressed but remained sufficient to keep closing. Select the chart to inspect the
+            full-resolution figure.
+          </figcaption>
+        </figure>
+
+        <aside class="strategy-caveat strategy-caveat--key" aria-labelledby="strategy-pace-caveat-title">
+          <p class="eyebrow">Pace attribution</p>
+          <h3 id="strategy-pace-caveat-title">The measured difference is not a tyre-only effect</h3>
+          <p>
+            The same-lap comparison reduces shared fuel-burn and track-evolution effects, but it cannot isolate the
+            effects of car pace, driver performance, traffic, racecraft or changing race conditions.
+          </p>
+        </aside>
+      </section>
+
+      <section class="strategy-panel strategy-mercedes-response" aria-labelledby="strategy-mercedes-response-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Supporting counterfactual</p>
+          <h2 id="strategy-mercedes-response-title">Could Mercedes have covered the stop?</h2>
+        </div>
+        <p class="strategy-lead">
+          Applying Verstappen&rsquo;s observed 20.401-second relative pit-cycle swing symmetrically to Hamilton suggests
+          that an immediate Lap 33 response would have placed Hamilton approximately 2.241 seconds behind Verstappen.
+          Over the remaining 20 laps, Hamilton would then have needed to close roughly 0.112 seconds per lap to draw
+          level by the finish.
+        </p>
+
+        <dl class="strategy-evidence-grid strategy-counterfactual-results">
+          <div class="strategy-evidence-card">
+            <dt>Modelled rejoin</dt>
+            <dd>Hamilton ~2.241 s behind</dd>
+          </div>
+          <div class="strategy-evidence-card">
+            <dt>Nominal closure threshold</dt>
+            <dd>~0.112 s/lap</dd>
+          </div>
+          <div class="strategy-evidence-card">
+            <dt>Opening-stint same-compound median</dt>
+            <dd>Hamilton ~0.080 s/lap faster</dd>
+          </div>
+        </dl>
+
+        <aside class="strategy-caveat" aria-labelledby="strategy-mercedes-caveat-title">
+          <p class="eyebrow">What the model can say</p>
+          <h3 id="strategy-mercedes-caveat-title">Whether a response would have worked remains uncertain&mdash;not clearly impossible</h3>
+          <p>
+            The observed opening-stint median was close to, but below, the nominal threshold. This simplified
+            sensitivity does not establish what tyre sets Mercedes had available and does not account for car-specific
+            pit-cycle costs, out-lap performance, traffic, overtaking difficulty or the pace either car would have produced.
+          </p>
+        </aside>
+      </section>
+
+      <section class="strategy-panel strategy-stay-out" aria-labelledby="strategy-stay-out-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">One-stop sensitivity</p>
+          <h2 id="strategy-stay-out-title">Did Verstappen need the second stop?</h2>
+        </div>
+        <p class="strategy-lead">
+          At the end of Lap 31, Verstappen led by 2.241 seconds with 22 laps remaining. An average relative pace loss
+          of less than approximately 0.102 seconds per lap would therefore have left him ahead at the finish under a
+          constant-pace projection.
+        </p>
+
+        <div class="strategy-driver-grid">
+          <article class="strategy-driver-card" aria-labelledby="strategy-stay-out-constraint-title">
+            <p class="strategy-driver-label">Race constraint</p>
+            <h3 id="strategy-stay-out-constraint-title">How much pace could the lead absorb?</h3>
+            <dl class="strategy-metric-list">
+              <div class="strategy-metric-row">
+                <dt>Lead after Lap 31</dt>
+                <dd>2.241 seconds</dd>
+              </div>
+              <div class="strategy-metric-row">
+                <dt>Laps remaining</dt>
+                <dd>22</dd>
+              </div>
+              <div class="strategy-metric-row strategy-metric-row--priority">
+                <dt>Break-even pace loss</dt>
+                <dd>~0.102 s/lap</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="strategy-driver-card" aria-labelledby="strategy-stay-out-evidence-title">
+            <p class="strategy-driver-label">Observed pre-stop evidence</p>
+            <h3 id="strategy-stay-out-evidence-title">The hard-tyre pace was still competitive</h3>
+            <dl class="strategy-metric-list">
+              <div class="strategy-metric-row strategy-metric-row--priority">
+                <dt>Matched-lap hard-tyre median</dt>
+                <dd>~0.24 s/lap faster</dd>
+              </div>
+              <div class="strategy-metric-row strategy-metric-row--priority">
+                <dt>Final five matched laps</dt>
+                <dd>~0.39 s/lap faster</dd>
+              </div>
+            </dl>
+            <p class="strategy-driver-note">Both comparisons express Verstappen&rsquo;s pace relative to Hamilton&rsquo;s before the second stop.</p>
+          </article>
+        </div>
+
+        <figure class="strategy-figure">
+          <a
+            class="strategy-figure-link"
+            href="../assets/reports/f1-france-2021-strategy/05_france_2021_stay_out_sensitivity.png"
+            target="_blank"
+            rel="noopener"
+            aria-label="Two-panel sensitivity chart comparing Verstappen and Hamilton’s pre-stop hard-tyre pace and projected one-stop outcomes across different pace assumptions. Open the full-resolution figure in a new tab."
+          >
+            <img
+              class="strategy-figure-image"
+              src="../assets/reports/f1-france-2021-strategy/05_france_2021_stay_out_sensitivity.png"
+              width="4200"
+              height="2760"
+              loading="lazy"
+              decoding="async"
+              alt="Two-panel sensitivity chart comparing Verstappen and Hamilton’s pre-stop hard-tyre pace and projected one-stop outcomes across different pace assumptions."
+            />
+            <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
+          </a>
+          <figcaption class="strategy-figure-caption">
+            When extrapolated as constant-pace assumptions, the observed pre-stop comparisons fall on the
+            Verstappen-win side of the break-even threshold. They do not reveal how his hard tyres would have performed
+            for another 22 laps. Select the chart to inspect the full-resolution figure.
+          </figcaption>
+        </figure>
+
+        <aside class="strategy-caveat strategy-caveat--key" aria-labelledby="strategy-stay-out-caveat-title">
+          <p class="eyebrow">Evidence boundary</p>
+          <h3 id="strategy-stay-out-caveat-title">A plausible alternative is not a certain result</h3>
+          <p>
+            <strong>The second stop was not proven to be necessary.</strong> The pre-stop observations make staying
+            out a plausible winning scenario under several constant-pace assumptions, but they cannot reveal how his
+            hard tyres would have degraded or how tyre temperatures, traffic and defensive racing might have affected the outcome.
+          </p>
+        </aside>
+      </section>
+
+      <section class="strategy-panel strategy-verdict" aria-labelledby="strategy-verdict-title">
+        <p class="eyebrow">Final assessment</p>
+        <h2 id="strategy-verdict-title">Successful, but not proven to be the only winning route</h2>
+        <p class="strategy-verdict-lead">
+          Red Bull&rsquo;s second stop was aggressive and ultimately successful. It created a compound-and-age offset.
+          After the stop, Verstappen erased an 18.2-second deficit and regained the lead on Lap 52. The public evidence
+          does not, however, establish that it was the only viable winning strategy. His pre-stop hard-tyre pace
+          suggests the one-stop may also have remained competitive in several sensitivity cases, but the unrun
+          degradation, tyre temperatures, traffic and defensive racing cannot be reconstructed reliably.
+        </p>
+
+        <div class="strategy-driver-grid strategy-assessment-grid">
+          <article class="strategy-driver-card" aria-labelledby="strategy-supports-title">
+            <p class="strategy-driver-label">Evidence supports</p>
+            <h3 id="strategy-supports-title">What the public data establishes</h3>
+            <ul class="strategy-assessment-list">
+              <li>The second stop created a large and measurable compound-and-age offset.</li>
+              <li>Verstappen exceeded the required gap-closure rate.</li>
+              <li>The early chase accounted for the largest share of the observed gap reduction.</li>
+              <li>Verstappen completed the recovery and won after the second stop.</li>
+            </ul>
+          </article>
+
+          <article class="strategy-driver-card" aria-labelledby="strategy-cannot-prove-title">
+            <p class="strategy-driver-label">Evidence cannot prove</p>
+            <h3 id="strategy-cannot-prove-title">What remains counterfactual</h3>
+            <ul class="strategy-assessment-list">
+              <li>That staying out would certainly have lost the race.</li>
+              <li>That a hypothetical Hamilton second stop would certainly have failed.</li>
+              <li>That tyre age alone caused the observed pace difference.</li>
+              <li>The exact unrun degradation of Verstappen&rsquo;s hard tyres.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="strategy-panel strategy-methodology" aria-labelledby="strategy-methodology-title">
+        <div class="strategy-section-heading">
+          <p class="eyebrow">Transparency</p>
+          <h2 id="strategy-methodology-title">Methodology and limitations</h2>
+        </div>
+        <div class="strategy-method-grid">
+          <article class="strategy-method-card">
+            <h3>Data and gap reconstruction</h3>
+            <ul>
+              <li>Public FastF1 timing data</li>
+              <li>End-of-lap timing gaps</li>
+              <li>FastF1 laps flagged as accurate and run under green-flag conditions</li>
+            </ul>
+          </article>
+
+          <article class="strategy-method-card">
+            <h3>Pace and scenario treatment</h3>
+            <ul>
+              <li>Lap 1, pit-in laps, pit-out laps, deleted laps and extreme timing anomalies excluded from pace summaries</li>
+              <li>Same-lap comparisons to reduce shared fuel-burn and track-evolution effects</li>
+              <li>Sensitivity analysis rather than deterministic prediction</li>
+            </ul>
+          </article>
+
+          <article class="strategy-method-card">
+            <h3>Interpretive limits</h3>
+            <ul>
+              <li>Verstappen&rsquo;s unrun hard-tyre performance cannot be observed directly.</li>
+              <li>Public data does not fully reveal tyre-set availability.</li>
+              <li>Traffic and overtaking are not fully modelled.</li>
+              <li>Car pace, driver execution and tyre condition are intertwined.</li>
+              <li>Counterfactual pit-cycle costs depend on simplifying assumptions.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <nav class="strategy-footer-nav" aria-label="Case study footer navigation">
+        <a class="back-link strategy-back-link" href="../index.html#f1-strategy">← Back to F1 Strategy Analysis</a>
+        <div class="strategy-footer-case-links">
+          <a class="back-link strategy-back-link strategy-footer-case-link" href="f1-brazil-2024-strategy.html">
+            ← Previous case: Brazil 2024
+          </a>
+        </div>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Kristofer Tsai. Independent Formula 1 strategy case study.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="../script.js?v=20260718-site-cleanup"></script>
+</body>
+</html>

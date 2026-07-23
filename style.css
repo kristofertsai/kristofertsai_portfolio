@@ -4012,6 +4012,32 @@ a.contact-card:focus-visible {
   text-align: right;
 }
 
+.strategy-footer-case-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.strategy-footer-case-links .strategy-footer-case-link {
+  margin-left: 0 !important;
+}
+
+.strategy-assessment-list {
+  margin: 0.9rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.strategy-assessment-list li {
+  font-size: 0.91rem;
+  line-height: 1.55;
+}
+
+.strategy-assessment-list li + li {
+  margin-top: 0.45rem;
+}
+
 @media (max-width: 1050px) {
   .strategy-decision-list,
   .strategy-method-grid {
@@ -4074,6 +4100,24 @@ a.contact-card:focus-visible {
     content: "Swipe chart ·";
     color: #9aabb4;
   }
+
+  .france-case-page .strategy-figure-link {
+    overflow-x: hidden;
+  }
+
+  .france-case-page .strategy-figure-image {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .france-case-page .strategy-figure-action {
+    position: static;
+    width: 100%;
+  }
+
+  .france-case-page .strategy-figure-action::before {
+    content: none;
+  }
 }
 
 @media (max-width: 760px) {
@@ -4128,6 +4172,14 @@ a.contact-card:focus-visible {
   .strategy-footer-case-link {
     margin-left: 0 !important;
     text-align: left;
+  }
+
+  .strategy-footer-case-links {
+    display: grid;
+    width: 100%;
+    justify-content: start;
+    justify-items: start;
+    margin-left: 0;
   }
 }
 
