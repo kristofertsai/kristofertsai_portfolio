@@ -1529,7 +1529,7 @@ a.contact-card:focus-visible {
 
 .f1-study-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1.25fr 1fr 1fr;
   gap: var(--gap-grid);
   margin-top: clamp(1.25rem, 3vw, 2rem);
 }
@@ -1538,9 +1538,9 @@ a.contact-card:focus-visible {
   display: flex;
   min-height: 330px;
   flex-direction: column;
-  padding: clamp(1.15rem, 3vw, 1.75rem);
+  padding: var(--space-card);
   border: 1px solid var(--f1-line);
-  border-radius: var(--radius-lg);
+  border-radius: 18px;
   background:
     linear-gradient(115deg, rgba(255, 255, 255, 0.9), rgba(248, 243, 233, 0.82));
   box-shadow:
@@ -1577,43 +1577,51 @@ a.contact-card:focus-visible {
 .f1-study-index {
   font-size: var(--type-label);
   font-weight: 900;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.08em;
   line-height: 1.3;
   text-transform: uppercase;
 }
 
+.f1-study-eyebrow {
+  display: inline-flex;
+  min-height: 1.75rem;
+  align-items: center;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--f1-line);
+  border-radius: 999px;
+  background: rgba(79, 110, 154, 0.08);
+  white-space: nowrap;
+}
+
 .f1-study-index {
+  margin-left: auto;
   color: var(--f1-muted);
+  text-align: right;
 }
 
 .f1-study-body {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(220px, 0.6fr);
-  gap: clamp(1.5rem, 4vw, 3.25rem);
-  align-items: end;
-  margin-top: clamp(1.5rem, 4vw, 2.35rem);
+  display: block;
+  margin-top: 1.4rem;
 }
 
 .f1-study-body h3 {
-  max-width: 760px;
   color: var(--text);
-  font-size: clamp(1.65rem, 3vw, 2.65rem);
-  letter-spacing: -0.035em;
-  line-height: 1.08;
+  font-size: var(--type-card-title);
+  letter-spacing: 0;
+  line-height: 1.16;
 }
 
 .f1-study-body p {
-  max-width: 760px;
-  margin: 1rem 0 0;
+  margin: 0.85rem 0 0;
   color: var(--f1-copy);
+  font-size: var(--type-body);
 }
 
 .f1-study-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
-  align-content: end;
-  margin: 0;
+  margin: 1rem 0 0;
   padding: 0;
   list-style: none;
 }
@@ -1634,12 +1642,17 @@ a.contact-card:focus-visible {
   width: fit-content;
   min-height: 44px;
   align-items: center;
+  justify-content: center;
   gap: 0.65rem;
   margin-top: auto;
-  padding-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--f1-line);
+  border-radius: 999px;
   color: var(--text);
+  background: rgba(79, 110, 154, 0.08);
   font-size: var(--type-small);
   font-weight: 900;
+  transition: border-color 170ms ease, background 170ms ease;
 }
 
 .f1-study-cta span {
@@ -1653,9 +1666,24 @@ a.contact-card:focus-visible {
   transform: translateX(0.25rem);
 }
 
+.f1-study-card:hover .f1-study-cta,
+.f1-study-card:focus-visible .f1-study-cta {
+  border-color: rgba(79, 110, 154, 0.34);
+  background: var(--accent-soft);
+}
+
+@media (max-width: 1050px) {
+  .f1-study-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .f1-study-card:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 900px) {
-  .f1-strategy-intro,
-  .f1-study-body {
+  .f1-strategy-intro {
     grid-template-columns: 1fr;
   }
 
@@ -1679,9 +1707,12 @@ a.contact-card:focus-visible {
     border-radius: 14px;
   }
 
-  .f1-study-topline {
-    align-items: flex-start;
-    flex-direction: column;
+  .f1-study-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .f1-study-card:first-child {
+    grid-column: auto;
   }
 }
 
