@@ -1457,43 +1457,23 @@ a.contact-card:focus-visible {
   --f1-copy: var(--muted-strong);
   --f1-muted: var(--muted);
   --f1-signal: var(--accent-blue);
-  position: relative;
-  overflow: hidden;
-  padding: clamp(1.35rem, 4vw, 3rem);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
   color: var(--text);
-  background:
-    radial-gradient(circle at 92% 6%, rgba(79, 110, 154, 0.1), transparent 22rem),
-    radial-gradient(circle at 4% 100%, rgba(198, 176, 140, 0.2), transparent 24rem),
-    linear-gradient(145deg, rgba(252, 250, 246, 0.98), rgba(242, 233, 219, 0.92));
-  box-shadow: var(--shadow);
 }
 
 .f1-strategy-shell::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(79, 110, 154, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(79, 110, 154, 0.04) 1px, transparent 1px);
-  background-size: 42px 42px;
-  -webkit-mask-image: linear-gradient(115deg, transparent 12%, #000 78%);
-  mask-image: linear-gradient(115deg, transparent 12%, #000 78%);
+  content: none;
 }
 
 .f1-strategy-shell > * {
-  position: relative;
-  z-index: 1;
+  position: static;
 }
 
 .f1-strategy-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(210px, 280px);
-  gap: clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 1.5rem;
   align-items: end;
-  padding-bottom: clamp(1.25rem, 3vw, 2rem);
+  padding-bottom: 1.35rem;
   border-bottom: 1px solid var(--f1-line);
 }
 
@@ -1506,11 +1486,11 @@ a.contact-card:focus-visible {
   max-width: 760px;
   color: var(--text);
   font-size: var(--type-section-title);
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
 }
 
 .f1-strategy-intro > div > p:last-child {
-  max-width: 760px;
+  max-width: 840px;
   margin: 1rem 0 0;
   color: var(--f1-copy);
 }
@@ -1529,9 +1509,9 @@ a.contact-card:focus-visible {
 
 .f1-study-grid {
   display: grid;
-  grid-template-columns: 1.25fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--gap-grid);
-  margin-top: clamp(1.25rem, 3vw, 2rem);
+  margin-top: 1.5rem;
 }
 
 .f1-study-card {
@@ -1601,7 +1581,7 @@ a.contact-card:focus-visible {
 
 .f1-study-body {
   display: block;
-  margin-top: 1.4rem;
+  margin: 1.4rem 0 1.5rem;
 }
 
 .f1-study-body h3 {
@@ -1696,10 +1676,6 @@ a.contact-card:focus-visible {
   .f1-strategy-section {
     width: min(100% - 1.25rem, var(--max-width));
     padding-top: var(--space-section-mobile);
-  }
-
-  .f1-strategy-shell {
-    border-radius: 18px;
   }
 
   .f1-study-card {
