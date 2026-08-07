@@ -680,7 +680,8 @@ p {
   border-color: rgba(79, 110, 154, 0.22);
 }
 
-.experience-panel[data-panel="formula"] .experience-feature {
+.experience-panel[data-panel="formula"] .experience-feature,
+.experience-panel[data-panel="personal"] .experience-feature {
   grid-column: 1 / -1;
 }
 
