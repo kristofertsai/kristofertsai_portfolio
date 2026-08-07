@@ -329,6 +329,117 @@ p {
   color: var(--text);
 }
 
+.resume-download {
+  position: relative;
+  display: inline-flex;
+  transition: transform 170ms ease;
+}
+
+.resume-download:hover {
+  transform: translateY(-2px);
+}
+
+.resume-download .button:hover {
+  transform: none;
+}
+
+.resume-download-primary {
+  gap: 0.55rem;
+  border-right: 0;
+  border-radius: 999px 0 0 999px;
+}
+
+.resume-download-format {
+  padding: 0.12rem 0.38rem;
+  border-radius: 999px;
+  color: var(--accent-blue);
+  background: var(--accent-soft);
+  font-size: 0.64rem;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+}
+
+.resume-download-options {
+  position: static;
+}
+
+.resume-download-toggle {
+  width: 44px;
+  padding: 0;
+  border-radius: 0 999px 999px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.resume-download-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.resume-download-toggle span {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 170ms ease;
+}
+
+.resume-download-options[open] .resume-download-toggle span {
+  transform: rotate(180deg);
+}
+
+.resume-download-toggle:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.resume-download-menu {
+  position: absolute;
+  top: calc(100% + 0.65rem);
+  left: 0;
+  z-index: 20;
+  width: min(260px, calc(100vw - 2.5rem));
+  padding: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(252, 250, 246, 0.98);
+  box-shadow: var(--shadow);
+}
+
+.resume-download-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.resume-download-menu a:hover {
+  background: var(--accent-soft);
+}
+
+.resume-download-menu strong,
+.resume-download-menu small {
+  display: block;
+}
+
+.resume-download-menu strong {
+  font-size: var(--type-small);
+}
+
+.resume-download-menu small {
+  margin-top: 0.05rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.resume-download-icon {
+  color: var(--accent-blue);
+  font-weight: 800;
+}
+
 .hero-portrait,
 .card,
 .project-card,
