@@ -333,6 +333,7 @@ p {
   position: relative;
   display: inline-flex;
   border-radius: 999px;
+  background: var(--accent);
   box-shadow: 0 8px 20px rgba(79, 110, 154, 0.18);
   transition: transform 170ms ease;
 }
@@ -367,10 +368,13 @@ p {
 
 .resume-download-options {
   position: static;
+  display: flex;
+  align-self: stretch;
 }
 
 .resume-download-toggle {
   width: 44px;
+  height: 100%;
   padding: 0;
   border-left-color: rgba(255, 255, 255, 0.28);
   border-radius: 0 999px 999px 0;
