@@ -1932,7 +1932,14 @@ a.contact-card:focus-visible {
   flex-wrap: wrap;
   gap: 0.5rem;
   align-items: center;
+}
+
+.bfr-panel-topline {
   justify-content: space-between;
+}
+
+.bfr-signal-row {
+  justify-content: flex-start;
 }
 
 .bfr-panel-index {
