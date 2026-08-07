@@ -1886,7 +1886,7 @@ a.contact-card:focus-visible {
 
 .bfr-panel-grid {
   display: grid;
-  grid-template-columns: 1.25fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--gap-grid);
 }
 
