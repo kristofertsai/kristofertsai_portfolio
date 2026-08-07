@@ -332,6 +332,8 @@ p {
 .resume-download {
   position: relative;
   display: inline-flex;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(79, 110, 154, 0.18);
   transition: transform 170ms ease;
 }
 
@@ -343,6 +345,10 @@ p {
   transform: none;
 }
 
+.resume-download .button-primary {
+  box-shadow: none;
+}
+
 .resume-download-primary {
   gap: 0.55rem;
   border-right: 0;
@@ -352,8 +358,8 @@ p {
 .resume-download-format {
   padding: 0.12rem 0.38rem;
   border-radius: 999px;
-  color: var(--accent-blue);
-  background: var(--accent-soft);
+  color: #f8f3ea;
+  background: rgba(255, 255, 255, 0.18);
   font-size: 0.64rem;
   line-height: 1.25;
   letter-spacing: 0.06em;
@@ -366,6 +372,7 @@ p {
 .resume-download-toggle {
   width: 44px;
   padding: 0;
+  border-left-color: rgba(255, 255, 255, 0.28);
   border-radius: 0 999px 999px 0;
   cursor: pointer;
   list-style: none;
