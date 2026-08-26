@@ -4506,3 +4506,41 @@ a.contact-card:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+/* Bahrain 2024 pace pilot figure sizing */
+.bahrain-case-page .strategy-figure--audit,
+.bahrain-case-page .strategy-figure--wide,
+.bahrain-case-page .strategy-figure--validation {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.bahrain-case-page .strategy-figure--audit,
+.bahrain-case-page .strategy-figure--validation {
+  max-width: 640px;
+}
+
+.bahrain-case-page .strategy-figure--wide {
+  max-width: 880px;
+}
+
+@media (max-width: 900px) {
+  .bahrain-case-page .strategy-figure-link {
+    overflow-x: hidden;
+  }
+
+  .bahrain-case-page .strategy-figure-image {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .bahrain-case-page .strategy-figure-action {
+    position: static;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .bahrain-case-page .strategy-figure-action::before {
+    content: none;
+  }
+}
