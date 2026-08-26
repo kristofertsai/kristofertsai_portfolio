@@ -1775,6 +1775,153 @@ a.contact-card:focus-visible {
   background: var(--accent-soft);
 }
 
+.f1-featured-study {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: clamp(1.35rem, 3.5vw, 2.75rem);
+  align-items: center;
+  margin-top: var(--gap-grid);
+  padding: clamp(1.35rem, 3vw, 2rem);
+  border: 1px solid var(--f1-line);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 96% 4%, rgba(79, 110, 154, 0.1), transparent 23rem),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.94), rgba(248, 243, 233, 0.86));
+  box-shadow:
+    inset 0 3px 0 rgba(79, 110, 154, 0.72),
+    0 10px 26px rgba(41, 55, 71, 0.08);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.f1-featured-study:hover,
+.f1-featured-study:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(79, 110, 154, 0.44);
+  background:
+    radial-gradient(circle at 96% 4%, rgba(79, 110, 154, 0.15), transparent 23rem),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.99), rgba(232, 237, 244, 0.82));
+  box-shadow:
+    inset 0 3px 0 rgba(79, 110, 154, 0.86),
+    0 14px 32px rgba(41, 55, 71, 0.11);
+}
+
+.f1-featured-study:focus-visible {
+  outline: 3px solid var(--f1-signal);
+  outline-offset: 4px;
+}
+
+.f1-featured-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.f1-featured-body {
+  margin-top: 1.35rem;
+}
+
+.f1-featured-body h3 {
+  color: var(--text);
+  font-size: clamp(1.75rem, 3vw, 2.55rem);
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+}
+
+.f1-featured-body p {
+  max-width: 690px;
+  margin: 0.9rem 0 0;
+  color: var(--f1-copy);
+  font-size: var(--type-body);
+}
+
+.f1-featured-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 1.25rem 0 0;
+}
+
+.f1-featured-metrics > div {
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--f1-line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.f1-featured-metrics dt,
+.f1-featured-metrics dd {
+  margin: 0;
+}
+
+.f1-featured-metrics dt {
+  color: var(--f1-muted);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.045em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.f1-featured-metrics dd {
+  margin-top: 0.35rem;
+  color: var(--f1-signal);
+  font-size: clamp(1.08rem, 1.8vw, 1.4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.f1-featured-support {
+  margin: 1rem 0 0;
+  color: var(--f1-muted);
+  font-size: var(--type-small);
+  font-weight: 780;
+}
+
+.f1-featured-study .f1-study-cta {
+  margin-top: 1.25rem;
+}
+
+.f1-featured-study:hover .f1-study-cta,
+.f1-featured-study:focus-visible .f1-study-cta {
+  border-color: rgba(79, 110, 154, 0.34);
+  background: var(--accent-soft);
+}
+
+.f1-featured-study:hover .f1-study-cta span,
+.f1-featured-study:focus-visible .f1-study-cta span {
+  transform: translateX(0.25rem);
+}
+
+.f1-featured-figure {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(79, 110, 154, 0.24);
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(41, 55, 71, 0.09);
+}
+
+.f1-featured-figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1523 / 1500;
+  object-fit: contain;
+}
+
+.f1-featured-figure figcaption {
+  padding: 0.65rem 0.8rem;
+  border-top: 1px solid var(--f1-line);
+  color: var(--f1-muted);
+  background: rgba(247, 241, 231, 0.72);
+  font-size: var(--type-label);
+  font-weight: 750;
+  line-height: 1.4;
+}
+
 @media (max-width: 1050px) {
   .f1-study-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1788,6 +1935,14 @@ a.contact-card:focus-visible {
 @media (max-width: 900px) {
   .f1-strategy-intro {
     grid-template-columns: 1fr;
+  }
+
+  .f1-featured-study {
+    grid-template-columns: 1fr;
+  }
+
+  .f1-featured-figure {
+    max-width: 680px;
   }
 
   .f1-strategy-disclaimer {
@@ -1812,6 +1967,17 @@ a.contact-card:focus-visible {
 
   .f1-study-card:first-child {
     grid-column: auto;
+  }
+
+  .f1-featured-study {
+    padding: var(--space-card);
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .f1-featured-metrics {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -6,7 +6,7 @@
   <meta name="description" content="Kristofer Tsai, UCLA Mechanical Engineering portfolio focused on motorsport and data analytics." />
   <title>Kristofer Tsai | Motorsport Engineering Portfolio</title>
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="style.css?v=20260807-resume-primary-fix" />
+  <link rel="stylesheet" href="style.css?v=20260826-bahrain-pilot" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -500,6 +500,64 @@
             <span class="f1-study-cta" aria-hidden="true">View Case Study <span>&rarr;</span></span>
           </a>
         </div>
+
+        <a
+          class="f1-featured-study"
+          href="reports/f1-bahrain-2024-fp2-race-pace.html"
+          aria-label="View the Bahrain 2024 FP2 long-run pace prediction pilot study"
+        >
+          <div class="f1-featured-copy">
+            <div class="f1-study-topline">
+              <span class="f1-study-eyebrow">F1 Pace Analysis</span>
+              <span class="f1-study-index">Case 04 &middot; Bahrain 2024 Pilot</span>
+            </div>
+
+            <div class="f1-featured-body">
+              <h3>From Friday to Sunday: Does FP2 Long-Run Pace Predict Race Pace?</h3>
+              <p>
+                A locked FP2 long-run model tested against independently cleaned race pace, controlling for traffic,
+                tyre compound, tyre age, track temperature and session progression.
+              </p>
+            </div>
+
+            <ul class="f1-study-tags" aria-label="Pilot study topics">
+              <li>Predictive modelling</li>
+              <li>Race pace</li>
+              <li>Robust regression</li>
+              <li>Traffic filtering</li>
+            </ul>
+
+            <dl class="f1-featured-metrics" aria-label="Pilot study headline results">
+              <div>
+                <dt>Spearman correlation</dt>
+                <dd>0.939</dd>
+              </div>
+              <div>
+                <dt>MAE</dt>
+                <dd>0.250 s/lap</dd>
+              </div>
+              <div>
+                <dt>Pairwise accuracy</dt>
+                <dd>91.1%</dd>
+              </div>
+            </dl>
+
+            <p class="f1-featured-support">Bahrain pilot &middot; 20 drivers &middot; 10 constructors &middot; 539 clean race laps</p>
+            <span class="f1-study-cta" aria-hidden="true">View Pilot Study <span>&rarr;</span></span>
+          </div>
+
+          <figure class="f1-featured-figure">
+            <img
+              src="assets/reports/f1-bahrain-2024-fp2-race-pace/f1-bahrain-fp2-vs-race-validation.png"
+              width="1523"
+              height="1500"
+              loading="lazy"
+              decoding="async"
+              alt="Scatterplot comparing adjusted Bahrain 2024 FP2 constructor pace with adjusted clean-race pace, including a line of perfect agreement."
+            />
+            <figcaption>Locked FP2 prediction versus independently cleaned race pace</figcaption>
+          </figure>
+        </a>
       </div>
     </section>
 
