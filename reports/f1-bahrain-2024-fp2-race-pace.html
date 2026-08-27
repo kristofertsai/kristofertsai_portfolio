@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
   <meta
     name="description"
-    content="A Bahrain 2024 methodology pilot testing whether adjusted Formula 1 FP2 long-run pace predicts independently cleaned race pace using publicly available OpenF1 timing data."
+    content="A Bahrain 2024 pilot testing whether an adjusted Formula 1 FP2 long-run model predicts separately constructed, traffic-filtered race pace using public OpenF1 timing data."
   />
   <title>From Friday to Sunday: Bahrain 2024 F1 Pace Pilot | Kristofer Tsai</title>
   <link rel="stylesheet" href="../style.css?v=20260826-bahrain-review" />
@@ -33,9 +34,10 @@
       <p class="eyebrow">F1 PACE ANALYSIS · CASE 04 · BAHRAIN 2024 PILOT</p>
       <h1 id="strategy-title">From Friday to Sunday: Does FP2 Long-Run Pace Predict Formula 1 Race Pace?</h1>
       <p class="hero-subtitle strategy-hero-subtitle">
-        A Bahrain 2024 methodology pilot using publicly available OpenF1 timing data.
+        A Bahrain 2024 methodology pilot that locks a Friday estimate before comparing it with a separately
+        constructed race-pace benchmark from public OpenF1 timing data.
       </p>
-      <p class="report-meta">Bahrain pilot · 20 drivers · 10 constructors · 539 clean race laps</p>
+      <p class="report-meta">Bahrain pilot · 20 drivers · 10 constructors · 539 retained race laps</p>
       <aside class="strategy-research-question" aria-labelledby="pilot-scope-label">
         <p class="eyebrow" id="pilot-scope-label">Pilot scope</p>
         <p>
@@ -60,8 +62,8 @@
           <h2 id="strategy-summary-title">The Bahrain validation in six measures</h2>
         </div>
         <p class="strategy-lead">
-          The locked FP2 model closely tracked the independently constructed clean-race estimate in this pilot, while
-          retaining meaningful error and one clear constructor-level miss.
+          The locked FP2 model closely tracked the separately constructed, traffic-filtered race estimate in this
+          pilot, while retaining meaningful error and one clear constructor-level miss.
         </p>
         <dl class="strategy-evidence-grid">
           <div class="strategy-evidence-card">
@@ -97,9 +99,11 @@
           <h2 id="strategy-question-title">Can Friday long-run pace predict Sunday’s competitive order?</h2>
         </div>
         <p class="strategy-lead">
-          This project tests whether adjusted FP2 long-run pace predicts adjusted clean-air race pace and competitive
-          order. The FP2 prediction was locked before the race sample was constructed, keeping the race analysis as an
-          independent validation rather than allowing Sunday’s result to reshape the Friday model.
+          This project tests whether adjusted FP2 long-run pace predicts adjusted, traffic-filtered race pace and
+          competitive order. The FP2 prediction was locked before the race sample was constructed, keeping the race
+          analysis as a separate validation rather than allowing Sunday’s result to reshape the Friday model. This
+          mirrors an early-weekend strategy task: form a pre-race view from incomplete practice data, then test it
+          against later evidence without back-fitting.
         </p>
       </section>
 
@@ -109,8 +113,8 @@
           <h2 id="strategy-pipeline-title">Two independently audited pace samples</h2>
         </div>
         <p class="strategy-lead">
-          Public timing feeds were filtered into one representative FP2 long run per driver and a separate clean-race
-          sample, with each exclusion preserved in the audit trail.
+          Public timing feeds were filtered into one representative FP2 long run per driver and a separate,
+          traffic-filtered race sample, with each exclusion preserved in the audit trail.
         </p>
         <ul class="strategy-event-grid" aria-label="Data and cleaning steps">
           <li>
@@ -123,15 +127,17 @@
           </li>
           <li>
             <strong>Lap audit</strong>
-            <span>Pit laps, incomplete laps, interruptions, anomalously slow laps and observable traffic audited</span>
+            <span>Pit laps, incomplete laps, interruptions, anomalously slow laps and observable traffic audited, with
+              each exclusion reason recorded</span>
           </li>
           <li>
             <strong>Race traffic</strong>
-            <span>Official interval-to-car-ahead feed used for the race sample</span>
+            <span>A 2.0-second exclusion threshold applied using the official interval-to-car-ahead feed</span>
           </li>
           <li>
-            <strong>Exclusions</strong>
-            <span>Every exclusion reason recorded</span>
+            <strong>Pace adjustment</strong>
+            <span>Robust regression accounted for tyre compound, tyre age, track temperature and session
+              progression</span>
           </li>
           <li>
             <strong>Final race model</strong>
@@ -204,7 +210,7 @@
 
       <section class="strategy-panel strategy-race-pace" aria-labelledby="strategy-race-title">
         <div class="strategy-section-heading">
-          <p class="eyebrow">Adjusted clean-race pace</p>
+          <p class="eyebrow">Adjusted traffic-filtered race pace</p>
           <h2 id="strategy-race-title">Sunday’s independent model moved Ferrari to second</h2>
         </div>
         <p class="strategy-lead">
@@ -218,7 +224,7 @@
             href="../assets/reports/f1-bahrain-2024-fp2-race-pace/f1-bahrain-race-constructor-gaps.png"
             target="_blank"
             rel="noopener"
-            aria-label="Open the Bahrain 2024 adjusted clean-race constructor pace-gap chart at full resolution in a new tab"
+            aria-label="Open the Bahrain 2024 adjusted, traffic-filtered race-pace chart at full resolution in a new tab"
           >
             <img
               class="strategy-figure-image"
@@ -227,13 +233,13 @@
               height="1280"
               loading="lazy"
               decoding="async"
-              alt="Horizontal bar chart of adjusted Bahrain 2024 clean-race constructor gaps to the field median, ranking Red Bull first, Ferrari second, Mercedes third and McLaren fourth."
+              alt="Horizontal bar chart of adjusted, traffic-filtered Bahrain 2024 race-pace gaps to the field median, ranking Red Bull first, Ferrari second, Mercedes third and McLaren fourth."
             />
             <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
           </a>
           <figcaption class="strategy-figure-caption">
-            Adjusted clean-race constructor pace gaps from the independently filtered race sample; negative values
-            represent faster estimated pace. Select the chart to inspect the full-resolution figure.
+            Adjusted constructor pace gaps from the independently filtered race sample; negative values represent
+            faster estimated pace. Select the chart to inspect the full-resolution figure.
           </figcaption>
         </figure>
       </section>
@@ -244,8 +250,8 @@
           <h2 id="strategy-validation-title">Strong ordering signal, with Ferrari as the largest miss</h2>
         </div>
         <p class="strategy-lead">
-          The validation supports a strong Bahrain relationship between the locked Friday prediction and clean Sunday
-          pace, but it does not show that FP2 predicted the race perfectly.
+          The validation supports a strong Bahrain relationship between the locked Friday prediction and
+          traffic-filtered Sunday pace, but it does not show that FP2 predicted the race perfectly.
         </p>
 
         <ol class="strategy-decision-list">
@@ -260,14 +266,15 @@
             <span class="strategy-step-number" aria-hidden="true">02</span>
             <div>
               <h3>Largest miss</h3>
-              <p>Ferrari was predicted fourth in FP2 but ranked second in clean race pace.</p>
+              <p>Ferrari was predicted fourth in FP2 but ranked second in traffic-filtered race pace.</p>
             </div>
           </li>
           <li>
             <span class="strategy-step-number" aria-hidden="true">03</span>
             <div>
-              <h3>Broad order retained</h3>
-              <p>Eight of the ten constructors remained very close to the broad predicted competitive ordering.</p>
+              <h3>Rank ordering largely retained</h3>
+              <p>Eight of ten constructors finished within one rank of the FP2 order; Ferrari and McLaren each moved
+                two positions.</p>
             </div>
           </li>
           <li>
@@ -294,14 +301,14 @@
               height="1500"
               loading="lazy"
               decoding="async"
-              alt="Scatterplot comparing locked adjusted Bahrain 2024 FP2 constructor gaps with adjusted clean-race gaps, showing broad agreement around the diagonal and Ferrari as the largest miss."
+              alt="Scatterplot comparing locked adjusted Bahrain 2024 FP2 constructor gaps with adjusted, traffic-filtered race gaps, showing broad agreement around the diagonal and Ferrari as the largest miss."
             />
             <span class="strategy-figure-action" aria-hidden="true">View full resolution</span>
           </a>
           <figcaption class="strategy-figure-caption">
-            Each point compares one constructor’s adjusted FP2 gap with its adjusted clean-race gap. The diagonal marks
-            equal Friday and Sunday estimates; distance from it shows prediction error. Select the chart to inspect the
-            full-resolution figure.
+            Each point compares one constructor’s adjusted FP2 gap with its adjusted, traffic-filtered race gap. The
+            diagonal marks equal Friday and Sunday estimates; distance from it shows prediction error. Select the chart
+            to inspect the full-resolution figure.
           </figcaption>
         </figure>
       </section>
@@ -309,16 +316,16 @@
       <section class="strategy-panel strategy-robustness" aria-labelledby="strategy-robustness-title">
         <div class="strategy-section-heading">
           <p class="eyebrow">Robustness</p>
-          <h2 id="strategy-robustness-title">The ordering survived a tighter race-traffic boundary</h2>
+          <h2 id="strategy-robustness-title">The ordering remained stable under a less conservative traffic filter</h2>
         </div>
         <p class="strategy-lead">
-          Tightening the race-traffic boundary from 2.0 to 1.5 seconds produced a larger retained sample while leaving
-          the main competitive ordering and validation result close to the primary estimate.
+          Lowering the race-traffic exclusion threshold from 2.0 to 1.5 seconds applied a less conservative filter and
+          retained more laps. The main competitive ordering and validation metrics remained close to the primary estimate.
         </p>
         <dl class="strategy-summary-grid">
           <div class="strategy-summary-card">
             <dt>Retained laps</dt>
-            <dd>539 → 603<span>Increase under the 1.5-second boundary.</span></dd>
+            <dd>539 → 603<span>Increase under the less conservative 1.5-second filter.</span></dd>
           </div>
           <div class="strategy-summary-card">
             <dt>Smallest driver sample</dt>
@@ -330,18 +337,19 @@
           </div>
           <div class="strategy-summary-card strategy-summary-card--qualified">
             <dt>Validation Spearman</dt>
-            <dd>0.939 → 0.927<span>Primary estimate versus the tighter-boundary result.</span></dd>
+            <dd>0.939 → 0.927<span>Primary estimate versus the result under the less conservative filter.</span></dd>
           </div>
           <div class="strategy-summary-card strategy-summary-card--qualified">
             <dt>Mean absolute error</dt>
-            <dd>0.250 → 0.270 s/lap<span>Primary estimate versus the tighter-boundary result.</span></dd>
+            <dd>0.250 → 0.270 s/lap<span>Primary estimate versus the result under the less conservative filter.</span></dd>
           </div>
         </dl>
         <aside class="strategy-caveat strategy-caveat--key" aria-labelledby="strategy-robustness-caveat-title">
           <p class="eyebrow">Interpretation</p>
-          <h3 id="strategy-robustness-caveat-title">The traffic choice is not carrying the result alone</h3>
+          <h3 id="strategy-robustness-caveat-title">The result does not depend on the primary traffic threshold alone</h3>
           <p>
-            This is evidence that the Bahrain result is not driven entirely by the selected traffic boundary.
+            The stable ordering and modest metric changes indicate that the Bahrain result is not driven entirely by
+            the selected traffic threshold.
           </p>
         </aside>
       </section>
@@ -359,7 +367,9 @@
           <li>FP2 fuel loads are unobservable.</li>
           <li>Fuel burn and tyre degradation cannot be perfectly separated.</li>
           <li>FP2 traffic detection relies on approximate location data.</li>
-          <li>The result covers only Bahrain 2024.</li>
+          <li>The validation contains only 10 constructor-level observations from Bahrain 2024, so its correlations
+            describe this event rather than general predictive reliability.</li>
+          <li>Driver pace management and strategy effects remain only partly observable in public timing data.</li>
           <li>Bahrain’s closely matched evening FP2 and race conditions may make it unusually favourable.</li>
           <li>The outputs are relative constructor gaps, not predictions of absolute lap time.</li>
         </ul>
