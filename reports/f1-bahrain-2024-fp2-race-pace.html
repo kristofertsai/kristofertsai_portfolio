@@ -8,7 +8,7 @@
     name="description"
     content="A Bahrain 2024 pilot testing whether an adjusted Formula 1 FP2 long-run model predicts separately constructed, traffic-filtered race pace using public OpenF1 timing data."
   />
-  <title>From Friday to Sunday: Bahrain 2024 F1 Pace Pilot | Kristofer Tsai</title>
+  <title>From Practice to Race Day: Bahrain 2024 F1 Pace Pilot | Kristofer Tsai</title>
   <link rel="stylesheet" href="../style.css?v=20260826-bahrain-review" />
 </head>
 <body class="report-page f1-case-page strategy-case-page bahrain-case-page">
@@ -32,9 +32,9 @@
     <section class="report-hero section strategy-hero" aria-labelledby="strategy-title">
       <a class="back-link strategy-back-link" href="../index.html#f1-strategy">← Back to F1 Strategy Analysis</a>
       <p class="eyebrow">F1 PACE ANALYSIS · CASE 04 · BAHRAIN 2024 PILOT</p>
-      <h1 id="strategy-title">From Friday to Sunday: Does FP2 Long-Run Pace Predict Formula 1 Race Pace?</h1>
+      <h1 id="strategy-title">From Practice to Race Day: Does FP2 Long-Run Pace Predict Formula 1 Race Pace?</h1>
       <p class="hero-subtitle strategy-hero-subtitle">
-        A Bahrain 2024 methodology pilot that locks a Friday estimate before comparing it with a separately
+        A Bahrain 2024 methodology pilot that locks an FP2 estimate before comparing it with a separately
         constructed race-pace benchmark from public OpenF1 timing data.
       </p>
       <p class="report-meta">Bahrain pilot · 20 drivers · 10 constructors · 539 retained race laps</p>
@@ -96,12 +96,12 @@
       <section class="strategy-panel strategy-question" aria-labelledby="strategy-question-title">
         <div class="strategy-section-heading">
           <p class="eyebrow">Research question</p>
-          <h2 id="strategy-question-title">Can Friday long-run pace predict Sunday’s competitive order?</h2>
+          <h2 id="strategy-question-title">Can FP2 long-run pace predict race-day competitive order?</h2>
         </div>
         <p class="strategy-lead">
           This project tests whether adjusted FP2 long-run pace predicts adjusted, traffic-filtered race pace and
           competitive order. The FP2 prediction was locked before the race sample was constructed, keeping the race
-          analysis as a separate validation rather than allowing Sunday’s result to reshape the Friday model. This
+          analysis as a separate validation rather than allowing the race result to reshape the FP2 model. This
           mirrors an early-weekend strategy task: form a pre-race view from incomplete practice data, then test it
           against later evidence without back-fitting.
         </p>
@@ -119,7 +119,8 @@
         <ul class="strategy-event-grid" aria-label="Data and cleaning steps">
           <li>
             <strong>Source data</strong>
-            <span>OpenF1 supplied lap, stint, tyre, weather, race-control, position and interval data</span>
+            <span><a href="https://openf1.org/docs/" target="_blank" rel="noopener">OpenF1</a> supplied lap, stint,
+              tyre, weather, race-control, position and interval data</span>
           </li>
           <li>
             <strong>FP2 sample</strong>
@@ -175,7 +176,7 @@
       <section class="strategy-panel strategy-fp2-prediction" aria-labelledby="strategy-fp2-title">
         <div class="strategy-section-heading">
           <p class="eyebrow">Adjusted FP2 prediction</p>
-          <h2 id="strategy-fp2-title">Red Bull led the locked Friday estimate</h2>
+          <h2 id="strategy-fp2-title">Red Bull led the locked FP2 estimate</h2>
         </div>
         <p class="strategy-lead">
           Negative values indicate faster-than-field-median adjusted pace. The FP2 model predicted Red Bull first,
@@ -211,7 +212,7 @@
       <section class="strategy-panel strategy-race-pace" aria-labelledby="strategy-race-title">
         <div class="strategy-section-heading">
           <p class="eyebrow">Adjusted traffic-filtered race pace</p>
-          <h2 id="strategy-race-title">Sunday’s independent model moved Ferrari to second</h2>
+          <h2 id="strategy-race-title">The independent race model moved Ferrari to second</h2>
         </div>
         <p class="strategy-lead">
           The independently constructed race model ranked Red Bull first, Ferrari second, Mercedes third and McLaren
@@ -239,7 +240,8 @@
           </a>
           <figcaption class="strategy-figure-caption">
             Adjusted constructor pace gaps from the independently filtered race sample; negative values represent
-            faster estimated pace. Select the chart to inspect the full-resolution figure.
+            faster estimated pace. The chart uses “clean pace” as shorthand for this adjusted, traffic-filtered
+            estimate. Select the chart to inspect the full-resolution figure.
           </figcaption>
         </figure>
       </section>
@@ -250,8 +252,8 @@
           <h2 id="strategy-validation-title">Strong ordering signal, with Ferrari as the largest miss</h2>
         </div>
         <p class="strategy-lead">
-          The validation supports a strong Bahrain relationship between the locked Friday prediction and
-          traffic-filtered Sunday pace, but it does not show that FP2 predicted the race perfectly.
+          The validation supports a strong Bahrain relationship between the locked FP2 prediction and
+          traffic-filtered race pace, but it does not show that FP2 predicted the race perfectly.
         </p>
 
         <ol class="strategy-decision-list">
@@ -281,7 +283,7 @@
             <span class="strategy-step-number" aria-hidden="true">04</span>
             <div>
               <h3>Pairwise accuracy</h3>
-              <p>Pairwise ordering accuracy was 91.1%.</p>
+              <p>FP2 correctly ordered 41 of 45 constructor pairings, or 91.1%.</p>
             </div>
           </li>
         </ol>
@@ -307,8 +309,9 @@
           </a>
           <figcaption class="strategy-figure-caption">
             Each point compares one constructor’s adjusted FP2 gap with its adjusted, traffic-filtered race gap. The
-            diagonal marks equal Friday and Sunday estimates; distance from it shows prediction error. Select the chart
-            to inspect the full-resolution figure.
+            chart uses “clean race pace” as shorthand for the traffic-filtered race estimate. The diagonal marks equal
+            FP2 and race estimates; distance from it shows prediction error. Select the chart to inspect the
+            full-resolution figure.
           </figcaption>
         </figure>
       </section>
