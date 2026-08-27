@@ -11,9 +11,6 @@ const sections = document.querySelectorAll('main section[id]');
 const revealItems = document.querySelectorAll('.reveal');
 const experienceTabs = document.querySelectorAll('.experience-tab');
 const experiencePanels = document.querySelectorAll('.experience-panel');
-const resumeDownload = document.querySelector('.resume-download');
-const resumeDownloadOptions = document.querySelector('.resume-download-options');
-const resumeDownloadLinks = document.querySelectorAll('.resume-download-menu a');
 const year = document.querySelector('#year');
 
 if (year) {
@@ -48,20 +45,6 @@ if (navToggle && navLinks) {
 navItems.forEach((link) => {
   link.addEventListener('click', closeMobileNav);
 });
-
-if (resumeDownload && resumeDownloadOptions) {
-  document.addEventListener('click', (event) => {
-    if (!resumeDownload.contains(event.target)) {
-      resumeDownloadOptions.removeAttribute('open');
-    }
-  });
-
-  resumeDownloadLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      resumeDownloadOptions.removeAttribute('open');
-    });
-  });
-}
 
 function activateExperienceTab(tab) {
   const tabName = tab.dataset.tab;
@@ -146,11 +129,6 @@ if ('IntersectionObserver' in window) {
 window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     const wasOpen = navToggle?.getAttribute('aria-expanded') === 'true';
-    const resumeMenuWasOpen = resumeDownloadOptions?.open;
     closeMobileNav({ restoreFocus: wasOpen });
-    if (resumeMenuWasOpen) {
-      resumeDownloadOptions.removeAttribute('open');
-      resumeDownloadOptions.querySelector('summary')?.focus();
-    }
   }
 });
